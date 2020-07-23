@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  nerugaku1
+//  nerugaku
 //
-//  Created by Shunsuke Takagi on 2020/07/21.
+//  Created by Shunsuke Takagi on 2020/07/13.
 //  Copyright © 2020 Shunsuke Takagi. All rights reserved.
 //
 
@@ -10,7 +10,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            Home()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+            }.tag(1)
+            TabBView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Search")
+                    }
+            }.tag(2)
+            TabCView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bed.double.fill")
+                        Text("Sleep")
+                    }
+            }.tag(3)
+            TabDView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bookmark.fill")
+                        Text("Saved")
+                    }
+            }.tag(4)
+        }
     }
 }
 

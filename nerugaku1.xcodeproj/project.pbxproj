@@ -83,7 +83,6 @@
 				C4A0DC0424C6D84300421EA6 /* Assets.xcassets */,
 				C4A0DC0224C6D83D00421EA6 /* ContentView.swift */,
 				C4A0DC1224C6D88100421EA6 /* Tabs */,
-				C4A0DC2D24C9815000421EA6 /* TabD (You) */,
 				C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */,
 				C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */,
 				C4A0DC0924C6D84300421EA6 /* LaunchScreen.storyboard */,
@@ -107,6 +106,7 @@
 				C4A0DC2924C9805900421EA6 /* TabA (Home) */,
 				C4A0DC2B24C980C000421EA6 /* TabB (Search) */,
 				C4A0DC2C24C9813400421EA6 /* TabC (Sleep MODE) */,
+				C4A0DC2D24C9815000421EA6 /* TabD (You) */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";

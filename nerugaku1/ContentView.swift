@@ -6,6 +6,13 @@
 //  Copyright © 2020 Shunsuke Takagi. All rights reserved.
 //
 
+//
+//  ContentView.swift
+//  nerugaku
+//
+//  Created by Shunsuke Takagi on 2020/07/13.
+//  Copyright © 2020 Shunsuke Takagi. All rights reserved.
+//
 import SwiftUI
 
 struct ContentView: View {
@@ -32,13 +39,13 @@ struct ContentView: View {
                         Text("Sleep")
                     }
             }.tag(3)
-            TabDView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "bookmark.fill")
-                        Text("Saved")
-                    }
-            }.tag(4)
+//            TabDView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "bookmark.fill")
+//                        Text("Saved")
+//                    }
+//            }.tag(4)
         }
     }
 }

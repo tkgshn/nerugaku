@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Description: View {
     var body: some View {
+         NavigationView {
         VStack {
             
             //コンテンツの概要
@@ -43,11 +44,17 @@ struct Description: View {
                         .padding(.horizontal, 13.0)
                         .font(.system(size: 35.0, weight: .thin))
                     Spacer()
-                    Image(systemName: "play.circle.fill")
-                        .padding(.bottom, 10.0)
-                        .frame(width: nil)
-                        .font(.system(size: 55.0, weight: .thin))
-                        .foregroundColor(.gray)
+                    
+                   
+                    NavigationLink(destination: PlayerView()) {
+                        Image(systemName: "play.circle.fill")
+                            .padding(.bottom, 10.0)
+                            .frame(width: nil)
+                            .font(.system(size: 55.0, weight: .thin))
+                            .foregroundColor(.gray)
+                    }
+                }
+                
                     
                 }
                 .padding([.top, .leading, .trailing], 13.0)

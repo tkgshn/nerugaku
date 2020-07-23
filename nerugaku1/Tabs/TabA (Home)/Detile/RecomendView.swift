@@ -31,12 +31,7 @@ struct RecomendView: View {
                                 }.padding(.horizontal)
                             }
                         }
-                        
-                        
-                        
-                        
-                        
-                        
+                            
                         VStack {
                             NavigationLink(destination: TabAView()) {
                                 VStack {

@@ -10,8 +10,6 @@ import SwiftUI
 
 struct RecomendView: View {
     var body: some View {
-        NavigationView {
-            
             
             VStack {
                 ScrollView  (.horizontal, showsIndicators: false){
@@ -75,9 +73,10 @@ struct RecomendView: View {
                         
                     }
                 }
+                .padding(.vertical)
             }
             
-        }
+        
         
     }
 }

@@ -13,6 +13,7 @@ struct CellView: View {
         Text("ここに音声内で使われる単語が入る")
             .multilineTextAlignment(.leading)
             .lineLimit(1)
+            .padding(.vertical, 5.0)
         
         
         

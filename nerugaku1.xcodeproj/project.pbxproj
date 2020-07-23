@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8792D4224CA217A00A374BB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4124CA217A00A374BB /* Utility.swift */; };
+		A8792D4424CA22A900A374BB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4324CA22A900A374BB /* MenuView.swift */; };
+		A8792D4624CA22B600A374BB /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4524CA22B600A374BB /* AudioView.swift */; };
+		A8792D4824CA232B00A374BB /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4724CA232B00A374BB /* VideoView.swift */; };
+		A8792D4C24CA2BFD00A374BB /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4B24CA2BFD00A374BB /* test1.swift */; };
 		C4A0DBFF24C6D83D00421EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */; };
 		C4A0DC0124C6D83D00421EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */; };
 		C4A0DC0324C6D83D00421EA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC0224C6D83D00421EA6 /* ContentView.swift */; };
@@ -21,13 +26,17 @@
 		C4A0DC2124C8496C00421EA6 /* TabCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC2024C8496C00421EA6 /* TabCView.swift */; };
 		C4A0DC2324C8497A00421EA6 /* TabDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC2224C8497A00421EA6 /* TabDView.swift */; };
 		C4A0DC2524C84A6700421EA6 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC2424C84A6700421EA6 /* Description.swift */; };
-		C4A0DC2F24C9818D00421EA6 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC2E24C9818D00421EA6 /* PlayerView.swift */; };
 		C4A0DC3124C9819D00421EA6 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC3024C9819D00421EA6 /* LyricView.swift */; };
 		C4A0DC3324C981EF00421EA6 /* RecomendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC3224C981EF00421EA6 /* RecomendView.swift */; };
 		C4A0DC3524C993A800421EA6 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC3424C993A800421EA6 /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A8792D4124CA217A00A374BB /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		A8792D4324CA22A900A374BB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		A8792D4524CA22B600A374BB /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
+		A8792D4724CA232B00A374BB /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		A8792D4B24CA2BFD00A374BB /* test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1.swift; sourceTree = "<group>"; };
 		C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nerugaku1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +53,6 @@
 		C4A0DC2024C8496C00421EA6 /* TabCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCView.swift; sourceTree = "<group>"; };
 		C4A0DC2224C8497A00421EA6 /* TabDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDView.swift; sourceTree = "<group>"; };
 		C4A0DC2424C84A6700421EA6 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
-		C4A0DC2E24C9818D00421EA6 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C4A0DC3024C9819D00421EA6 /* LyricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 		C4A0DC3224C981EF00421EA6 /* RecomendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendView.swift; sourceTree = "<group>"; };
 		C4A0DC3424C993A800421EA6 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -117,8 +125,8 @@
 				C4A0DC1624C6D8CD00421EA6 /* Home.swift */,
 				C4A0DC1824C6D8E300421EA6 /* TabAView.swift */,
 				C4A0DC1324C6D89F00421EA6 /* BackgroundImage.swift */,
-				C4A0DC1C24C6D91000421EA6 /* CellView.swift */,
 				C4A0DC2424C84A6700421EA6 /* Description.swift */,
+				C4A0DC1C24C6D91000421EA6 /* CellView.swift */,
 				C4A0DC3224C981EF00421EA6 /* RecomendView.swift */,
 			);
 			path = Detile;
@@ -127,8 +135,10 @@
 		C4A0DC2824C9804700421EA6 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				C4A0DC2E24C9818D00421EA6 /* PlayerView.swift */,
-				C4A0DC3424C993A800421EA6 /* Test.swift */,
+				A8792D4124CA217A00A374BB /* Utility.swift */,
+				A8792D4324CA22A900A374BB /* MenuView.swift */,
+				A8792D4524CA22B600A374BB /* AudioView.swift */,
+				A8792D4724CA232B00A374BB /* VideoView.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -146,7 +156,9 @@
 		C4A0DC2A24C980A400421EA6 /* Lyrics */ = {
 			isa = PBXGroup;
 			children = (
+				C4A0DC3424C993A800421EA6 /* Test.swift */,
 				C4A0DC3024C9819D00421EA6 /* LyricView.swift */,
+				A8792D4B24CA2BFD00A374BB /* test1.swift */,
 			);
 			path = Lyrics;
 			sourceTree = "<group>";
@@ -251,13 +263,17 @@
 				C4A0DC3524C993A800421EA6 /* Test.swift in Sources */,
 				C4A0DC3324C981EF00421EA6 /* RecomendView.swift in Sources */,
 				C4A0DBFF24C6D83D00421EA6 /* AppDelegate.swift in Sources */,
-				C4A0DC2F24C9818D00421EA6 /* PlayerView.swift in Sources */,
 				C4A0DC0124C6D83D00421EA6 /* SceneDelegate.swift in Sources */,
+				A8792D4824CA232B00A374BB /* VideoView.swift in Sources */,
+				A8792D4C24CA2BFD00A374BB /* test1.swift in Sources */,
+				A8792D4424CA22A900A374BB /* MenuView.swift in Sources */,
 				C4A0DC3124C9819D00421EA6 /* LyricView.swift in Sources */,
 				C4A0DC1724C6D8CD00421EA6 /* Home.swift in Sources */,
 				C4A0DC1D24C6D91000421EA6 /* CellView.swift in Sources */,
 				C4A0DC0324C6D83D00421EA6 /* ContentView.swift in Sources */,
 				C4A0DC2324C8497A00421EA6 /* TabDView.swift in Sources */,
+				A8792D4624CA22B600A374BB /* AudioView.swift in Sources */,
+				A8792D4224CA217A00A374BB /* Utility.swift in Sources */,
 				C4A0DC1F24C8496200421EA6 /* TabBView.swift in Sources */,
 				C4A0DC1424C6D89F00421EA6 /* BackgroundImage.swift in Sources */,
 				C4A0DC1924C6D8E300421EA6 /* TabAView.swift in Sources */,
@@ -401,6 +417,7 @@
 				DEVELOPMENT_TEAM = BXTK73VQ5E;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nerugaku1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,6 +438,7 @@
 				DEVELOPMENT_TEAM = BXTK73VQ5E;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = nerugaku1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

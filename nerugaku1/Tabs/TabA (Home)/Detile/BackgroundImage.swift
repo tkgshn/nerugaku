@@ -19,6 +19,7 @@ struct BackgroundImage: View {
             .aspectRatio(contentMode: .fill)
             .edgesIgnoringSafeArea(.all)
             //ここでタイトルを背景画像にかぶせる
+            .padding(.vertical)
             .overlay(
                 VStack(alignment: .leading) {
                     Text("空港で")
@@ -35,8 +36,8 @@ struct BackgroundImage: View {
                     }
                 }
                     //                    ここで文字列類の位置を調節
-                    .padding([.top, .leading, .trailing])
-                    .offset(y: 100)
+                    .padding(.horizontal)
+                    .offset(y: 140)
         )
             
             

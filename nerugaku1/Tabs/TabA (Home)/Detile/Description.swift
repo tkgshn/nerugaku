@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct Description: View {
+    
+    @State private var isActive : Bool = false
+
+    
     var body: some View {
-         NavigationView {
+
         VStack {
             
             //コンテンツの概要
@@ -46,13 +50,16 @@ struct Description: View {
                     Spacer()
                     
                    
-                    NavigationLink(destination: PlayerView()) {
-                        Image(systemName: "play.circle.fill")
-                            .padding(.bottom, 10.0)
-                            .frame(width: nil)
-                            .font(.system(size: 55.0, weight: .thin))
-                            .foregroundColor(.gray)
-                    }
+                    
+                                   NavigationLink(destination: AudioView(), isActive: self.$isActive) {
+                                Image(systemName: "play.circle.fill")
+                                .padding(.bottom, 10.0)
+                                .frame(width: nil)
+                                .font(.system(size: 55.0, weight: .thin))
+                                .foregroundColor(.gray)
+                        }.buttonStyle(PlainButtonStyle())
+                    
+                
                 }
                 
                     
@@ -79,8 +86,8 @@ struct Description: View {
                 }).padding([.top, .leading, .trailing], 10.0)
   
             }.multilineTextAlignment(.leading)
-            .padding([.top, .leading, .trailing], 10.0)
-        }
+            .padding(.all, 10.0)
+        
     }
 }
 

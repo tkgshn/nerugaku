@@ -10,9 +10,8 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        VStack {
-            NavigationView {
-                List {
+        NavigationView {
+            ScrollView  ( showsIndicators: false){
                     
                     //                ここからが最初の4つのview
                     VStack{
@@ -186,7 +185,7 @@ struct Home: View {
             
         }
     }
-}
+
 
 
 

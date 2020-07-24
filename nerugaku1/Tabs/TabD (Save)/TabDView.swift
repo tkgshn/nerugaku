@@ -10,12 +10,31 @@ import SwiftUI
 
 struct TabDView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                NavigationView {
+        
+        //            Form {
+        //            ForEach(1..<6) { num in
+        //                Text("\(num)行目")
+        //            }
+        //            ContentsRow()
+        //        }
+        
+        List(1..<20) { localIndex in
+            // すべての行で共通のビュー
+            ContentsRow()
+            
+            
+        }.navigationBarTitle(Text("Save List"))
+        }
     }
 }
 
+
+
+
+
 struct TabDView_Previews: PreviewProvider {
     static var previews: some View {
-        TabDView()
+            TabDView()
     }
 }

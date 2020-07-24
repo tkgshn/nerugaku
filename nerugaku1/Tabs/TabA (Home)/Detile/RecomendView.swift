@@ -15,39 +15,7 @@ struct RecomendView: View {
                 ScrollView  (.horizontal, showsIndicators: false){
                     HStack{
                         
-                        VStack {
-                            NavigationLink(destination: TabAView()) {
-                                VStack {
-                                    Image("Airplane")
-                                    HStack{
-                                        Text("空港で")
-                                            .multilineTextAlignment(.leading)
-                                            .padding(.leading, 10.0)
-                                        Spacer()
-                                    }
-                                    
-                                    
-                                    
-                                }.padding(.horizontal)
-                            }
-                        }
-                            
-                        VStack {
-                            NavigationLink(destination: TabAView()) {
-                                VStack {
-                                    Image("Airplane")
-                                    HStack{
-                                        Text("空港で")
-                                            .multilineTextAlignment(.leading)
-                                            .padding(.leading, 10.0)
-                                        Spacer()
-                                    }
-                                    
-                                    
-                                    
-                                }.padding(.horizontal)
-                            }
-                        }
+                        ForEach (1..<5) { localIndex in
                         
                         VStack {
                             NavigationLink(destination: TabAView()) {
@@ -65,6 +33,9 @@ struct RecomendView: View {
                                 }.padding(.horizontal)
                             }
                         }
+
+                        }
+
                         
                     }
                 }

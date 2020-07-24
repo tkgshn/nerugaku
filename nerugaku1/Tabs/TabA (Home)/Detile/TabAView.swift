@@ -13,18 +13,17 @@ struct TabAView: View {
         @State private var isActive : Bool = false
     
         var body: some View {
-            NavigationView {
                 ScrollView  ( showsIndicators: false){
                     VStack{
                         BackgroundImage()
                             .padding(.bottom)
                         Description()
-                        CellView()
-                        CellView()
+                        ForEach (1..<10) { localIndex in
+                            CellView()
+                        }
                         RecomendView()
                     }
                 }.edgesIgnoringSafeArea(.top)
-            }
         }
     }
 

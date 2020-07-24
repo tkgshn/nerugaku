@@ -9,14 +9,8 @@
 import SwiftUI
 
 struct TabCView: View {
-    
-    @State private var isShown: Bool = false
-    
     var body: some View {
-        
-        //TextやImageをタップした時にトリガーする方法
-        Text("早く寝なさい")
-
+            Text("Sleep")
     }
 }
 

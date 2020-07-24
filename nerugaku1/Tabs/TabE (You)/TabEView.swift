@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TabEView: View {
     var body: some View {
-        Text("TabE")
+        Text("You")
     }
 }
 

@@ -29,7 +29,9 @@ struct Home: View {
                 }
                 .padding(.horizontal)
                 
-                RecomendView()
+                ForEach (1..<4) { localIndex in
+                    RecomendView()
+                }
                 
             }.navigationBarTitle(Text("Home"))
         }

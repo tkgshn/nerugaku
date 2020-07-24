@@ -22,7 +22,7 @@ struct TabBView: View {
         NavigationView {
             ScrollView  ( showsIndicators: false){
                 
-//                ここから検索窓の実装
+                //                ここから検索窓の実装
                 ZStack {
                     Color.white
                         .edgesIgnoringSafeArea(.all)
@@ -33,6 +33,7 @@ struct TabBView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                 }
+                .padding(.bottom)
                 .gesture(
                     TapGesture()
                         .onEnded { _ in
@@ -46,72 +47,36 @@ struct TabBView: View {
                 
                 //        ここからタグ？カテゴリー？が並んだ要素がはじまる
                 Group{
-                    VStack{
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
+                    ForEach (1..<20) { localIndex in
+                        VStack{
+                            HStack{
+                                Future()
+                                Spacer()
+                                Future()
+                            }
+                            HStack{
+                                Future()
+                                Spacer()
+                                Future()
+                            }
+                            .padding(.top, -5.0)
                         }
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        .padding(.top, -5.0)
                     }
-                    .padding([.top, .leading, .trailing])
-                    VStack{
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        .padding(.top, -5.0)
-                    }
-                    .padding([.leading, .trailing])
-                    VStack{
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        .padding(.top, -5.0)
-                    }
-                    .padding([.leading, .trailing])
-                    VStack{
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        HStack{
-                            Future()
-                            Spacer()
-                            Future()
-                        }
-                        .padding(.top, -5.0)
-                    }
-                    .padding([.leading, .trailing])
+                        
+                        
+                        
+                    .padding(.top, -5.0)
                 }
-                
-                
-                
-                
-            }.navigationBarTitle(Text("Search"))
+                .padding(.horizontal)
+            }
+            .navigationBarTitle(Text("Search"))
         }
         
     }
 }
+
+
+
 
 
 struct TabBView_Previews: PreviewProvider {

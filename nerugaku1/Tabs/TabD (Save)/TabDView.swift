@@ -21,7 +21,11 @@ struct TabDView: View {
         
         List(1..<20) { localIndex in
             // すべての行で共通のビュー
+            NavigationLink(
+                destination: TabAView()
+            ) {
             ContentsRow()
+            }
             
             
         }.navigationBarTitle(Text("Save List"))

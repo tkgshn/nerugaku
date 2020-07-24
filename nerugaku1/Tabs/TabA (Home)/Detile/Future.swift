@@ -14,13 +14,15 @@ struct Future: View {
             HStack {
                 Image("Airplane")
                     .resizable()
-                    .padding(.leading, -40.0)
-                    .frame(width: 30.0, height: 70.0)
+                    .padding(.leading, -60.0)
+                    .frame(width: 10.0, height: 70.0)
+                Spacer()
                 Text("空港で")
-                    .multilineTextAlignment(.center)
-                    .padding(.trailing, -10.0)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(9)
+                    .padding(.trailing, -30.0)
                 
-            }.padding(.horizontal, 40.0).background(Color.green)
+            }.padding(.horizontal, 60.0).background(Color.green)
         }
     }
 }

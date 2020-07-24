@@ -20,14 +20,14 @@ struct Home: View {
                         Spacer()
                         Future()
                     }
-                    .padding(.horizontal)
                     HStack{
                         Future()
                         Spacer()
                         Future()
                     }
-                    .padding(.horizontal)
-                    }
+                    .padding(.top, -5.0)
+                }
+                .padding(.horizontal)
                 
                 RecomendView()
                 

@@ -16,8 +16,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isShown: Bool = false
+    
     var body: some View {
         TabView {
+            
             Home()
                 .tabItem {
                     VStack {
@@ -32,13 +36,27 @@ struct ContentView: View {
                         Text("Search")
                     }
             }.tag(2)
+            
+//            ここが睡眠の遷移
+//            これがクリックした後に表示するview
             TabCView()
                 .tabItem {
+//                    ここからがタブのアイコンとか
                     VStack {
                         Image(systemName: "bed.double.fill")
                         Text("Sleep")
+                    }        .onTapGesture {
+                        self.isShown = true
+                    }
+                    .sheet(isPresented: self.$isShown) {
+                        //モーダル遷移した後に表示するビュー
+                        HStack {
+                            Text("モーダルビュー")
+                            Image(systemName: "paperplane")
+                        }
                     }
             }.tag(3)
+            
             TabDView()
                 .tabItem {
                     VStack {
@@ -46,6 +64,13 @@ struct ContentView: View {
                         Text("Saved")
                     }
             }.tag(4)
+            TabAView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person.fill")
+                        Text("You")
+                    }
+            }.tag(5)
         }
     }
 }

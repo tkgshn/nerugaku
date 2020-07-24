@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Description: View {
     
-    @State private var isActive : Bool = false
+    @State private var isShown: Bool = false
 
     
     var body: some View {
@@ -51,13 +51,20 @@ struct Description: View {
                     
                    
                     
-                                   NavigationLink(destination: AudioView(), isActive: self.$isActive) {
-                                Image(systemName: "play.circle.fill")
-                                .padding(.bottom, 10.0)
-                                .frame(width: nil)
-                                .font(.system(size: 55.0, weight: .thin))
-                                .foregroundColor(.gray)
-                        }.buttonStyle(PlainButtonStyle())
+          //TextやImageをタップした時にトリガーする方法
+                                   Image(systemName: "play.circle.fill")
+                                   .buttonStyle(PlainButtonStyle())
+                                   .padding(.bottom, 10.0)
+                                   .frame(width: nil)
+                                   .font(.system(size: 55.0, weight: .thin))
+                                   .foregroundColor(.gray)
+                                   .onTapGesture {
+                                       self.isShown = true
+                                   }
+                                   .sheet(isPresented: self.$isShown) {
+                                       //モーダル遷移した後に表示するビュー
+                                       AudioView()
+                                   }
                     
                 
                 }
@@ -69,7 +76,6 @@ struct Description: View {
                 
                 
                 Button(action: {
-                    print("Rounded Button")
                 }, label: {
                     
                     Text("問題を解く\n15単語")

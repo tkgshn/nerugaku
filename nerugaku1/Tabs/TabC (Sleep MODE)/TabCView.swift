@@ -9,13 +9,26 @@
 import SwiftUI
 
 struct TabCView: View {
+    
+    @State private var isShown: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        //TextやImageをタップした時にトリガーする方法
+        Text("早く寝なさい")
+
     }
 }
+
+
+
 
 struct TabCView_Previews: PreviewProvider {
     static var previews: some View {
         TabCView()
     }
 }
+
+
+
+

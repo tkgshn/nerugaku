@@ -11,14 +11,7 @@ import SwiftUI
 struct TabDView: View {
     var body: some View {
                 NavigationView {
-        
-        //            Form {
-        //            ForEach(1..<6) { num in
-        //                Text("\(num)行目")
-        //            }
-        //            ContentsRow()
-        //        }
-        
+
         List(1..<20) { localIndex in
             // すべての行で共通のビュー
             NavigationLink(
@@ -28,7 +21,12 @@ struct TabDView: View {
             }
             
             
-        }.navigationBarTitle(Text("Save List"))
+        }
+        
+        
+            
+        
+        .navigationBarTitle(Text("Save List"))
         }
     }
 }

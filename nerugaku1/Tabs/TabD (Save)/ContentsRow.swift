@@ -19,8 +19,7 @@ struct ContentsRow: View {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
-            }
-        
+        }
     }
 }
 

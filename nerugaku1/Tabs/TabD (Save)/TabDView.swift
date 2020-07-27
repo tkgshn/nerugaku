@@ -10,33 +10,12 @@ import SwiftUI
 
 struct TabDView: View {
     var body: some View {
-                NavigationView {
-
-        List(1..<20) { localIndex in
-            // すべての行で共通のビュー
-            NavigationLink(
-                destination: TabAView()
-            ) {
-            ContentsRow()
-            }
-            
-            
-        }
-        
-        
-            
-        
-        .navigationBarTitle(Text("Save List"))
-        }
+        YourLibraryView().edgesIgnoringSafeArea(.bottom)
     }
 }
 
-
-
-
-
 struct TabDView_Previews: PreviewProvider {
     static var previews: some View {
-            TabDView()
+        TabDView()
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentsRow: View {
     var body: some View {
+        NavigationLink(destination: TabAView()) {
             HStack {
                 Image("Airplane")
                     .resizable()
@@ -19,6 +20,7 @@ struct ContentsRow: View {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
+            }
         }
     }
 }
@@ -26,6 +28,6 @@ struct ContentsRow: View {
 struct ContentsRow_Previews: PreviewProvider {
     static var previews: some View {
         ContentsRow()
-            .previewLayout(.fixed(width: 300, height: 70))
+            
     }
 }

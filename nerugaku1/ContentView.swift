@@ -57,7 +57,7 @@ struct ContentView: View {
                     }
             }.tag(3)
             
-            Seg()
+            TabDView()
                 .tabItem {
                     VStack {
                         Image(systemName: "bookmark.fill")

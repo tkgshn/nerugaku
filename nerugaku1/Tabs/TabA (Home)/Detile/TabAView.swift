@@ -10,26 +10,29 @@ import SwiftUI
 
 struct TabAView: View {
     
-        @State private var isActive : Bool = false
+    @State private var isActive : Bool = false
     
-        var body: some View {
-                ScrollView  ( showsIndicators: false){
-                    VStack{
-                        Text("mmemo")
-//                        BackgroundImage()
-//                            .padding(.bottom)
-//                        Description()
-//                        ForEach (1..<10) { localIndex in
-//                            CellView(audioContents: audioContetsData[0])
-//                        }
-//                        RecomendView()
-                    }
-                }.edgesIgnoringSafeArea(.top)
-        }
-    }
-
-struct TabAView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabAView()
+    var audioContents: AudioContents
+    
+    var body: some View {
+        ScrollView  ( showsIndicators: false){
+            VStack{
+                BackgroundImage(audioContents: AudioContents.example)
+                    .padding(.bottom)
+                Description(audioContents: audioContents)
+                ForEach (1..<10) { localIndex in
+                    CellView(audioContents: audioContetsData[0])
+                }
+                RecomendView(audioContents: AudioContents.example)
+            }
+        }.edgesIgnoringSafeArea(.top)
     }
 }
+
+#if DEBUG
+struct TabAView_Previews: PreviewProvider {
+    static var previews: some View {
+        TabAView(audioContents: AudioContents.example)
+    }
+}
+#endif

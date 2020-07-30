@@ -29,7 +29,9 @@ struct Description: View {
             VStack {
                 //コンテンツの「いいね数」「再生時間」
                 HStack(spacing: 5.0)   {
-                    Text("665 いいね・15分")
+                    
+                    Text(String(audioContents.allfavorite) + "いいね・" + String(audioContents.alltime) + "分")
+                    
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 5.0)
                     Spacer()
@@ -79,7 +81,8 @@ struct Description: View {
                 Button(action: {
                 }, label: {
                     
-                    Text("問題を解く\n15単語")
+//                    問題数を取得
+                    Text("問題を解く\n" + String(audioContents.allphrase) + "単語")
                         
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 120.0)
@@ -98,8 +101,11 @@ struct Description: View {
     }
 }
 
+#if DEBUG
 struct Description_Previews: PreviewProvider {
     static var previews: some View {
-        Description(audioContents: audioContetsData[0])
+//        Description(audioContents: audioContetsData[0])
+        Description(audioContents: AudioContents.example)
     }
 }
+#endif

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentsRow: View {
     var body: some View {
-        NavigationLink(destination: TabAView()) {
+        NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
             HStack {
                 Image("Airplane")
                     .resizable()

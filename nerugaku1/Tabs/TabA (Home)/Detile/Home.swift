@@ -16,21 +16,21 @@ struct Home: View {
                 
                 VStack{
                     HStack{
-                        Future()
+                        Future(audioContents: AudioContents.example)
                         Spacer()
-                        Future()
+                        Future(audioContents: AudioContents.example)
                     }
                     HStack{
-                        Future()
+                        Future(audioContents: AudioContents.example)
                         Spacer()
-                        Future()
+                        Future(audioContents: AudioContents.example)
                     }
                     .padding(.top, -5.0)
                 }
                 .padding(.horizontal)
                 
                 ForEach (1..<4) { localIndex in
-                    RecomendView()
+                    RecomendView(audioContents: AudioContents.example)
                 }
                 
             }.navigationBarTitle(Text("Home"))

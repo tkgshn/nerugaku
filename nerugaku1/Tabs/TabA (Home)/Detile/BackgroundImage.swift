@@ -24,8 +24,7 @@ struct BackgroundImage: View {
             .padding(.vertical)
             .overlay(
                 VStack(alignment: .leading) {
-                    //                    Text("空港で")
-                    Text(audioContents.name)
+                    Text("空港で")
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
@@ -56,10 +55,11 @@ struct BackgroundImage: View {
 
 
 
-
+#if DEBUG
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundImage(audioContents: audioContetsData[0])
+        BackgroundImage(audioContents: AudioContents.example)
         
     }
 }
+#endif

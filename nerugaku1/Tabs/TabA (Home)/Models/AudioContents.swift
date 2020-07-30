@@ -11,18 +11,32 @@ import SwiftUI
 
 //ここでAudioContents自体を定義する
 struct AudioContents: Hashable, Codable, Identifiable {
+    //    コンテンツの🆔
     var id: Int
-    var name: String
+    //    コンテンツのタイトル
+    var title: String
+    //    コンテンツの概要
     var description: String
+//    いいねの総数
+    var allfavorite: Int
+//    再生するのにかかる時間（分）
+    var alltime: Int
+    //    総フレーズ数
+    var allphrase: Int
+    //    フレーズ1
+    var phrase1: String
+    //    コンテンツのカテゴリー
     var category: Category
+    //    お気に入りかどうか
     var isFavorite: Bool
+    //    おすすめかどうか
     var isFeatured: Bool
     
     
     
     //    Category自体を詳細記入
     enum Category: String, CaseIterable, Codable, Hashable {
-        case featured = "Featured"
+        case featured = "おすすめ"
         case lakes = "Lakes"
         case rivers = "Rivers"
         case mountains = "Mountains"
@@ -33,7 +47,16 @@ struct AudioContents: Hashable, Codable, Identifiable {
 extension AudioContents {
     /// Used to create a Post for example Debug purposes
     static var example: Self {
-        return AudioContents(id: 0, name: "hello-world", description: "this is a disctiption", category: AudioContents.Category(rawValue: "Lakes")!, isFavorite: true, isFeatured: true)
+        return AudioContents(id: 0,
+                             title: "Test title",
+                             description: "Test disctiption",
+                             allfavorite: 10,
+                             alltime: 156,
+                             allphrase: 15,
+                             phrase1: "This is a test sentence",
+                             category: AudioContents.Category(rawValue: "おすすめ")!,
+                             isFavorite: true,
+                             isFeatured: true)
     }
 }
 #endif

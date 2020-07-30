@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct RecomendView: View {
+    
+    var audioContents: AudioContents
+    
     var body: some View {
             
             VStack {
@@ -18,7 +21,7 @@ struct RecomendView: View {
                         ForEach (1..<5) { localIndex in
                         
                         VStack {
-                            NavigationLink(destination: TabAView()) {
+                            NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
                                 VStack {
                                     Image("Airplane")
                                     HStack{
@@ -47,8 +50,10 @@ struct RecomendView: View {
     }
 }
 
+#if DEBUG
 struct Recomend_Previews: PreviewProvider {
     static var previews: some View {
-        RecomendView()
+        RecomendView(audioContents: AudioContents.example)
     }
 }
+#endif

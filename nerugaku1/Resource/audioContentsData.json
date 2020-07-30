@@ -1,24 +1,28 @@
 
 [
     {
-        "name": "Turtle Rock",
-        "category": "Featured",
-        "description": "めも",
-        "city": "Twentynine Palms",
-        "state": "California",
         "id": 1001,
-        "park": "Joshua Tree National Park",
-        "imageName": "turtlerock"
-    },
+        "title": "空港で",
+        "description": "留学で最初の関門、空港での英語表現を学びましょう",
+        "allfavorite": 183,
+        "alltime": 14,
+        "allphrase": 15,
+        "phrase1": "I'd like to book a flight to Athens",
+        "category": "おすすめ"
+    }
+,
     {
-        "name": "Silver Salmon Creek",
-        "category": "Lakes",
-        "description": "めも",
-        "city": "Port Alsworth",
-        "state": "Alaska",
         "id": 1002,
-        "park": "Lake Clark National Park and Preserve",
-        "imageName": "silversalmoncreek"
+        "title": "学校で",
+        "description": "英語で自己紹介する方法について学びましょう",
+        "allfavorite": 183,
+        "alltime": 14,
+        "allphrase": 10,
+        "phrase1": "I'll going to my introduction",
+        "category": "Rivers"
     }
 
+
 ]
+
+

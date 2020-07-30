@@ -9,8 +9,11 @@
 import SwiftUI
 
 struct Future: View {
+    
+    var audioContents: AudioContents
+    
     var body: some View {
-        NavigationLink(destination: TabAView()) {
+        NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
             HStack {
                 Image("Airplane")
                     .resizable()
@@ -27,8 +30,10 @@ struct Future: View {
     }
 }
 
+#if DEBUG
 struct Future_Previews: PreviewProvider {
     static var previews: some View {
-        Future()
+        Future(audioContents: AudioContents.example)
     }
 }
+#endif

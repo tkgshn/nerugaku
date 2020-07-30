@@ -10,6 +10,8 @@
 import SwiftUI
 
 struct BackgroundImage: View {
+    
+    var audioContents: AudioContents
     var body: some View {
         
         //        アセットにある画像を取得
@@ -22,7 +24,8 @@ struct BackgroundImage: View {
             .padding(.vertical)
             .overlay(
                 VStack(alignment: .leading) {
-                    Text("空港で")
+                    //                    Text("空港で")
+                    Text(audioContents.name)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
@@ -56,7 +59,7 @@ struct BackgroundImage: View {
 
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundImage()
+        BackgroundImage(audioContents: audioContetsData[0])
         
     }
 }

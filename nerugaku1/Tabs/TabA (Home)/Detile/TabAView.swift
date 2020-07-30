@@ -15,13 +15,14 @@ struct TabAView: View {
         var body: some View {
                 ScrollView  ( showsIndicators: false){
                     VStack{
-                        BackgroundImage()
-                            .padding(.bottom)
-                        Description()
-                        ForEach (1..<10) { localIndex in
-                            CellView()
-                        }
-                        RecomendView()
+                        Text("mmemo")
+//                        BackgroundImage()
+//                            .padding(.bottom)
+//                        Description()
+//                        ForEach (1..<10) { localIndex in
+//                            CellView(audioContents: audioContetsData[0])
+//                        }
+//                        RecomendView()
                     }
                 }.edgesIgnoringSafeArea(.top)
         }

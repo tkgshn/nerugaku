@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct CellView: View {
+//    最初にどこから引っ張ってくるのかを宣言
+    var audioContents: AudioContents
+    
     var body: some View {
-        Text("ここに音声内で使われる単語が入る")
+//        ここにデータベースから引っ張ってきた名前を入れる
+        Text(audioContents.name)
             .multilineTextAlignment(.leading)
             .lineLimit(1)
             .padding(.vertical, 5.0)
@@ -22,7 +26,10 @@ struct CellView: View {
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView()
+//        何個もあるうちのデータの中から、どれを引っ張ってくるのかを指定
+        
+        CellView(audioContents: AudioContents.example)
+        
         .previewLayout(.fixed(width: 300, height: 70))
     }
 }

@@ -12,13 +12,14 @@ struct Description: View {
     
     @State private var isShown: Bool = false
 
+    var audioContents: AudioContents
     
     var body: some View {
 
         VStack {
             
             //コンテンツの概要
-            Text("留学での最初の関門、空港での英語表現を学びましょう！")
+            Text(audioContents.description)
                 
                 .multilineTextAlignment(.leading)
                 .padding([.top, .leading, .trailing], 10.0)
@@ -99,6 +100,6 @@ struct Description: View {
 
 struct Description_Previews: PreviewProvider {
     static var previews: some View {
-        Description()
+        Description(audioContents: audioContetsData[0])
     }
 }

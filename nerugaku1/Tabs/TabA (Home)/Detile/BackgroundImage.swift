@@ -11,11 +11,11 @@ import SwiftUI
 
 struct BackgroundImage: View {
     
-    var audioContents: AudioContents
+    var audioContent: AudioContent
     var body: some View {
         
         //        アセットにある画像を取得
-        Image("Airplane")
+        audioContent.image
             //すべてのセーフエリアを無視
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -24,12 +24,12 @@ struct BackgroundImage: View {
             .padding(.vertical)
             .overlay(
                 VStack(alignment: .leading) {
-                    Text("空港で")
+                    Text(audioContent.name)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                     HStack(alignment: .top) {
-                        Text("留学の前に学びたい英語表現")
+                        Text(audioContent.description)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.white)
@@ -58,7 +58,7 @@ struct BackgroundImage: View {
 #if DEBUG
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundImage(audioContents: AudioContents.example)
+        BackgroundImage(audioContent: audioContetsData[0])
         
     }
 }

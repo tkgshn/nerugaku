@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct ContentsRow: View {
+    
+    var audioContent: AudioContent
+    
     var body: some View {
-        NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
+        NavigationLink(destination: TabAView(audioContent: AudioContent.example)) {
             HStack {
-                Image("Airplane")
+                audioContent.image
                     .resizable()
                     .frame(width: 50, height: 50)
                 Text("空港で")
@@ -27,7 +30,7 @@ struct ContentsRow: View {
 
 struct ContentsRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContentsRow()
+        ContentsRow(audioContent: AudioContent.example)
             
     }
 }

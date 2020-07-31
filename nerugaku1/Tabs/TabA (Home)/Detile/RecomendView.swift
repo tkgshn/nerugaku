@@ -10,50 +10,53 @@ import SwiftUI
 
 struct RecomendView: View {
     
-    var audioContents: AudioContents
+    var audioContent: AudioContent
     
     var body: some View {
-            
-            VStack {
-                ScrollView  (.horizontal, showsIndicators: false){
-                    HStack{
-                        
-                        ForEach (1..<5) { localIndex in
+        
+        VStack {
+            ScrollView  (.horizontal, showsIndicators: false){
+                HStack{
+                    
+                    ForEach (1..<5) { localIndex in
                         
                         VStack {
-                            NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
-                                VStack {
-                                    Image("Airplane")
-                                    HStack{
-                                        Text("空港で")
-                                            .multilineTextAlignment(.leading)
-                                            .padding(.leading, 10.0)
-                                        Spacer()
-                                    }
-                                    
-                                    
-                                    
+                            NavigationLink(
+                                destination: TabAView(audioContent: self.audioContent)
+                            ){
+                                VStack
+                                    {
+                                        self.audioContent.image
+                                        HStack{
+                                            Text("空港で")
+                                                .multilineTextAlignment(.leading)
+                                                .padding(.leading, 10.0)
+                                            Spacer()
+                                        }
+                                        
+                                        
+                                        
                                 }.padding(.horizontal)
                             }
                         }
-
-                        }
-
                         
                     }
+                    
+                    
                 }
-                .padding(.vertical)
             }
-            
+            .padding(.vertical)
+        }
+        
         
         
     }
 }
 
-#if DEBUG
+//#if DEBUG
 struct Recomend_Previews: PreviewProvider {
     static var previews: some View {
-        RecomendView(audioContents: AudioContents.example)
+        RecomendView(audioContent: audioContetsData[0])
     }
 }
-#endif
+//#endif

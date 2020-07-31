@@ -10,17 +10,17 @@ import SwiftUI
 
 struct Future: View {
     
-    var audioContents: AudioContents
+    var audioContent: AudioContent
     
     var body: some View {
-        NavigationLink(destination: TabAView(audioContents: AudioContents.example)) {
+        NavigationLink(destination: TabAView(audioContent: audioContent)) {
             HStack {
-                Image("Airplane")
+                audioContent.image
                     .resizable()
                     .padding(.leading, -60.0)
                     .frame(width: 10.0, height: 70.0)
                 Spacer()
-                Text("空港で")
+                Text(audioContent.name)
                     .multilineTextAlignment(.leading)
                     .lineLimit(9)
                     .padding(.trailing, -30.0)
@@ -30,10 +30,10 @@ struct Future: View {
     }
 }
 
-#if DEBUG
+//#if DEBUG
 struct Future_Previews: PreviewProvider {
     static var previews: some View {
-        Future(audioContents: AudioContents.example)
+        Future(audioContent: audioContetsData[0])
     }
 }
-#endif
+//#endif

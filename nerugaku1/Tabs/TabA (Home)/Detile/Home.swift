@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct Home: View {
+    var audioContent: AudioContent
     var body: some View {
         NavigationView {
             ScrollView  ( showsIndicators: false){
@@ -16,21 +17,21 @@ struct Home: View {
                 
                 VStack{
                     HStack{
-                        Future(audioContents: AudioContents.example)
+                        Future(audioContent: audioContent)
                         Spacer()
-                        Future(audioContents: AudioContents.example)
+                        Future(audioContent: audioContent)
                     }
                     HStack{
-                        Future(audioContents: AudioContents.example)
+                        Future(audioContent: audioContent)
                         Spacer()
-                        Future(audioContents: AudioContents.example)
+                        Future(audioContent: AudioContent.example)
                     }
                     .padding(.top, -5.0)
                 }
                 .padding(.horizontal)
                 
                 ForEach (1..<4) { localIndex in
-                    RecomendView(audioContents: AudioContents.example)
+                    RecomendView(audioContent: AudioContent.example)
                 }
                 
             }.navigationBarTitle(Text("Home"))
@@ -53,6 +54,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home(audioContent: audioContetsData[0])
     }
 }

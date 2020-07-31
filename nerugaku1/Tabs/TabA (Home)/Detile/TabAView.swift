@@ -12,18 +12,19 @@ struct TabAView: View {
     
     @State private var isActive : Bool = false
     
-    var audioContents: AudioContents
+//    ここは変わらないからletで代入しておく？
+    let audioContent: AudioContent
     
     var body: some View {
         ScrollView  ( showsIndicators: false){
             VStack{
-                BackgroundImage(audioContents: AudioContents.example)
+                BackgroundImage(audioContent: audioContent)
                     .padding(.bottom)
-                Description(audioContents: audioContents)
+                Description(audioContent: audioContent)
                 ForEach (1..<10) { localIndex in
-                    CellView(audioContents: audioContetsData[0])
+                    CellView(audioContent: self.audioContent)
                 }
-                RecomendView(audioContents: AudioContents.example)
+                RecomendView(audioContent: audioContent)
             }
         }.edgesIgnoringSafeArea(.top)
     }
@@ -32,7 +33,7 @@ struct TabAView: View {
 #if DEBUG
 struct TabAView_Previews: PreviewProvider {
     static var previews: some View {
-        TabAView(audioContents: AudioContents.example)
+        TabAView(audioContent: audioContetsData[0])
     }
 }
 #endif

@@ -9,17 +9,17 @@
 
 import SwiftUI
 
-//ここでAudioContents自体を定義する
-struct AudioContents: Hashable, Codable, Identifiable {
+//ここでAudioContent自体を定義する
+struct AudioContent: Hashable, Codable, Identifiable {
     //    コンテンツの🆔
     var id: Int
     //    コンテンツのタイトル
-    var title: String
+    var name: String
     //    コンテンツの概要
     var description: String
-//    いいねの総数
+    //    いいねの総数
     var allfavorite: Int
-//    再生するのにかかる時間（分）
+    //    再生するのにかかる時間（分）
     var alltime: Int
     //    総フレーズ数
     var allphrase: Int
@@ -33,6 +33,18 @@ struct AudioContents: Hashable, Codable, Identifiable {
     var isFeatured: Bool
     
     
+    //    サムネイル画像
+    fileprivate var imageName: String
+    
+    var featureImage: Image? {
+        guard isFeatured else { return nil }
+        
+        return Image(
+            ImageStore.loadImage(name: "\(imageName)_feature"),
+            scale: 2,
+            label: Text(name))
+    }
+    
     
     //    Category自体を詳細記入
     enum Category: String, CaseIterable, Codable, Hashable {
@@ -43,20 +55,27 @@ struct AudioContents: Hashable, Codable, Identifiable {
     }
 }
 
+extension AudioContent {
+    var image: Image {
+        ImageStore.shared.image(name: imageName)
+    }
+}
+
 #if DEBUG
-extension AudioContents {
+extension AudioContent {
     /// Used to create a Post for example Debug purposes
     static var example: Self {
-        return AudioContents(id: 0,
-                             title: "Test title",
+        return AudioContent(id: 0,
+                             name: "Test name",
                              description: "Test disctiption",
                              allfavorite: 10,
                              alltime: 156,
                              allphrase: 15,
                              phrase1: "This is a test sentence",
-                             category: AudioContents.Category(rawValue: "おすすめ")!,
+                             category: AudioContent.Category(rawValue: "おすすめ")!,
                              isFavorite: true,
-                             isFeatured: true)
+                             isFeatured: true,
+                             imageName: "Airplane")
     }
 }
 #endif

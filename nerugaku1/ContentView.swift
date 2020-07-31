@@ -18,11 +18,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isShown: Bool = false
+    var audioContent: AudioContent
     
     var body: some View {
         TabView {
             
-            Home()
+            Home(audioContent: audioContent)
                 .tabItem {
                     VStack {
                         Image(systemName: "house.fill")
@@ -77,6 +78,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(audioContent: audioContetsData[0])
     }
 }

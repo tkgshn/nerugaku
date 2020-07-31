@@ -12,14 +12,14 @@ struct Description: View {
     
     @State private var isShown: Bool = false
 
-    var audioContents: AudioContents
+    var audioContent: AudioContent
     
     var body: some View {
 
         VStack {
             
             //コンテンツの概要
-            Text(audioContents.description)
+            Text(audioContent.description)
                 
                 .multilineTextAlignment(.leading)
                 .padding([.top, .leading, .trailing], 10.0)
@@ -30,7 +30,7 @@ struct Description: View {
                 //コンテンツの「いいね数」「再生時間」
                 HStack(spacing: 5.0)   {
                     
-                    Text(String(audioContents.allfavorite) + "いいね・" + String(audioContents.alltime) + "分")
+                    Text(String(audioContent.allfavorite) + "いいね・" + String(audioContent.alltime) + "分")
                     
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 5.0)
@@ -82,7 +82,7 @@ struct Description: View {
                 }, label: {
                     
 //                    問題数を取得
-                    Text("問題を解く\n" + String(audioContents.allphrase) + "単語")
+                    Text("問題を解く\n" + String(audioContent.allphrase) + "単語")
                         
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 120.0)
@@ -101,11 +101,17 @@ struct Description: View {
     }
 }
 
-#if DEBUG
+//#if DEBUG
 struct Description_Previews: PreviewProvider {
     static var previews: some View {
-//        Description(audioContents: audioContetsData[0])
-        Description(audioContents: AudioContents.example)
+        Group {
+            Description(audioContent: audioContetsData[0])
+            Description(audioContent: audioContetsData[1])
+        }
+//        Description(audioContent: AudioContent.example)
     }
 }
-#endif
+//#endif
+
+
+

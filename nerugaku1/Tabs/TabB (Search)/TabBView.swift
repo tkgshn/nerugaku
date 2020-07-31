@@ -50,14 +50,14 @@ struct TabBView: View {
                     ForEach (1..<20) { localIndex in
                         VStack{
                             HStack{
-                                Future(audioContents: AudioContents.example)
+                                Future(audioContent: AudioContent.example)
                                 Spacer()
-                                Future(audioContents: AudioContents.example)
+                                Future(audioContent: AudioContent.example)
                             }
                             HStack{
-                                Future(audioContents: AudioContents.example)
+                                Future(audioContent: AudioContent.example)
                                 Spacer()
-                                Future(audioContents: AudioContents.example)
+                                Future(audioContent: AudioContent.example)
                             }
                             .padding(.top, -5.0)
                         }

@@ -17,31 +17,42 @@ struct RecomendView: View {
         VStack {
             ScrollView  (.horizontal, showsIndicators: false){
                 HStack{
-                    
-                    ForEach (1..<5) { localIndex in
-                        
+//
+                    ForEach (1..<7) { audioContent in
+
                         VStack {
                             NavigationLink(
-                                destination: TabAView(audioContent: self.audioContent)
+                                destination: TabAView(audioContent: audioContetsData[0])
                             ){
                                 VStack
                                     {
                                         self.audioContent.image
                                         HStack{
-                                            Text("空港で")
+                                            Text(self.audioContent.name)
                                                 .multilineTextAlignment(.leading)
                                                 .padding(.leading, 10.0)
                                             Spacer()
                                         }
-                                        
-                                        
-                                        
+
+
+
                                 }.padding(.horizontal)
                             }
                         }
-                        
+
                     }
+//
+//
                     
+//                    ForEach(userData.landmarks) { landmark in
+//                        if !self.userData.showFavoritesOnly || landmark.isFavorite {
+//                            NavigationLink(
+//                                destination: LandmarkDetail(landmark: landmark)
+//                            ) {
+//                                LandmarkRow(landmark: landmark)
+//                            }
+//                        }
+//                    }
                     
                 }
             }
@@ -57,6 +68,7 @@ struct RecomendView: View {
 struct Recomend_Previews: PreviewProvider {
     static var previews: some View {
         RecomendView(audioContent: audioContetsData[0])
+        
     }
 }
 //#endif

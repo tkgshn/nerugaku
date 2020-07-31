@@ -24,14 +24,14 @@ struct Home: View {
                     HStack{
                         Future(audioContent: audioContent)
                         Spacer()
-                        Future(audioContent: AudioContent.example)
+                        Future(audioContent: audioContent)
                     }
                     .padding(.top, -5.0)
                 }
                 .padding(.horizontal)
                 
                 ForEach (1..<4) { localIndex in
-                    RecomendView(audioContent: AudioContent.example)
+                    RecomendView(audioContent: self.audioContent)
                 }
                 
             }.navigationBarTitle(Text("Home"))

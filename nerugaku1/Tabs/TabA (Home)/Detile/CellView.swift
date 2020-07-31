@@ -12,6 +12,7 @@ struct CellView: View {
     //    最初にどこから引っ張ってくるのかを宣言
     var audioContent: AudioContent
     
+    
     var body: some View {
         //        ここにデータベースから引っ張ってきた名前を入れる
         Text(audioContent.phrase1)
@@ -29,7 +30,7 @@ struct CellView_Previews: PreviewProvider {
     static var previews: some View {
         //        何個もあるうちのデータの中から、どれを引っ張ってくるのかを指定
         
-//                CellView(audioContent: AudioContent.example)
+//        　CellView(audioContent: AudioContent.example)
         
         Group{
             CellView(audioContent: audioContetsData[0])

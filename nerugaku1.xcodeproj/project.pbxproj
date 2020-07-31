@@ -36,6 +36,9 @@
 		C4B0446A24D2B71C001CBB25 /* audioContentData.json in Resources */ = {isa = PBXBuildFile; fileRef = C4B0446924D2B71C001CBB25 /* audioContentData.json */; };
 		C4B0446E24D2BB62001CBB25 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0446D24D2BB62001CBB25 /* UserData.swift */; };
 		C4B0447224D2BBA3001CBB25 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0447124D2BBA3001CBB25 /* Data.swift */; };
+		C4B0447424D49805001CBB25 /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4B0447324D49804001CBB25 /* example.jpg */; };
+		C4B0447624D498B7001CBB25 /* json1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4B0447524D498B7001CBB25 /* json1.jpg */; };
+		C4B0447824D4998C001CBB25 /* json2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4B0447724D4998C001CBB25 /* json2.jpg */; };
 		C4B2E29924CF45B90084B0E3 /* YourLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29824CF45B90084B0E3 /* YourLibraryView.swift */; };
 		C4B2E29B24CF45F20084B0E3 /* SubCategoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */; };
 		C4B2E29D24CF46140084B0E3 /* CategoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29C24CF46140084B0E3 /* CategoryText.swift */; };
@@ -75,6 +78,9 @@
 		C4B0446924D2B71C001CBB25 /* audioContentData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = audioContentData.json; sourceTree = "<group>"; };
 		C4B0446D24D2BB62001CBB25 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C4B0447124D2BBA3001CBB25 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		C4B0447324D49804001CBB25 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = example.jpg; path = ../../../../Downloads/example.jpg; sourceTree = "<group>"; };
+		C4B0447524D498B7001CBB25 /* json1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = json1.jpg; path = "../../../../Downloads/image-generator-with-keras-dcgan-master/in_images/images/json1.jpg"; sourceTree = "<group>"; };
+		C4B0447724D4998C001CBB25 /* json2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = json2.jpg; path = "../../../../Downloads/image-generator-with-keras-dcgan-master/in_images/images/json2.jpg"; sourceTree = "<group>"; };
 		C4B2E29824CF45B90084B0E3 /* YourLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourLibraryView.swift; sourceTree = "<group>"; };
 		C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryText.swift; sourceTree = "<group>"; };
 		C4B2E29C24CF46140084B0E3 /* CategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryText.swift; sourceTree = "<group>"; };
@@ -242,6 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				C4B0446924D2B71C001CBB25 /* audioContentData.json */,
+				C4B0447324D49804001CBB25 /* example.jpg */,
+				C4B0447524D498B7001CBB25 /* json1.jpg */,
+				C4B0447724D4998C001CBB25 /* json2.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -321,6 +330,9 @@
 				C4A0DC0B24C6D84300421EA6 /* LaunchScreen.storyboard in Resources */,
 				C4B0446A24D2B71C001CBB25 /* audioContentData.json in Resources */,
 				C4A0DC0824C6D84300421EA6 /* Preview Assets.xcassets in Resources */,
+				C4B0447824D4998C001CBB25 /* json2.jpg in Resources */,
+				C4B0447424D49805001CBB25 /* example.jpg in Resources */,
+				C4B0447624D498B7001CBB25 /* json1.jpg in Resources */,
 				C4A0DC0524C6D84300421EA6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

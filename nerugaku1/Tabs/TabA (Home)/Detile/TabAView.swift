@@ -12,7 +12,7 @@ struct TabAView: View {
     
     @State private var isActive : Bool = false
     
-//    ここは変わらないからletで代入しておく？
+    //    ここは変わらないからletで代入しておく？
     let audioContent: AudioContent
     
     var body: some View {
@@ -33,7 +33,10 @@ struct TabAView: View {
 #if DEBUG
 struct TabAView_Previews: PreviewProvider {
     static var previews: some View {
+        
         TabAView(audioContent: audioContetsData[0])
+        
+        
     }
 }
 #endif

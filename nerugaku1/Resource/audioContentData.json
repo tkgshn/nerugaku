@@ -1,32 +1,29 @@
-
 [
-    
     {
-        "id": 1001,
-        "name": "空港で",
-        "description": "留学で最初の関門、空港での英語表現を学びましょう",
-        "allfavorite": 183,
-        "alltime": 14,
-        "allphrase": 15,
-        "phrase1": "I'd like to book a flight to Athens",
-        "category": "おすすめ"
+        "id": 0,
+        "name": "1Test name",
+        "description": "1Test disctiption",
+        "allfavorite": 1,
+        "alltime": 1,
+        "allphrase": 1,
+        "phrase1": "1This is a test sentence",
+        "category": "おすすめ",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "json1"
     },
-    "imageName": "Airplane"
-    },
-    
     {
-        "id": 1002,
-        "name": "学校で",
-        "description": "英語で自己紹介する方法について学びましょう",
-        "allfavorite": 183,
-        "alltime": 14,
-        "allphrase": 10,
-        "phrase1": "I'll going to my introduction",
-        "category": "Rivers"
-    },
-    "imageName": "Airplane"}
-    
-    
+        "id": 1,
+        "name": "2Test name",
+        "description": "2Test disctiption",
+        "allfavorite": 12,
+        "alltime": 2,
+        "allphrase": 2,
+        "phrase1": "2This is a test sentence",
+        "category": "おすすめ",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "json2"
+    }
 ]
-
-
+ 

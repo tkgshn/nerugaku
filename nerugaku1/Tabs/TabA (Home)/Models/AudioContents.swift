@@ -11,7 +11,7 @@ import SwiftUI
 
 //ここでAudioContent自体を定義する
 struct AudioContent: Hashable, Codable, Identifiable {
-    //    コンテンツの🆔
+    //    コンテンツのid
     var id: Int
     //    コンテンツのタイトル
     var name: String
@@ -75,7 +75,7 @@ extension AudioContent {
                              category: AudioContent.Category(rawValue: "おすすめ")!,
                              isFavorite: true,
                              isFeatured: true,
-                             imageName: "Airplane")
+                             imageName: "example")
     }
 }
 #endif

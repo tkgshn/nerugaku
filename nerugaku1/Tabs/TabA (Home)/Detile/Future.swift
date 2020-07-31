@@ -13,7 +13,7 @@ struct Future: View {
     var audioContent: AudioContent
     
     var body: some View {
-        NavigationLink(destination: TabAView(audioContent: audioContent)) {
+        NavigationLink(destination: TabAView(audioContent: audioContetsData[0])) {
             HStack {
                 audioContent.image
                     .resizable()
@@ -33,7 +33,11 @@ struct Future: View {
 //#if DEBUG
 struct Future_Previews: PreviewProvider {
     static var previews: some View {
-        Future(audioContent: audioContetsData[0])
+        Group {
+            Future(audioContent: audioContetsData[0])
+            Future(audioContent: audioContetsData[1])
+        }
+        
     }
 }
 //#endif

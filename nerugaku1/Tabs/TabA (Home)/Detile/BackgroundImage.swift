@@ -58,7 +58,12 @@ struct BackgroundImage: View {
 #if DEBUG
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
-        BackgroundImage(audioContent: audioContetsData[0])
+        Group{
+            BackgroundImage(audioContent: audioContetsData[0])
+            BackgroundImage(audioContent: audioContetsData[1])
+        }
+        
+//        BackgroundImage(audioContent: AudioContent.example)
         
     }
 }

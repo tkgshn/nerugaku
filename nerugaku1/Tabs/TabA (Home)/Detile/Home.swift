@@ -9,32 +9,52 @@
 import SwiftUI
 
 struct Home: View {
-    var audioContent: AudioContent
+    
+    var categories: [String: [AudioContent]] {
+        Dictionary(
+            grouping: audioContetsData,
+            by: { $0.category.rawValue }
+        )
+    }
+    var featured: [AudioContent] {
+        audioContetsData.filter { $0.isFeatured }
+    }
+    @State var showingProfile = false
+    @EnvironmentObject var userData: UserData
+
+//    ヘッダーに置くボタン
+    var profileButton: some View {
+        Button(action: { self.showingProfile.toggle() }) {
+            Image(systemName: "person.crop.circle")
+                .imageScale(.large)
+                .accessibility(label: Text("User Profile"))
+                .padding()
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            ScrollView  ( showsIndicators: false){
+            List {
                 
                 
-                VStack{
-                    HStack{
-                        Future(audioContent: audioContent)
-                        Spacer()
-                        Future(audioContent: audioContent)
-                    }
-                    HStack{
-                        Future(audioContent: audioContent)
-                        Spacer()
-                        Future(audioContent: audioContent)
-                    }
-                    .padding(.top, -5.0)
+                
+                ForEach(categories.keys.sorted(), id: \.self) { key in
+                    RecomendView(categoryName: key, items: self.categories[key]!)
                 }
-                .padding(.horizontal)
+                .listRowInsets(EdgeInsets())
                 
-//                ForEach (1..<4) { localIndex in
-//                    RecomendView(audioContent: self.audioContent)
-//                }
+                                NavigationLink(destination: QuestionView()) {
+                                    Text("See All")
+                                }
                 
-            }.navigationBarTitle(Text("Home"))
+            }
+            .navigationBarTitle(Text("Home"))
+            .navigationBarItems(trailing: profileButton)
+            .sheet(isPresented: $showingProfile) {
+                QuestionView()
+                    .environmentObject(self.userData)
+            }
+            
         }
         
     }
@@ -50,10 +70,9 @@ struct Home: View {
 
 
 
-
-
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(audioContent: audioContetsData[0])
+        Home()
+            .environmentObject(UserData())
     }
 }

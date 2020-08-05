@@ -23,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             
-            Home(audioContent: audioContent)
+            Home()
                 .tabItem {
                     VStack {
                         Image(systemName: "house.fill")

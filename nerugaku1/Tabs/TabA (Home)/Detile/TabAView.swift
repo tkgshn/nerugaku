@@ -10,6 +10,13 @@ import SwiftUI
 
 struct TabAView: View {
     
+    var categories: [String: [AudioContent]] {
+        Dictionary(
+            grouping: audioContetsData,
+            by: { $0.category.rawValue }
+        )
+    }
+    
     @State private var isActive : Bool = false
     @EnvironmentObject var userData: UserData
     var audioContent: AudioContent
@@ -19,20 +26,31 @@ struct TabAView: View {
     }
     
     var body: some View {
+        ScrollView {
             VStack{
                 BackgroundImage(audioContent: audioContent)
                     .padding(.bottom)
                 
                 Description(audioContent: audioContent)
+                    .padding()
                 
+//                ここまだいい感じになってない、とりあえず大量に突っ込んでおく
                 ForEach (1..<10) { localIndex in
                     CellView(audioContent: self.audioContent)
                 }
-                        RecomendView(categoryName: audioContetsData[0].category.rawValue,
-                        items: Array(audioContetsData.prefix(4)))
+                
+                        
+                                
+                ForEach(categories.keys.sorted(), id: \.self) { key in
+                    RecomendView(categoryName: key, items: self.categories[key]!)
+                }
+                .padding(.top)
+                .listRowInsets(EdgeInsets())
+                
             }
         }
     }
+}
 
 
 

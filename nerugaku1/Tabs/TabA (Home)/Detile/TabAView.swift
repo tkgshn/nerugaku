@@ -30,29 +30,33 @@ struct TabAView: View {
             VStack{
                 BackgroundImage(audioContent: audioContent)
                     .edgesIgnoringSafeArea(.top)
-                    .frame(height: 300)
-                    .padding(.bottom)
                 
                 Description(audioContent: audioContent)
                     .padding()
                 
-//                ここまだいい感じになってない、とりあえず大量に突っ込んでおく
+                //                ここまだいい感じになってない、とりあえず大量に突っ込んでおく
                 ForEach (1..<10) { localIndex in
                     CellView(audioContent: self.audioContent)
                 }
                 
-                        
-                                
-                ForEach(categories.keys.sorted(), id: \.self) { key in
-                    RecomendView(categoryName: key, items: self.categories[key]!)
-                }
-                .padding(.top)
-                .listRowInsets(EdgeInsets())
+                
+                //                このままだと全部ここに表示されてしまうので、おすすめだけを表示しなければいけない
+                //                ForEach(categories.keys.sorted(), id: \.self) { key in
+                //                    RecomendView(categoryName: key, items: self.categories[key]!)
+                //                }
+                RecomendView(categoryName: audioContetsData[0].category.rawValue,
+                             items: Array(audioContetsData.prefix(4))
+                )
+                    .padding(.vertical)
+                    .environmentObject(UserData())
+                //                        .padding(.top)
+                //                        .listRowInsets(EdgeInsets())
                 
             }
         }.edgesIgnoringSafeArea(.top)
     }
 }
+
 
 
 
@@ -65,3 +69,4 @@ struct TabAView_Previews: PreviewProvider {
         
     }
 }
+

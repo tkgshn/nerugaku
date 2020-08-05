@@ -73,6 +73,7 @@ struct ContentView: View {
                     }
             }.tag(5)
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

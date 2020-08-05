@@ -49,9 +49,9 @@ struct AudioContent: Hashable, Codable, Identifiable {
     //    Category自体を詳細記入
     enum Category: String, CaseIterable, Codable, Hashable {
         case featured = "おすすめ"
-        case lakes = "Lakes"
-        case rivers = "Rivers"
-        case mountains = "Mountains"
+        case studyabord = "留学"
+        case vacation = "旅行"
+        case  dailylife = "日常生活"
     }
 }
 

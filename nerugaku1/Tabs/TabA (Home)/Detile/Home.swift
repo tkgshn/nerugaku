@@ -41,6 +41,7 @@ struct Home: View {
                 ForEach(categories.keys.sorted(), id: \.self) { key in
                     RecomendView(categoryName: key, items: self.categories[key]!)
                 }
+                .padding(.vertical)
                 .listRowInsets(EdgeInsets())
                 
                                 NavigationLink(destination: QuestionView()) {
@@ -60,9 +61,6 @@ struct Home: View {
     }
     
 }
-
-
-
 
 
 

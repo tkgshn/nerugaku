@@ -29,6 +29,8 @@ struct TabAView: View {
         ScrollView {
             VStack{
                 BackgroundImage(audioContent: audioContent)
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(height: 300)
                     .padding(.bottom)
                 
                 Description(audioContent: audioContent)
@@ -48,7 +50,7 @@ struct TabAView: View {
                 .listRowInsets(EdgeInsets())
                 
             }
-        }
+        }.edgesIgnoringSafeArea(.top)
     }
 }
 

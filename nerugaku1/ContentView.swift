@@ -30,7 +30,7 @@ struct ContentView: View {
                         Text("Home")
                     }
             }.tag(1)
-            TabBView()
+            TabBView(audioContent: audioContetsData[4])
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")

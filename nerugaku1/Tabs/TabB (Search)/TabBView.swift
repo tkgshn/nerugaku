@@ -16,7 +16,9 @@ extension UIApplication {
 }
 
 struct TabBView: View {
+    var audioContent: AudioContent
     @State private var text: String = ""
+    
     
     var body: some View {
         NavigationView {
@@ -50,14 +52,14 @@ struct TabBView: View {
                     ForEach (1..<20) { localIndex in
                         VStack{
                             HStack{
-                                Future(audioContent: AudioContent.example)
+//                                FutureItem(audioContent: audioContetsData[5])
                                 Spacer()
-                                Future(audioContent: AudioContent.example)
+//                                FutureItem(audioContent: audioContetsData[1])
                             }
                             HStack{
-                                Future(audioContent: AudioContent.example)
+//                                FutureItem(audioContent: audioContetsData[2])
                                 Spacer()
-                                Future(audioContent: AudioContent.example)
+//                                FutureItem(audioContent: audioContetsData[4])
                             }
                             .padding(.top, -5.0)
                         }
@@ -81,6 +83,6 @@ struct TabBView: View {
 
 struct TabBView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBView()
+        TabBView(audioContent: audioContetsData[4])
     }
 }

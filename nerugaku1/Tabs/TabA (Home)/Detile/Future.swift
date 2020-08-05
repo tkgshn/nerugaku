@@ -9,11 +9,26 @@
 import SwiftUI
 
 struct Future: View {
-    
-    var audioContent: AudioContent
+    var categoryName: String
+    var items: [AudioContent]
     
     var body: some View {
-        NavigationLink(destination: TabAView(audioContent: audioContetsData[0])) {
+        ForEach(self.items) { audioContent in
+            NavigationLink(
+                destination: TabAView(
+                    audioContent: audioContent
+                )
+            ){
+                
+                FutureItem(audioContent: audioContent)
+            }
+        }
+    }
+    
+    //ここでアイテム自体を定義する
+    struct FutureItem: View {
+        var audioContent: AudioContent
+        var body: some View {
             HStack {
                 audioContent.image
                     .resizable()
@@ -28,16 +43,12 @@ struct Future: View {
             }.padding(.horizontal, 60.0).background(Color.green)
         }
     }
-}
-
-//#if DEBUG
-struct Future_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            Future(audioContent: audioContetsData[0])
-            Future(audioContent: audioContetsData[1])
-        }
-        
+    
+    
+    
+    struct Future_Previews: PreviewProvider {
+        static var previews: some View {
+            FutureItem(audioContent: audioContetsData[0])
+    }
     }
 }
-//#endif

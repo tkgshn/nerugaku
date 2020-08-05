@@ -38,7 +38,7 @@ struct RecomendView: View {
 }
 
 
-
+//ここでアイテム自体を定義する
 struct CategoryItem: View {
     var audioContent: AudioContent
     var body: some View {

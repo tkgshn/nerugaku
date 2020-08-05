@@ -31,21 +31,21 @@ struct AudioContent: Hashable, Codable, Identifiable {
     var isFavorite: Bool
     //    おすすめかどうか
     var isFeatured: Bool
-    
-    
+
+
     //    サムネイル画像
     fileprivate var imageName: String
-    
+
     var featureImage: Image? {
         guard isFeatured else { return nil }
-        
+
         return Image(
             ImageStore.loadImage(name: "\(imageName)_feature"),
             scale: 2,
             label: Text(name))
     }
-    
-    
+
+
     //    Category自体を詳細記入
     enum Category: String, CaseIterable, Codable, Hashable {
         case featured = "おすすめ"

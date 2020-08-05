@@ -1,29 +1,29 @@
 [
     {
-        "id": 0,
-        "name": "1Test name",
-        "description": "1Test disctiption",
-        "allfavorite": 1,
-        "alltime": 1,
-        "allphrase": 1,
-        "phrase1": "1This is a test sentence",
+        "id": 1,
+        "name": "空港で",
+        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
+        "allfavorite": 10,
+        "alltime": 10,
+        "allphrase": 15,
+        "phrase1": "空港のフレーズです",
         "category": "おすすめ",
         "isFavorite": true,
         "isFeatured": true,
-        "imageName": "json1"
+        "imageName": "turtlerock"
     },
     {
-        "id": 1,
-        "name": "2Test name",
-        "description": "2Test disctiption",
+        "id": 2,
+        "name": "学校で",
+        "description": "学校での自己紹介をする際に使用する内容です",
         "allfavorite": 12,
         "alltime": 2,
         "allphrase": 2,
-        "phrase1": "2This is a test sentence",
+        "phrase1": "学校でのフレーズです",
         "category": "おすすめ",
         "isFavorite": true,
         "isFeatured": true,
-        "imageName": "json2"
+        "imageName": "silversalmoncreek"
     }
 ]
  

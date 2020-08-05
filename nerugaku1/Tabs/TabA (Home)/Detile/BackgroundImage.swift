@@ -11,7 +11,9 @@ import SwiftUI
 
 struct BackgroundImage: View {
     
+//    AudioContentの型を取得
     var audioContent: AudioContent
+    
     var body: some View {
         
         //        アセットにある画像を取得
@@ -55,16 +57,14 @@ struct BackgroundImage: View {
 
 
 
-#if DEBUG
+
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
-        Group{
-            BackgroundImage(audioContent: audioContetsData[0])
-            BackgroundImage(audioContent: audioContetsData[1])
-        }
         
-//        BackgroundImage(audioContent: AudioContent.example)
+//        0番地点のデータを表示
+            BackgroundImage(audioContent: audioContetsData[0])
+            
         
     }
 }
-#endif
+

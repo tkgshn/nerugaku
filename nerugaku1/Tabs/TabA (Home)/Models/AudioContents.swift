@@ -61,6 +61,12 @@ extension AudioContent {
     }
 }
 
+struct Coordinates: Hashable, Codable {
+    var latitude: Double
+    var longitude: Double
+}
+
+
 #if DEBUG
 extension AudioContent {
     /// Used to create a Post for example Debug purposes
@@ -75,7 +81,7 @@ extension AudioContent {
                              category: AudioContent.Category(rawValue: "おすすめ")!,
                              isFavorite: true,
                              isFeatured: true,
-                             imageName: "example")
+                             imageName: "silversalmoncreek")
     }
 }
 #endif

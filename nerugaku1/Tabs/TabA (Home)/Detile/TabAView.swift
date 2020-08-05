@@ -11,32 +11,37 @@ import SwiftUI
 struct TabAView: View {
     
     @State private var isActive : Bool = false
+    @EnvironmentObject var userData: UserData
+    var audioContent: AudioContent
     
-    //    ここは変わらないからletで代入しておく？
-    let audioContent: AudioContent
+    var audiocontentIndex: Int {
+        userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
+    }
     
     var body: some View {
-        ScrollView  ( showsIndicators: false){
             VStack{
                 BackgroundImage(audioContent: audioContent)
                     .padding(.bottom)
+                
                 Description(audioContent: audioContent)
+                
                 ForEach (1..<10) { localIndex in
                     CellView(audioContent: self.audioContent)
                 }
-                RecomendView(audioContent: audioContent)
+                        RecomendView(categoryName: audioContetsData[0].category.rawValue,
+                        items: Array(audioContetsData.prefix(4)))
             }
-        }.edgesIgnoringSafeArea(.top)
+        }
     }
-}
 
-#if DEBUG
+
+
 struct TabAView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        TabAView(audioContent: audioContetsData[0])
+        let userData = UserData()
+        return TabAView(audioContent: userData.audiocontents[0])
+            .environmentObject(userData)
         
         
     }
 }
-#endif

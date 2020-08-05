@@ -30,9 +30,9 @@ struct Home: View {
                 }
                 .padding(.horizontal)
                 
-                ForEach (1..<4) { localIndex in
-                    RecomendView(audioContent: self.audioContent)
-                }
+//                ForEach (1..<4) { localIndex in
+//                    RecomendView(audioContent: self.audioContent)
+//                }
                 
             }.navigationBarTitle(Text("Home"))
         }

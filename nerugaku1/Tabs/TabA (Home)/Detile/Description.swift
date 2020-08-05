@@ -11,11 +11,11 @@ import SwiftUI
 struct Description: View {
     
     @State private var isShown: Bool = false
-
+    
     var audioContent: AudioContent
     
     var body: some View {
-
+        
         VStack {
             
             //コンテンツの概要
@@ -31,7 +31,7 @@ struct Description: View {
                 HStack(spacing: 5.0)   {
                     
                     Text(String(audioContent.allfavorite) + "いいね・" + String(audioContent.alltime) + "分")
-                    
+                        
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 5.0)
                     Spacer()
@@ -52,50 +52,50 @@ struct Description: View {
                         .font(.system(size: 35.0, weight: .thin))
                     Spacer()
                     
-                   
                     
-          //TextやImageをタップした時にトリガーする方法
-                                   Image(systemName: "play.circle.fill")
-                                   .buttonStyle(PlainButtonStyle())
-                                   .padding(.bottom, 10.0)
-                                   .frame(width: nil)
-                                   .font(.system(size: 55.0, weight: .thin))
-                                   .foregroundColor(.gray)
-                                   .onTapGesture {
-                                       self.isShown = true
-                                   }
-                                   .sheet(isPresented: self.$isShown) {
-                                       //モーダル遷移した後に表示するビュー
-                                       AudioView()
-                                   }
                     
-                
+                    //TextやImageをタップした時にトリガーする方法
+                    Image(systemName: "play.circle.fill")
+                        .buttonStyle(PlainButtonStyle())
+                        .padding(.bottom, 10.0)
+                        .frame(width: nil)
+                        .font(.system(size: 55.0, weight: .thin))
+                        .foregroundColor(.gray)
+                        .onTapGesture {
+                            self.isShown = true
+                    }
+                    .sheet(isPresented: self.$isShown) {
+                        //モーダル遷移した後に表示するビュー
+                        AudioView()
+                    }
+                    
+                    
                 }
                 
+                
+            }
+            .padding([.top, .leading, .trailing], 13.0)
+            
+            
+            
+            Button(action: {
+            }, label: {
+                
+                //                    問題数を取得
+                Text("問題を解く\n" + String(audioContent.allphrase) + "単語")
                     
-                }
-                .padding([.top, .leading, .trailing], 13.0)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 120.0)
+                    .frame(height: 55.0)
+                    .background(Color.green)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
                 
                 
                 
-                Button(action: {
-                }, label: {
-                    
-//                    問題数を取得
-                    Text("問題を解く\n" + String(audioContent.allphrase) + "単語")
-                        
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 120.0)
-                        .frame(height: 55.0)
-                        .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
-                    
-                    
-                    
-                }).padding([.top, .leading, .trailing], 10.0)
-  
-            }.multilineTextAlignment(.leading)
+            }).padding([.top, .leading, .trailing], 10.0)
+            
+        }.multilineTextAlignment(.leading)
             .padding(.all, 10.0)
         
     }
@@ -104,11 +104,11 @@ struct Description: View {
 //#if DEBUG
 struct Description_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            Description(audioContent: audioContetsData[0])
-            Description(audioContent: audioContetsData[1])
-        }
-//        Description(audioContent: AudioContent.example)
+        
+//        0番地点の情報を表示
+        Description(audioContent: audioContetsData[0])
+        
+        //        Description(audioContent: AudioContent.example)
     }
 }
 //#endif

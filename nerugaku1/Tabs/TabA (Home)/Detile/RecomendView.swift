@@ -9,66 +9,63 @@
 import SwiftUI
 
 struct RecomendView: View {
-    
-    var audioContent: AudioContent
+    var categoryName: String
+    var items: [AudioContent]
     
     var body: some View {
-        
-        VStack {
-            ScrollView  (.horizontal, showsIndicators: false){
-                HStack{
-//
-                    ForEach (1..<7) { audioContent in
-
-                        VStack {
-                            NavigationLink(
-                                destination: TabAView(audioContent: audioContetsData[0])
-                            ){
-                                VStack
-                                    {
-                                        self.audioContent.image
-                                        HStack{
-                                            Text(self.audioContent.name)
-                                                .multilineTextAlignment(.leading)
-                                                .padding(.leading, 10.0)
-                                            Spacer()
-                                        }
-
-
-
-                                }.padding(.horizontal)
-                            }
+        VStack(alignment: .leading) {
+            Text(self.categoryName)
+                .font(.headline)
+                .padding(.leading, 15)
+                .padding(.top, 5)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .top, spacing: 0) {
+                    ForEach(self.items) { audioContent in
+                        NavigationLink(
+                            destination: TabAView(
+                                audioContent: audioContent
+                            )
+                        ) {
+                            CategoryItem(audioContent: audioContent)
                         }
-
                     }
-//
-//
-                    
-//                    ForEach(userData.landmarks) { landmark in
-//                        if !self.userData.showFavoritesOnly || landmark.isFavorite {
-//                            NavigationLink(
-//                                destination: LandmarkDetail(landmark: landmark)
-//                            ) {
-//                                LandmarkRow(landmark: landmark)
-//                            }
-//                        }
-//                    }
-                    
                 }
             }
-            .padding(.vertical)
+            .frame(height: 185)
         }
-        
-        
+    }
+}
+
+
+
+struct CategoryItem: View {
+    var audioContent: AudioContent
+    var body: some View {
+        VStack(alignment: .leading) {
+            audioContent.image
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 155, height: 155)
+                .cornerRadius(5)
+            Text(audioContent.name)
+                .foregroundColor(.primary)
+                .font(.caption)
+        }
+        .padding(.leading, 15)
+    }
+}
+
+
+
+
+struct Recomend_Previews: PreviewProvider {
+    static var previews: some View {
+        RecomendView(categoryName: audioContetsData[0].category.rawValue,
+            items: Array(audioContetsData.prefix(4))
+        )
+        .environmentObject(UserData())
         
     }
 }
 
-//#if DEBUG
-struct Recomend_Previews: PreviewProvider {
-    static var previews: some View {
-        RecomendView(audioContent: audioContetsData[0])
-        
-    }
-}
-//#endif

@@ -32,10 +32,9 @@ struct CellView_Previews: PreviewProvider {
         
 //        　CellView(audioContent: AudioContent.example)
         
-        Group{
+        
             CellView(audioContent: audioContetsData[0])
-            CellView(audioContent: audioContetsData[1])
-        }
+        
         .previewLayout(.fixed(width: 300, height: 70))
     }
 }

@@ -46,30 +46,15 @@ struct TabBView: View {
                     
                 )
                 
-                
-                //        ここからタグ？カテゴリー？が並んだ要素がはじまる
-                Group{
-                    ForEach (1..<20) { localIndex in
-                        VStack{
-                            HStack{
-//                                FutureItem(audioContent: audioContetsData[5])
-                                Spacer()
-//                                FutureItem(audioContent: audioContetsData[1])
-                            }
-                            HStack{
-//                                FutureItem(audioContent: audioContetsData[2])
-                                Spacer()
-//                                FutureItem(audioContent: audioContetsData[4])
-                            }
-                            .padding(.top, -5.0)
-                        }
+                ForEach (1..<10) { localIndex in
+                    HStack {
+                        Future(categoryName: audioContetsData[0].category.rawValue, items: Array(audioContetsData.prefix(4)))
+                        .environmentObject(UserData())
+
+                        Future(categoryName: audioContetsData[0].category.rawValue, items: Array(audioContetsData.prefix(4)))
+                        .environmentObject(UserData())
                     }
-                        
-                        
-                        
-                    .padding(.top, -5.0)
                 }
-                .padding(.horizontal)
             }
             .navigationBarTitle(Text("Search"))
         }

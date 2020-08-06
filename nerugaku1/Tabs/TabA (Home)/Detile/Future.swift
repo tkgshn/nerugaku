@@ -13,42 +13,56 @@ struct Future: View {
     var items: [AudioContent]
     
     var body: some View {
-        ForEach(self.items) { audioContent in
-            NavigationLink(
-                destination: TabAView(
-                    audioContent: audioContent
-                )
-            ){
+        
+            //                    アイテムがあるかぎり繰り返す
+            ForEach(self.items) { audioContent in
                 
-                FutureItem(audioContent: audioContent)
+
+                NavigationLink(
+                    destination: TabAView(
+                        audioContent: audioContent
+                    )
+                ){
+                    //            　　 ここでアイテムを呼び出す
+                    FutureItem(audioContent: audioContent)
+                }
             }
         }
-    }
-    
-    //ここでアイテム自体を定義する
-    struct FutureItem: View {
-        var audioContent: AudioContent
-        var body: some View {
-            HStack {
-                audioContent.image
-                    .resizable()
-                    .padding(.leading, -60.0)
-                    .frame(width: 10.0, height: 70.0)
-                Spacer()
-                Text(audioContent.name)
-                    .multilineTextAlignment(.leading)
-                    .lineLimit(9)
-                    .padding(.trailing, -30.0)
+        
+        //ここにアイテム
+        struct FutureItem: View {
+            var audioContent: AudioContent
+            var body: some View {
+                //        横方向
+                HStack {
+                    //            ここに画像
+                    audioContent.image
+                        .renderingMode(.original)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    //        ここにデータベースから引っ張ってきた名前を入れる
+                    Text(audioContent.name)
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.leading)
+                    
+                    Spacer()
+                }
+                //            .frame(width: 150.0, height: 50.0)
                 
-            }.padding(.horizontal, 60.0).background(Color.green)
+            }
         }
-    }
-    
-    
-    
-    struct Future_Previews: PreviewProvider {
-        static var previews: some View {
-            FutureItem(audioContent: audioContetsData[0])
-    }
-    }
+        
+        
+        
+        
+        struct Future_Previews: PreviewProvider {
+            static var previews: some View {
+                Future(categoryName: audioContetsData[0].category.rawValue, items: Array(audioContetsData.prefix(4)))
+                    .environmentObject(UserData())
+                    .previewLayout(.fixed(width: 150, height: 50))
+            }
+}
+
 }

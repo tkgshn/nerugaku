@@ -24,6 +24,8 @@
 		A8792D4624CA22B600A374BB /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4524CA22B600A374BB /* AudioView.swift */; };
 		A8792D4824CA232B00A374BB /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4724CA232B00A374BB /* VideoView.swift */; };
 		A8792D4E24CA36FA00A374BB /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8792D4D24CA36FA00A374BB /* Future.swift */; };
+		A8ED22E624DBDB2000C752C8 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = A8ED22E524DBDB2000C752C8 /* QGrid */; };
+		A8ED22E824DBDBA000C752C8 /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8ED22E724DBDBA000C752C8 /* PeopleView.swift */; };
 		C43FD3D424CAFC0200430C3B /* TabEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D324CAFC0200430C3B /* TabEView.swift */; };
 		C43FD3D624CB059A00430C3B /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D524CB059A00430C3B /* QuestionView.swift */; };
 		C43FD3D824CB0FEA00430C3B /* ContentsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D724CB0FEA00430C3B /* ContentsRow.swift */; };
@@ -73,6 +75,7 @@
 		A8792D4524CA22B600A374BB /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		A8792D4724CA232B00A374BB /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		A8792D4D24CA36FA00A374BB /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		A8ED22E724DBDBA000C752C8 /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		C43FD3D324CAFC0200430C3B /* TabEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabEView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		C43FD3D724CB0FEA00430C3B /* ContentsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsRow.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8ED22E624DBDB2000C752C8 /* QGrid in Frameworks */,
 				C4B2E2A324CF48AD0084B0E3 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +194,7 @@
 				C4A0DC3224C981EF00421EA6 /* RecomendView.swift */,
 				A8792D4D24CA36FA00A374BB /* Future.swift */,
 				C43FD3D524CB059A00430C3B /* QuestionView.swift */,
+				A8ED22E724DBDBA000C752C8 /* PeopleView.swift */,
 			);
 			path = Detile;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 			name = nerugaku1;
 			packageProductDependencies = (
 				C4B2E2A224CF48AD0084B0E3 /* SwiftUIPager */,
+				A8ED22E524DBDB2000C752C8 /* QGrid */,
 			);
 			productName = nerugaku1;
 			productReference = C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */;
@@ -339,6 +345,7 @@
 			mainGroup = C4A0DBF224C6D83C00421EA6;
 			packageReferences = (
 				C4B2E2A124CF48AD0084B0E3 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				A8ED22E424DBDB2000C752C8 /* XCRemoteSwiftPackageReference "QGrid" */,
 			);
 			productRefGroup = C4A0DBFC24C6D83C00421EA6 /* Products */;
 			projectDirPath = "";
@@ -391,6 +398,7 @@
 				C4A0DC0124C6D83D00421EA6 /* SceneDelegate.swift in Sources */,
 				C43FD3D424CAFC0200430C3B /* TabEView.swift in Sources */,
 				A8792D4824CA232B00A374BB /* VideoView.swift in Sources */,
+				A8ED22E824DBDBA000C752C8 /* PeopleView.swift in Sources */,
 				A8792D4424CA22A900A374BB /* MenuView.swift in Sources */,
 				C4A0DC3124C9819D00421EA6 /* LyricView.swift in Sources */,
 				C4A0DC1724C6D8CD00421EA6 /* Home.swift in Sources */,
@@ -606,6 +614,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A8ED22E424DBDB2000C752C8 /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 		C4B2E2A124CF48AD0084B0E3 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
@@ -617,6 +633,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A8ED22E524DBDB2000C752C8 /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8ED22E424DBDB2000C752C8 /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
 		C4B2E2A224CF48AD0084B0E3 /* SwiftUIPager */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4B2E2A124CF48AD0084B0E3 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;

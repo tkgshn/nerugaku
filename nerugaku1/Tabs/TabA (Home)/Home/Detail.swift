@@ -1,5 +1,5 @@
 //
-//  TabAView.swift
+//  Detail.swift
 //  nerugaku
 //
 //  Created by Shunsuke Takagi on 2020/07/13.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct TabAView: View {
+struct Detail: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
@@ -36,15 +36,15 @@ struct TabAView: View {
                 
                 //                ここまだいい感じになってない、とりあえず大量に突っ込んでおく
                 ForEach (1..<10) { localIndex in
-                    CellView(audioContent: self.audioContent)
+                    Phrase(audioContent: self.audioContent)
                 }
                 
                 
                 //                このままだと全部ここに表示されてしまうので、おすすめだけを表示しなければいけない
                 //                ForEach(categories.keys.sorted(), id: \.self) { key in
-                //                    RecomendView(categoryName: key, items: self.categories[key]!)
+                //                    Recomend(categoryName: key, items: self.categories[key]!)
                 //                }
-                RecomendView(categoryName: audioContetsData[0].category.rawValue,
+                Recomend(categoryName: audioContetsData[0].category.rawValue,
                              items: Array(audioContetsData.prefix(4))
                 )
                     .padding(.vertical)
@@ -60,10 +60,10 @@ struct TabAView: View {
 
 
 
-struct TabAView_Previews: PreviewProvider {
+struct Detail_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
-        return TabAView(audioContent: userData.audiocontents[0])
+        return Detail(audioContent: userData.audiocontents[0])
             .environmentObject(userData)
         
         

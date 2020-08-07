@@ -1,0 +1,29 @@
+[
+    {
+        "id": 0,
+        "name": "1Test name",
+        "description": "1Test disctiption",
+        "allfavorite": 1,
+        "alltime": 1,
+        "allphrase": 1,
+        "phrase1": "1This is a test sentence",
+        "category": "おすすめ",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "json1"
+    },
+    {
+        "id": 1,
+        "name": "2Test name",
+        "description": "2Test disctiption",
+        "allfavorite": 12,
+        "alltime": 2,
+        "allphrase": 2,
+        "phrase1": "2This is a test sentence",
+        "category": "おすすめ",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "json2"
+    }
+]
+ 

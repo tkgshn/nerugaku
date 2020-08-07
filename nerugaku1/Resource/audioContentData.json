@@ -24,6 +24,45 @@
         "isFavorite": true,
         "isFeatured": true,
         "imageName": "silversalmoncreek"
+    },
+    {
+        "id": 3,
+        "name": "ホームステイ先で",
+        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
+        "allfavorite": 10,
+        "alltime": 10,
+        "allphrase": 15,
+        "phrase1": "空港のフレーズです",
+        "category": "留学",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "umbagog"
+    },
+    {
+        "id": 4,
+        "name": "公共交通機関",
+        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
+        "allfavorite": 10,
+        "alltime": 10,
+        "allphrase": 15,
+        "phrase1": "空港のフレーズです",
+        "category": "旅行",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "icybay"
+    },
+    {
+        "id": 5,
+        "name": "買い物にいく",
+        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
+        "allfavorite": 10,
+        "alltime": 10,
+        "allphrase": 15,
+        "phrase1": "空港のフレーズです",
+        "category": "日常生活",
+        "isFavorite": true,
+        "isFeatured": true,
+        "imageName": "umbagog"
     }
 ]
  

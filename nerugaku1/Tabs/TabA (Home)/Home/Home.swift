@@ -39,7 +39,7 @@ struct Home: View {
                 
                 
                 ForEach(categories.keys.sorted(), id: \.self) { key in
-                    RecomendView(categoryName: key, items: self.categories[key]!)
+                    Recomend(categoryName: key, items: self.categories[key]!)
                 }
                 .padding(.vertical)
                 .listRowInsets(EdgeInsets())

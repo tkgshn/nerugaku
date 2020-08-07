@@ -13,7 +13,7 @@ struct ContentsRow: View {
     var audioContent: AudioContent
     
     var body: some View {
-        NavigationLink(destination: Detail(audioContent: AudioContent.example)) {
+        NavigationLink(destination: TabAView(audioContent: AudioContent.example)) {
             HStack {
                 audioContent.image
                     .resizable()

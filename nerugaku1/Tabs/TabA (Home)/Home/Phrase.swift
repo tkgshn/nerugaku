@@ -1,5 +1,5 @@
 //
-//  CellView.swift
+//  Phrase.swift
 //  nerugaku
 //
 //  Created by Shunsuke Takagi on 2020/07/19.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CellView: View {
+struct Phrase: View {
     //    最初にどこから引っ張ってくるのかを宣言
     var audioContent: AudioContent
     
@@ -26,14 +26,14 @@ struct CellView: View {
 }
 
 //#if DEBUG
-struct CellView_Previews: PreviewProvider {
+struct Phrase_Previews: PreviewProvider {
     static var previews: some View {
         //        何個もあるうちのデータの中から、どれを引っ張ってくるのかを指定
         
-//        　CellView(audioContent: AudioContent.example)
+//        　Phrase(audioContent: AudioContent.example)
         
         
-            CellView(audioContent: audioContetsData[0])
+            Phrase(audioContent: audioContetsData[0])
         
         .previewLayout(.fixed(width: 300, height: 70))
     }

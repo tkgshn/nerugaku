@@ -16,9 +16,7 @@ extension UIApplication {
 }
 
 struct TabBView: View {
-    var audioContent: AudioContent
     @State private var text: String = ""
-    
     
     var body: some View {
         NavigationView {
@@ -46,9 +44,30 @@ struct TabBView: View {
                     
                 )
                 
-                Future(items: Array(audioContetsData.prefix(4)))
-                .environmentObject(UserData())
                 
+                //        ここからタグ？カテゴリー？が並んだ要素がはじまる
+                Group{
+                    ForEach (1..<20) { localIndex in
+                        VStack{
+                            HStack{
+                                Future(audioContent: AudioContent.example)
+                                Spacer()
+                                Future(audioContent: AudioContent.example)
+                            }
+                            HStack{
+                                Future(audioContent: AudioContent.example)
+                                Spacer()
+                                Future(audioContent: AudioContent.example)
+                            }
+                            .padding(.top, -5.0)
+                        }
+                    }
+                        
+                        
+                        
+                    .padding(.top, -5.0)
+                }
+                .padding(.horizontal)
             }
             .navigationBarTitle(Text("Search"))
         }
@@ -62,6 +81,6 @@ struct TabBView: View {
 
 struct TabBView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBView(audioContent: audioContetsData[4])
+        TabBView()
     }
 }

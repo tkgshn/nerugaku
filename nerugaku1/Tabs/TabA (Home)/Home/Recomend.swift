@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RecomendView: View {
+struct Recomend: View {
     var categoryName: String
     var items: [AudioContent]
     
@@ -28,7 +28,7 @@ struct RecomendView: View {
                     ForEach(self.items) { audioContent in
 //                        それをクリックできるようにする
                         NavigationLink(
-                            destination: TabAView(
+                            destination: Detail(
                                 audioContent: audioContent
                             )
                         ) {
@@ -70,7 +70,7 @@ struct CategoryItem: View {
 
 struct Recomend_Previews: PreviewProvider {
     static var previews: some View {
-        RecomendView(categoryName: audioContetsData[0].category.rawValue,
+        Recomend(categoryName: audioContetsData[0].category.rawValue,
             items: Array(audioContetsData.prefix(4))
         )
         .environmentObject(UserData())

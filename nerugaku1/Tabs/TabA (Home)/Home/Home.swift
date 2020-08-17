@@ -35,6 +35,7 @@ struct Home: View {
     var body: some View {
         NavigationView {
             List {
+//                ここでクラッシュしてもうた
                 
                 
                 

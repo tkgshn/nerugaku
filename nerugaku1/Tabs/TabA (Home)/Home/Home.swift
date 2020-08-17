@@ -36,6 +36,7 @@ struct Home: View {
         NavigationView {
             List {
 //                ここでクラッシュしてもうた
+//                Gitのために変更
                 
                 
                 

@@ -10,7 +10,9 @@ import SwiftUI
 
 struct TabDView: View {
     var body: some View {
-        YourLibraryView().edgesIgnoringSafeArea(.bottom)
+//        NavigationView {
+        YourLibraryView().padding(.top, 30.0).edgesIgnoringSafeArea(.bottom)
+//        }.navigationBarTitle(Text("Landmarks"))
     }
 }
 

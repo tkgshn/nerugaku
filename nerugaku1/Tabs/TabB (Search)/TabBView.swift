@@ -16,43 +16,53 @@ extension UIApplication {
 }
 
 struct TabBView: View {
-    var audioContent: AudioContent
+    //    事前のデータを引っ張ってくる
+    var items: [AudioContent]
     @State private var text: String = ""
+    @EnvironmentObject var userData: UserData
+    var categories: [String: [AudioContent]] {
+        Dictionary(
+            grouping: audioContetsData,
+            by: { $0.category.rawValue }
+        )
+    }
+    var featured: [AudioContent] {
+        audioContetsData.filter { $0.isFeatured }
+    }
+
     
     
     var body: some View {
         NavigationView {
-            ScrollView  ( showsIndicators: false){
+            VStack {
+                
                 
                 //                ここから検索窓の実装
                 ZStack {
-                    Color.white
-                        .edgesIgnoringSafeArea(.all)
                     
                     TextField("キーワードを入力して検索", text: $text)
                         .padding(.horizontal, -20.0)
                         .frame(width:300)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
+                    
+                    
                 }
-                .padding(.bottom)
                 .gesture(
                     TapGesture()
                         .onEnded { _ in
-                            UIApplication.shared.closeKeyboard()
-                            
-                    }
-                    
-                    
-                )
+                            UIApplication.shared.closeKeyboard()})
                 
-                Future(items: Array(audioContetsData.prefix(4)))
-                .environmentObject(UserData())
+                //                なぜかここが表示できない
+                Future(items: Array(audioContetsData.prefix(10)))
+                    .padding(.horizontal, 5.0)
                 
+ 
             }
             .navigationBarTitle(Text("Search"))
+            .environmentObject(UserData())
+            
         }
-        
     }
 }
 
@@ -60,8 +70,10 @@ struct TabBView: View {
 
 
 
+
 struct TabBView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBView(audioContent: audioContetsData[4])
+        TabBView(items: Array(audioContetsData.prefix(10)))
+            .environmentObject(UserData())
     }
 }

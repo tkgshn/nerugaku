@@ -32,7 +32,8 @@ struct Detail: View {
                     .edgesIgnoringSafeArea(.top)
                 
                 Description(audioContent: audioContent)
-                    .padding()
+                    .padding(.vertical)
+    
                 
                 //                ここまだいい感じになってない、とりあえず大量に突っ込んでおく
                 ForEach (1..<10) { localIndex in

@@ -8,7 +8,7 @@
         "allphrase": 15,
         "phrase1": "空港のフレーズです",
         "category": "おすすめ",
-        "isFavorite": true,
+        "isFavorite": false,
         "isFeatured": true,
         "imageName": "turtlerock"
     },
@@ -22,7 +22,7 @@
         "phrase1": "学校でのフレーズです",
         "category": "おすすめ",
         "isFavorite": true,
-        "isFeatured": true,
+        "isFeatured": false,
         "imageName": "silversalmoncreek"
     },
     {
@@ -34,8 +34,8 @@
         "allphrase": 15,
         "phrase1": "空港のフレーズです",
         "category": "留学",
-        "isFavorite": true,
-        "isFeatured": true,
+        "isFavorite": false,
+        "isFeatured": false,
         "imageName": "umbagog"
     },
     {
@@ -47,7 +47,7 @@
         "allphrase": 15,
         "phrase1": "空港のフレーズです",
         "category": "旅行",
-        "isFavorite": true,
+        "isFavorite": false,
         "isFeatured": true,
         "imageName": "icybay"
     },
@@ -60,8 +60,8 @@
         "allphrase": 15,
         "phrase1": "空港のフレーズです",
         "category": "日常生活",
-        "isFavorite": true,
-        "isFeatured": true,
+        "isFavorite": false,
+        "isFeatured": false,
         "imageName": "umbagog"
     }
 ]

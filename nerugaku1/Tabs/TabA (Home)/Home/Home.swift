@@ -38,13 +38,17 @@ struct Home: View {
                 
                 
                 
+//               ここでカテゴリーの数がある分だけ上から順番にループしていく
                 ForEach(categories.keys.sorted(), id: \.self) { key in
                     Recomend(categoryName: key, items: self.categories[key]!)
                 }
+//                    装飾、消えても動く
                 .padding(.vertical)
                 .listRowInsets(EdgeInsets())
                 
-                                NavigationLink(destination: QuestionView()) {
+//                               Listの最後にある”全て見る”を担う部分
+                NavigationLink(destination: AllContent()
+                                .environmentObject(UserData())) {
                                     Text("See All")
                                 }
                 
@@ -52,8 +56,8 @@ struct Home: View {
             .navigationBarTitle(Text("Home"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
-                QuestionView()
-                    .environmentObject(self.userData)
+                AllContent()
+                .environmentObject(UserData())
             }
             
         }

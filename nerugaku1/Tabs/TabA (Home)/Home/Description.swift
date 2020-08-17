@@ -11,8 +11,11 @@ import SwiftUI
 struct Description: View {
     
     @State private var isShown: Bool = false
-    
     var audioContent: AudioContent
+    @EnvironmentObject var userData: UserData
+    var audioContentIndex: Int {
+        userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
+    }
     
     var body: some View {
         
@@ -41,9 +44,28 @@ struct Description: View {
                 
                 //            ここから操作系のやつ
                 HStack(alignment: .center) {
-                    Image(systemName: "heart")
-                        .padding(.trailing, 10.0)
-                        .font(.system(size: 35.0, weight: .thin))
+//                    Image(systemName: "heart")
+//                        .padding(.trailing, 10.0)
+//                        .font(.system(size: 35.0, weight: .thin))
+                    
+                    Button(action: {
+                        self.userData.audiocontents[self.audioContentIndex]
+                            .isFavorite.toggle()
+                    }) {
+                        if self.userData.audiocontents[self.audioContentIndex].isFavorite {
+                            Image(systemName: "heart.fill")
+                                .padding(.trailing, 10.0)
+                                .font(.system(size: 35.0, weight: .thin))
+                                .foregroundColor(Color.red)
+                        } else {
+                            Image(systemName: "heart")
+                                .padding(.trailing, 10.0)
+                                .font(.system(size: 35.0, weight: .thin))
+                                .foregroundColor(Color.red)
+                        }
+                    }
+                    
+                    
                     Image(systemName: "arrow.down.circle")
                         .padding(.horizontal, 3.0)
                         .font(.system(size: 35.0, weight: .thin))
@@ -106,7 +128,10 @@ struct Description_Previews: PreviewProvider {
     static var previews: some View {
         
 //        0番地点の情報を表示
-        Description(audioContent: audioContetsData[0])
+        let userData = UserData()
+        return Description(audioContent: userData.audiocontents[0])
+            .environmentObject(userData)
+
         
         //        Description(audioContent: AudioContent.example)
     }

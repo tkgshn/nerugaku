@@ -17,7 +17,7 @@ struct SubCategoryText: View {
         HStack{
             subCategory(index: 0, parent: self)
             subCategory(index: 1, parent: self)
-            subCategory(index: 2, parent: self)
+//            subCategory(index: 2, parent: self)
             Spacer()
         }
         
@@ -54,7 +54,7 @@ struct SubCategoryText_Previews: PreviewProvider {
         @State var currentSubCategoryIndex = 0
         @State var indicatorOffset: CGFloat = 0
         var body: some View{
-            SubCategoryText(subCategorys: ["Playlists", "Albums", "Artists"], currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: self.$indicatorOffset)
+            SubCategoryText(subCategorys: ["お気に入り", "履歴"], currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: self.$indicatorOffset)
         }
     }
 }

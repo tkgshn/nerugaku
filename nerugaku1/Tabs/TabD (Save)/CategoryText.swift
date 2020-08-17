@@ -15,23 +15,23 @@ struct CategoryText: View {
         HStack(spacing: 20){
             Text("Music")
                 .font(.largeTitle).bold()
-                .foregroundColor(self.currentCategoryIndex == 0 ? .primary : .secondary)
+//                .foregroundColor(self.currentCategoryIndex == 0 ? .primary : .secondary)
                 .onTapGesture {
                     self.nestedPages = [0,0]
                     withAnimation(.easeIn,{
                         self.currentCategoryIndex = 0
                     })
                 }
-            Text("Podcasts")
-                .font(.largeTitle).bold()
-                .foregroundColor(self.currentCategoryIndex == 1 ? .primary : .secondary)
-                .onTapGesture {
-                    self.nestedPages = [0,0]
-                    withAnimation(.easeIn,{
-                        self.currentCategoryIndex = 1
-                    })
-                }
-            Spacer()
+//            Text("Podcasts")
+//                .font(.largeTitle).bold()
+//                .foregroundColor(self.currentCategoryIndex == 1 ? .primary : .secondary)
+//                .onTapGesture {
+//                    self.nestedPages = [0,0]
+//                    withAnimation(.easeIn,{
+//                        self.currentCategoryIndex = 1
+//                    })
+//                }
+//            Spacer()
         }.padding([.leading, .top])
     }
 }

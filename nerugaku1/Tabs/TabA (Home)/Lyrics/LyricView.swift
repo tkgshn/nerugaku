@@ -9,13 +9,27 @@
 import SwiftUI
 
 struct LyricView: View {
+    //        とりあえず関係ないところで作ってみる
+    var items: [AudioContent]
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+                //                アイテムを挿入
+                Future(items: Array(audioContetsData.prefix(10)))
+                    .listRowInsets(EdgeInsets())
+            }
+            .navigationBarTitle(Text("Home"))
+            .environmentObject(UserData())
     }
 }
 
+
 struct LyricView_Previews: PreviewProvider {
     static var previews: some View {
-        LyricView()
+        
+        LyricView(items: Array(audioContetsData.prefix(10)))
+            .environmentObject(UserData())
+        
     }
 }

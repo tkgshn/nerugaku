@@ -30,7 +30,8 @@ struct ContentView: View {
                         Text("Home")
                     }
             }.tag(1)
-            TabBView(audioContent: audioContetsData[4])
+            TabBView(items: Array(audioContetsData.prefix(10)))
+            .environmentObject(UserData())
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")
@@ -73,7 +74,6 @@ struct ContentView: View {
                     }
             }.tag(5)
         }
-        .edgesIgnoringSafeArea(.top)
     }
 }
 

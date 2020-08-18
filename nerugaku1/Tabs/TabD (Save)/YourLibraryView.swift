@@ -15,6 +15,7 @@ struct YourLibraryView: View {
     @State var nestedPages: [Int] = [0, 0] /// keeps track of which sub category index we are at for each category
     @State var indicatorOffsets : [CGFloat] = [0,0] /// keepts track of indicator offsets for each category
     @State var allowSubCategoryDragging = true
+    @EnvironmentObject private var userData: UserData
     
     var data = Array(0..<2)
     var nestedData = Array(0..<2)
@@ -91,6 +92,7 @@ struct YourLibraryView: View {
                   data: self.nestedData,
                   id: \.self) { page in
                     MediaContentView()
+                    .environmentObject(UserData())
             }
             .allowsDragging(allowSubCategoryDragging)
             Spacer()

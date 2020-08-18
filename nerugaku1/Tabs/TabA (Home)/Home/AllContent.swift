@@ -15,12 +15,14 @@ struct AllContent: View {
     var body: some View {
         List {
             //            ここで表示を切り替える
+//            クリックしている場合はお気に入りのみを表示
             Toggle(isOn: $userData.showFavoritesOnly) {
                 Text("Show Favorites Only")
             }
             //            ここで繰り返し
             ForEach(userData.audiocontents) { audioContent in
                 //             いいねしてるかの処理
+//                クリックしている場合はいいねをしているもののみを表示
                 if !self.userData.showFavoritesOnly || audioContent.isFavorite {
                     NavigationLink(destination: Detail(audioContent: audioContent)) {
                         ContentRow(audioContent: audioContent)
@@ -40,6 +42,7 @@ struct ContentRow: View {
     var body: some View {
         HStack {
             audioContent.image
+                .renderingMode(.original)
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(audioContent.name)

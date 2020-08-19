@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
             }.tag(1)
             TabBView(items: Array(audioContetsData.prefix(10)))
-            .environmentObject(UserData())
+                .environmentObject(UserData())
                 .tabItem {
                     VStack {
                         Image(systemName: "magnifyingglass")
@@ -39,11 +39,11 @@ struct ContentView: View {
                     }
             }.tag(2)
             
-//            ここが睡眠の遷移
-//            これがクリックした後に表示するview
+            //            ここが睡眠の遷移
+            //            これがクリックした後に表示するview
             TabCView()
                 .tabItem {
-//                    ここからがタブのアイコンとか
+                    //                    ここからがタブのアイコンとか
                     VStack {
                         Image(systemName: "bed.double.fill")
                         Text("Sleep")
@@ -58,14 +58,16 @@ struct ContentView: View {
                         }
                     }
             }.tag(3)
-            
-            TabDView()
+        
+                TabDView()
                 .tabItem {
                     VStack {
                         Image(systemName: "bookmark.fill")
                         Text("Saved")
                     }
             }.tag(4)
+            
+            
             TabEView()
                 .tabItem {
                     VStack {

@@ -10,14 +10,19 @@ import SwiftUI
 
 struct TabDView: View {
     var body: some View {
-//        NavigationView {
-        YourLibraryView().padding(.top, 30.0).edgesIgnoringSafeArea(.bottom)
-//        }.navigationBarTitle(Text("Landmarks"))
+                NavigationView {
+        YourLibraryView().padding(.top)
+            .edgesIgnoringSafeArea(.bottom)
+        //        }.navigationBarTitle(Text("Landmarks"))
+        }
     }
 }
 
 struct TabDView_Previews: PreviewProvider {
     static var previews: some View {
-        TabDView()
+        NavigationView {
+            TabDView()
+                .padding(.top, -40.0)
+        }
     }
 }

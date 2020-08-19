@@ -13,13 +13,14 @@ struct ContentsRow: View {
     var audioContent: AudioContent
     
     var body: some View {
-        NavigationLink(destination: Detail(audioContent: AudioContent.example)) {
-            HStack {
-                audioContent.image
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                Text("空港で")
-                Spacer()
+        HStack {
+            audioContent.image
+                .resizable()
+                .frame(width: 50, height: 50)
+            Text("空港で")
+            Spacer()
+            
+            if audioContent.isFavorite {
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.yellow)
@@ -30,7 +31,11 @@ struct ContentsRow: View {
 
 struct ContentsRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContentsRow(audioContent: AudioContent.example)
-            
+        //        ContentsRow(audioContent: AudioContent.example)
+        Group {
+            ContentsRow(audioContent: audioContetsData[0])
+            ContentsRow(audioContent: audioContetsData[1])
+        }
+        .previewLayout(.fixed(width: 300, height: 70))
     }
 }

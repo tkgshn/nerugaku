@@ -34,12 +34,7 @@ struct Home: View {
     
     var body: some View {
         NavigationView {
-            List {
-//                ここでクラッシュしてもうた
-//                Gitのために変更
-                
-                
-                
+            List {                
 //               ここでカテゴリーの数がある分だけ上から順番にループしていく
                 ForEach(categories.keys.sorted(), id: \.self) { key in
                     Recomend(categoryName: key, items: self.categories[key]!)

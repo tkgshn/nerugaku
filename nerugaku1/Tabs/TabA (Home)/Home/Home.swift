@@ -48,6 +48,7 @@ struct Home: View {
                                 }
                 
             }
+                
             .navigationBarTitle(Text("Home"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {

@@ -12,17 +12,17 @@ import SwiftUI
 struct MediaContentView: View {
 //    @EnvironmentObject var userData: UserData
     @EnvironmentObject private var userData: UserData
+    
     @Binding var currentSubCategoryIndex : Int
 //    @Binding var currentCategoryIndex : Int
 //    @Binding var nestedPages : [Int]
     var body: some View {
         //        NavigationView {
         List {
-            
 //            ボタンを押すことで、showFavoritesOnlyにする
-//            Toggle(isOn: $userData.showFavoritesOnly) {
-//                Text("Show Favorites Only")
-//            }
+            Toggle(isOn: $userData.showFavoritesOnly) {
+            Text("Show Favorites Only")
+            }
 //            
 ////            showFavoritesOnlyではない場合はNoを表示
 //
@@ -39,20 +39,17 @@ struct MediaContentView: View {
 //            }
 ////
 
-            
-            
-            ForEach(userData.audiocontents) { audioContent in
-                //                いいねしてるやつを表示？
-                if !self.userData.showFavoritesOnly || audioContent.isFavorite {
-                    NavigationLink(destination: Detail(audioContent: audioContent)) {
-                        ContentRow(audioContent: audioContent)
+                ForEach(userData.audiocontents) { audioContent in
+                    if !self.userData.showFavoritesOnly || audioContent.isFavorite {
+                        NavigationLink(
+                            destination: Detail(audioContent: audioContent)
+                        ) {
+                            ContentRow(audioContent: audioContent)
+                        }
                     }
                 }
             }
-            
-
-            
-        }.navigationBarTitle(Text("Saved"))
+            .navigationBarTitle(Text("Landmarks"))
     }
 }
 
@@ -67,7 +64,15 @@ struct MediaContentView_Previews: PreviewProvider {
 //        @State var currentCategoryIndex = 0
         @State var currentSubCategoryIndex = 0
         var body: some View{
-            MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+            ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
+            NavigationView {
+                MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+            }
         }
+            .environmentObject(UserData())
+    }
     }
 }
+

@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct MediaContentView: View {
-    
+//    @EnvironmentObject var userData: UserData
     @EnvironmentObject private var userData: UserData
     @Binding var currentSubCategoryIndex : Int
 //    @Binding var currentCategoryIndex : Int
@@ -20,19 +20,24 @@ struct MediaContentView: View {
         List {
             
 //            ボタンを押すことで、showFavoritesOnlyにする
-            Toggle(isOn: $userData.showFavoritesOnly) {
-                Text("Show Favorites Only")
-            }
-            
-//            showFavoritesOnlyではない場合はNoを表示
-            
-            if self.currentSubCategoryIndex == 0 {
-                Text("1")
-            } else {
-//                showFavoritesOnlyな場合はYesを表示
-                Text("2")
-            }
+//            Toggle(isOn: $userData.showFavoritesOnly) {
+//                Text("Show Favorites Only")
+//            }
+//            
+////            showFavoritesOnlyではない場合はNoを表示
 //
+//            if self.currentSubCategoryIndex == 0 {
+//                Text("1")
+//                ForEach(userData.audiocontents) { audioContent in
+//                    NavigationLink(destination: Detail(audioContent: audioContent)) {
+//                        ContentRow(audioContent: audioContent)
+//                    }
+//                }
+//            } else {
+////                showFavoritesOnlyな場合はYesを表示
+//                Text("2")
+//            }
+////
 
             
             

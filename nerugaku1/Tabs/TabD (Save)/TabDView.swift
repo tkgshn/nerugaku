@@ -22,7 +22,7 @@ struct TabDView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             TabDView()
-                .padding(.top, -40.0)
+                .padding(.top, -60.0)
         }
     }
 }

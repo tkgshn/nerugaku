@@ -91,7 +91,7 @@ struct YourLibraryView: View {
             Pager(page: currentSubCategory,
                   data: self.nestedData,
                   id: \.self) { page in
-                    MediaContentView()
+                    MediaContentView(currentSubCategoryIndex: currentSubCategory)
                     .environmentObject(UserData())
             }
             .allowsDragging(allowSubCategoryDragging)

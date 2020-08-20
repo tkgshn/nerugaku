@@ -35,11 +35,9 @@ struct Home: View {
     var body: some View {
         NavigationView {
             List {                
-//               ここでカテゴリーの数がある分だけ上から順番にループしていく
                 ForEach(categories.keys.sorted(), id: \.self) { key in
                     Recomend(categoryName: key, items: self.categories[key]!)
                 }
-//                    装飾、消えても動く
                 .padding(.vertical)
                 .listRowInsets(EdgeInsets())
                 

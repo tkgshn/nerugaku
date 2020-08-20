@@ -24,12 +24,14 @@ struct ContentView: View {
         TabView {
             
             Home()
+                .environmentObject(UserData())
                 .tabItem {
                     VStack {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
             }.tag(1)
+            
             TabBView(items: Array(audioContetsData.prefix(10)))
                 .environmentObject(UserData())
                 .tabItem {
@@ -47,19 +49,10 @@ struct ContentView: View {
                     VStack {
                         Image(systemName: "bed.double.fill")
                         Text("Sleep")
-                    }        .onTapGesture {
-                        self.isShown = true
-                    }
-                    .sheet(isPresented: self.$isShown) {
-                        //モーダル遷移した後に表示するビュー
-                        HStack {
-                            Text("モーダルビュー")
-                            Image(systemName: "paperplane")
-                        }
                     }
             }.tag(3)
-        
-                TabDView()
+            
+            TabDView()
                 .tabItem {
                     VStack {
                         Image(systemName: "bookmark.fill")

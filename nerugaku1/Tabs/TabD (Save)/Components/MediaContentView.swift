@@ -10,14 +10,31 @@ import SwiftUI
 
 
 struct MediaContentView: View {
-    @EnvironmentObject private var userData: UserData
     
+    @EnvironmentObject private var userData: UserData
+    @Binding var currentSubCategoryIndex : Int
+//    @Binding var currentCategoryIndex : Int
+//    @Binding var nestedPages : [Int]
     var body: some View {
         //        NavigationView {
         List {
-//            Toggle(isOn: $userData.showFavoritesOnly) {
-//                Text("Show Favorites Only")
-//            }
+            
+//            ボタンを押すことで、showFavoritesOnlyにする
+            Toggle(isOn: $userData.showFavoritesOnly) {
+                Text("Show Favorites Only")
+            }
+            
+//            showFavoritesOnlyではない場合はNoを表示
+            
+            if self.currentSubCategoryIndex == 0 {
+                Text("1")
+            } else {
+//                showFavoritesOnlyな場合はYesを表示
+                Text("2")
+            }
+//
+
+            
             
             ForEach(userData.audiocontents) { audioContent in
                 //                いいねしてるやつを表示？
@@ -26,24 +43,26 @@ struct MediaContentView: View {
                         ContentRow(audioContent: audioContent)
                     }
                 }
-                //            もしcurrentSubCategoryIndexが0の場合はお気に入りのみ表示する
-                //            もしcurrentSubCategoryIndexが1の場合は全てのコンテンツを表示する
-                
             }
-        }
+            
+
+            
+        }.navigationBarTitle(Text("Saved"))
     }
 }
 
-//アイテム自体を定義する
 
 
 
 struct MediaContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            MediaContentView()
-                .environmentObject(UserData())
+        MediaContentViewPreview()
+    }
+    struct MediaContentViewPreview: View {
+//        @State var currentCategoryIndex = 0
+        @State var currentSubCategoryIndex = 0
+        var body: some View{
+            MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
         }
     }
 }
-

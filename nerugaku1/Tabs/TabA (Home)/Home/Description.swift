@@ -17,6 +17,8 @@ struct Description: View {
         userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
     }
     
+    
+    
     var body: some View {
         
         VStack {
@@ -48,22 +50,46 @@ struct Description: View {
 //                        .padding(.trailing, 10.0)
 //                        .font(.system(size: 35.0, weight: .thin))
                     
+//                    ここから
+                    
                     Button(action: {
                         self.userData.audiocontents[self.audioContentIndex]
                             .isFavorite.toggle()
                     }) {
                         if self.userData.audiocontents[self.audioContentIndex].isFavorite {
                             Image(systemName: "heart.fill")
-                                .padding(.trailing, 10.0)
-                                .font(.system(size: 35.0, weight: .thin))
-                                .foregroundColor(Color.red)
+                            .padding(.trailing, 10.0)
+                            .font(.system(size: 35.0, weight: .thin))
+                            .foregroundColor(Color.red)
                         } else {
                             Image(systemName: "heart")
-                                .padding(.trailing, 10.0)
-                                .font(.system(size: 35.0, weight: .thin))
-                                .foregroundColor(Color.red)
+                            .padding(.trailing, 10.0)
+                            .font(.system(size: 35.0, weight: .thin))
+                            .foregroundColor(Color.red)
                         }
                     }
+                    
+//                    ここまで
+                    
+                    
+                    
+                    
+//                    Button(action: {
+//                        self.userData.audiocontents[self.audioContentIndex]
+//                            .isFavorite.toggle()
+//                    }) {
+//                        if self.userData.audiocontents[self.audioContentIndex].isFavorite {
+//                            Image(systemName: "heart.fill")
+//                                .padding(.trailing, 10.0)
+//                                .font(.system(size: 35.0, weight: .thin))
+//                                .foregroundColor(Color.red)
+//                        } else {
+//                            Image(systemName: "heart")
+//                                .padding(.trailing, 10.0)
+//                                .font(.system(size: 35.0, weight: .thin))
+//                                .foregroundColor(Color.red)
+//                        }
+//                    }
                     
                     
                     Image(systemName: "arrow.down.circle")

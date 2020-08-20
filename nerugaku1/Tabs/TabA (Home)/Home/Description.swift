@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct Description: View {
+    @EnvironmentObject var userData: UserData
+    var audioContent: AudioContent
     
     @State private var isShown: Bool = false
-    var audioContent: AudioContent
-    @EnvironmentObject var userData: UserData
+
     var audioContentIndex: Int {
         userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
     }
@@ -20,7 +21,6 @@ struct Description: View {
     
     
     var body: some View {
-        
         VStack {
             
             //コンテンツの概要
@@ -50,8 +50,7 @@ struct Description: View {
 //                        .padding(.trailing, 10.0)
 //                        .font(.system(size: 35.0, weight: .thin))
                     
-//                    ここから
-                    
+//                    ここからいいね形の処理
                     Button(action: {
                         self.userData.audiocontents[self.audioContentIndex]
                             .isFavorite.toggle()
@@ -68,30 +67,11 @@ struct Description: View {
                             .foregroundColor(Color.red)
                         }
                     }
-                    
 //                    ここまで
                     
+                  
                     
-                    
-                    
-//                    Button(action: {
-//                        self.userData.audiocontents[self.audioContentIndex]
-//                            .isFavorite.toggle()
-//                    }) {
-//                        if self.userData.audiocontents[self.audioContentIndex].isFavorite {
-//                            Image(systemName: "heart.fill")
-//                                .padding(.trailing, 10.0)
-//                                .font(.system(size: 35.0, weight: .thin))
-//                                .foregroundColor(Color.red)
-//                        } else {
-//                            Image(systemName: "heart")
-//                                .padding(.trailing, 10.0)
-//                                .font(.system(size: 35.0, weight: .thin))
-//                                .foregroundColor(Color.red)
-//                        }
-//                    }
-                    
-                    
+//                    ここから他のアクション
                     Image(systemName: "arrow.down.circle")
                         .padding(.horizontal, 3.0)
                         .font(.system(size: 35.0, weight: .thin))
@@ -125,7 +105,7 @@ struct Description: View {
             .padding([.top, .leading, .trailing], 13.0)
             
             
-            
+//            問題を解くボタンを追加
             Button(action: {
             }, label: {
                 
@@ -145,24 +125,23 @@ struct Description: View {
             
         }.multilineTextAlignment(.leading)
             .padding(.all, 10.0)
+        .environmentObject(UserData())
         
     }
 }
 
-//#if DEBUG
+
 struct Description_Previews: PreviewProvider {
     static var previews: some View {
         
 //        0番地点の情報を表示
         let userData = UserData()
         return Description(audioContent: userData.audiocontents[0])
-            .environmentObject(userData)
+        .environmentObject(UserData())
 
-        
-        //        Description(audioContent: AudioContent.example)
     }
 }
-//#endif
+
 
 
 

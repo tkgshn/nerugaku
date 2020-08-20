@@ -41,6 +41,7 @@ struct Home: View {
                 .padding(.vertical)
                 .listRowInsets(EdgeInsets())
                 
+                
 //                               Listの最後にある”全て見る”を担う部分
                 NavigationLink(destination: AllContent()
                                 .environmentObject(UserData())) {

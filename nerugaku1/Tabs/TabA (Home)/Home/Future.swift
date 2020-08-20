@@ -12,6 +12,7 @@ import QGrid
 struct Future: View {
     
     var items: [AudioContent]
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         VStack {

@@ -11,6 +11,7 @@ import SwiftUI
 struct Recomend: View {
     var categoryName: String
     var items: [AudioContent]
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
 //        縦方向

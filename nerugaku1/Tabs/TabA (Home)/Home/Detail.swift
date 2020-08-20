@@ -55,6 +55,7 @@ struct Detail: View {
                 
             }
         }.edgesIgnoringSafeArea(.top)
+        .environmentObject(UserData())
     }
 }
 
@@ -65,8 +66,7 @@ struct Detail_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
         return Detail(audioContent: userData.audiocontents[0])
-            .environmentObject(userData)
-        
+        .environmentObject(UserData())
         
     }
 }

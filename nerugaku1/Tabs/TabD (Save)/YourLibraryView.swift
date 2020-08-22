@@ -82,12 +82,40 @@ struct YourLibraryView: View {
         return VStack(alignment: .leading, spacing: 20){
 //            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
             SubCategoryText(subCategorys: index == 0 ? ["Playlists", "Albums", "Artists"] : ["Episodes", "Downloads", "Shows"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
+//            ここから
             Pager(page: currentSubCategory,
                   data: self.nestedData,
                   id: \.self) { page in
+//                    2枚目のPodcastになるときは表示できる？
+                    if self.page == 0 { // self.page場合は大カテゴリを取得してうまく動く
+//                        if self.currentSubCategoryIndex == 0 {
+                            ZStack {
+                                Rectangle()
+                                    .fill(Color.yellow)
+                                Text("Music: \(page)")
+                                    .bold()
+                            }
+//                        } else {
+//                            ZStack {
+//                                Rectangle()
+//                                    .fill(Color.yellow)
+//                                Text("Podcast: else")
+//                                    .bold()
+//                            }
+//                        }
+//
+                    } else {
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.yellow)
+                            Text("Podcast: \(page)")
+                                .bold()
+                        }
+                    }
+                    
 //                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: indicatorOffset)
-                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
-                    .environmentObject(UserData())
+//                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+//                    .environmentObject(UserData())
             }
             .allowsDragging(allowSubCategoryDragging)
             Spacer()

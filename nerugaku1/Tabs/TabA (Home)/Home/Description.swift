@@ -30,8 +30,8 @@ struct Description: View {
                 .padding([.top, .leading, .trailing], 10.0)
                 .frame(height: 70)
             
-            
-            VStack {
+            Group {
+                VStack {
                 //コンテンツの「いいね数」「再生時間」
                 HStack(spacing: 5.0)   {
                     
@@ -56,6 +56,7 @@ struct Description: View {
                             .isFavorite.toggle()
                     }) {
                         if self.userData.audiocontents[self.audioContentIndex].isFavorite {
+
                             Image(systemName: "heart.fill")
                             .padding(.trailing, 10.0)
                             .font(.system(size: 35.0, weight: .thin))
@@ -102,8 +103,8 @@ struct Description: View {
                 
                 
             }
-            .padding([.top, .leading, .trailing], 13.0)
-            
+                .padding([.top, .leading, .trailing], 13.0)
+            }
             
 //            問題を解くボタンを追加
             Button(action: {

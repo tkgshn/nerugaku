@@ -1,30 +1,32 @@
 //
 //  YourLibraryView.swift
-//  nerugaku1
+//  SpotifyWithSwiftUI
 //
-//  Created by Shunsuke Takagi on 2020/07/28.
-//  Copyright © 2020 Shunsuke Takagi. All rights reserved.
+//  Created by Archie Edwards on 07/06/2020.
+//  Copyright © 2020 Archie Edwards. All rights reserved.
 //
 
 import SwiftUI
 import SwiftUIPager
 
 struct YourLibraryView: View {
-    
+//    pageに1を設定
     @State var page: Int = 0 //// keeps track of which category index we are at
     @State var nestedPages: [Int] = [0, 0] /// keeps track of which sub category index we are at for each category
     @State var indicatorOffsets : [CGFloat] = [0,0] /// keepts track of indicator offsets for each category
     @State var allowSubCategoryDragging = true
-    @EnvironmentObject private var userData: UserData
     
+    @Binding var currentSubCategoryIndex : Int
+
     var data = Array(0..<2)
-    var nestedData = Array(0..<2)
-    
+    var nestedData = Array(0..<3)
+
     var body: some View {
         VStack{
-            //            CategoryText(currentCategoryIndex: self.$page, nestedPages: self.$nestedPages)
-            //                .padding(.trailing, 260.0)
-            
+//            一番上のカテゴリーテキストを表示するためにCategoryTextを追加、現在のcurrentCategoryIndexはpageから取得しておく
+//            めも：nestedPagesってなんだ？
+            CategoryText(currentCategoryIndex: self.$page, nestedPages: self.$nestedPages)
+//            Pagerから追加、ライブラリの変数っぽい
             Pager(page: self.$page,
                   data: self.data,
                   id: \.self) { page in
@@ -33,41 +35,32 @@ struct YourLibraryView: View {
             .onPageChanged({ _ in
                 self.allowSubCategoryDragging = true
             })
-            //            .swipeInteractionArea(.allAvailable)
-            //            .simultaneousGesture(DragGesture().onChanged({value in
-            /// catch moving to category
-            //                if self.allowSubCategoryDragging {
-            //                    let movingCategoryRight = self.page == 0 && self.nestedPages[self.page] == 2 && value.translation.width < 0
-            //                    let movingCategoryLeft = self.page == 1 && self.nestedPages[self.page] == 0 && value.translation.width > 0
-            //                    if movingCategoryRight || movingCategoryLeft{
-            //                        self.allowSubCategoryDragging = false
-            //                    }
-            //                    else{
-            //                        let westAsCanBe = self.nestedPages[self.page] == 0 && self.page == 0 && value.translation.width > 0
-            //                        let eastAsCanBe = self.nestedPages[self.page] == 2 && self.page == 1 && value.translation.width < 0
-            //                        if !westAsCanBe && !eastAsCanBe{
-            //                            /// we must be moving sub categorys move the offset for the indicator
-            //                            self.indicatorOffsets[self.page] = -value.translation.width/10
-            //                        }
-            //                    }
-            //                }
-            //            }).onEnded({ _ in
-            //                self.indicatorOffsets[self.page] = 0
-            //            }))
+            .swipeInteractionArea(.allAvailable)
+            .simultaneousGesture(DragGesture().onChanged({value in
+                /// catch moving to category
+                if self.allowSubCategoryDragging {
+                    let movingCategoryRight = self.page == 0 && self.nestedPages[self.page] == 2 && value.translation.width < 0
+                    let movingCategoryLeft = self.page == 1 && self.nestedPages[self.page] == 0 && value.translation.width > 0
+                    if movingCategoryRight || movingCategoryLeft{
+                        self.allowSubCategoryDragging = false
+                    }
+                    else{
+                        let westAsCanBe = self.nestedPages[self.page] == 0 && self.page == 0 && value.translation.width > 0
+                        let eastAsCanBe = self.nestedPages[self.page] == 2 && self.page == 1 && value.translation.width < 0
+                        if !westAsCanBe && !eastAsCanBe{
+                            /// we must be moving sub categorys move the offset for the indicator
+                            self.indicatorOffsets[self.page] = -value.translation.width/10
+                        }
+                    }
+                }
+            }).onEnded({ _ in
+                self.indicatorOffsets[self.page] = 0
+            }))
         }
     }
-    
+
     /// nestedPager contains subcategory titles, an indicator and a pager to show subcategory views
     func nestedPager(_ index: Int) -> some View {
-//        let currentSubCategory = Binding<Int>(
-//            get: {
-//                self.nestedPages[index]
-//        }, set: { newValue in
-//            var newNestedPages = self.nestedPages
-//            newNestedPages[index] = newValue
-//            self.nestedPages = newNestedPages
-//        })
-        
         let currentSubCategory = Binding<Int>(
             get: {
                 self.nestedPages[index]
@@ -85,25 +78,40 @@ struct YourLibraryView: View {
             newIndicatorOffsets[index] = newValue
             self.indicatorOffsets = newIndicatorOffsets
         })
-        
+
         return VStack(alignment: .leading, spacing: 20){
-            SubCategoryText(subCategorys: ["お気に入り", "履歴"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
+//            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
+            SubCategoryText(subCategorys: index == 0 ? ["Playlists", "Albums", "Artists"] : ["Episodes", "Downloads", "Shows"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
             Pager(page: currentSubCategory,
                   data: self.nestedData,
                   id: \.self) { page in
-                    MediaContentView(currentSubCategoryIndex: currentSubCategory)
+//                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: indicatorOffset)
+                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
                     .environmentObject(UserData())
             }
             .allowsDragging(allowSubCategoryDragging)
             Spacer()
         }
     }
-    
+
 }
+
 
 struct YourLibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        YourLibraryView()
+        YourLibraryViewPreview()
+    }
+    struct YourLibraryViewPreview : View{
+        @State var currentSubCategoryIndex = 0
+        var body: some View{
+            YourLibraryView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+        }
     }
 }
+
+
+
+
+
+
 

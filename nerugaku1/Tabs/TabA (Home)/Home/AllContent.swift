@@ -50,6 +50,7 @@ struct ContentRow: View {
             
             //            いいねしてた場合
             if audioContent.isFavorite {
+
                 Image("Heart.fill")
                     .imageScale(.medium)
                     .foregroundColor(.red)

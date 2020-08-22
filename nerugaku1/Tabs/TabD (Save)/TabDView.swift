@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct TabDView: View {
+    @State var currentSubCategoryIndex = 0
     var body: some View {
                 NavigationView {
-        YourLibraryView().padding(.top)
+                    YourLibraryView(currentSubCategoryIndex: self.$currentSubCategoryIndex).padding(.top)
             .edgesIgnoringSafeArea(.bottom)
         //        }.navigationBarTitle(Text("Landmarks"))
         }
@@ -22,7 +23,7 @@ struct TabDView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             TabDView()
-                .padding(.top, -60.0)
+                .padding(.top)
         }
     }
 }

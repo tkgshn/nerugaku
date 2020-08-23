@@ -22,10 +22,17 @@ struct AudioPlayerControlsView: View {
     let itemObserver: PlayerItemObserver
     @State private var currentTime: TimeInterval = 0
     @State private var currentDuration: TimeInterval = 0
+//    　最初は選ばれるのを待っている状態だったのを
     @State private var state = PlaybackState.waitingForSelection
     
+//    クリックした瞬間に再生中に変更しようとしたけどテキストが変更されるだけで、再生はされてなかったため取り消し
+//    @State private var state = PlaybackState.playing
+    
     var body: some View {
+    
         VStack {
+            
+//            再生中のステータスによって表示をへんこう
             if state == .waitingForSelection {
                 Text("Select a song below")
             } else if state == .buffering {
@@ -75,13 +82,18 @@ struct AudioPlayerControlsView: View {
         //        }
     }
     
+    
+//    スライドをいじる場合
     // MARK: Private functions
     private func sliderEditingChanged(editingStarted: Bool) {
         if editingStarted {
             // Tell the PlayerTimeObserver to stop publishing updates while the user is interacting
             // with the slider (otherwise it would keep jumping from where they've moved it to, back
             // to where the player is currently at)
+            
+
             timeObserver.pause(true)
+            
         }
         else {
             // Editing finished, start the seek
@@ -114,6 +126,8 @@ struct AudioView: View {
         private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                               title: "hoge")]
     
+
+    
     var body: some View {
         VStack {
             
@@ -133,14 +147,19 @@ struct AudioView: View {
 //            ここから再生するタイトル
             List(items, id: \.title) { audioContent in
                 
+//                ボタン
                 Button(self.audioContent.name) {
                     guard let url = URL(string: self.audioContent.url) else {
                         return
                     }
                     let playerItem = AVPlayerItem(url: url)
                     self.player.replaceCurrentItem(with: playerItem)
+//                    ボタンが押された時に再生
                     self.player.play()
                 }
+                
+                
+                
             }
             
             
@@ -163,6 +182,7 @@ class PlayerTimeObserver {
     
     init(player: AVPlayer) {
         self.player = player
+        
         
         // Periodically observe the player's current time, whilst playing
         timeObservation = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: 600), queue: nil) { [weak self] time in

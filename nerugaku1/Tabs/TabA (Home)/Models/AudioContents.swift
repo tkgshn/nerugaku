@@ -31,21 +31,24 @@ struct AudioContent: Hashable, Codable, Identifiable {
     var isFavorite: Bool
     //    おすすめかどうか
     var isFeatured: Bool
-
-
+    
+    //    音声コンテンツのURL
+//    var url: String
+    
+    
     //    サムネイル画像
     fileprivate var imageName: String
-
+    
     var featureImage: Image? {
         guard isFeatured else { return nil }
-
+        
         return Image(
             ImageStore.loadImage(name: "\(imageName)_feature"),
             scale: 2,
             label: Text(name))
     }
-
-
+    
+    
     //    Category自体を詳細記入
     enum Category: String, CaseIterable, Codable, Hashable {
         case featured = "おすすめ"
@@ -72,16 +75,16 @@ extension AudioContent {
     /// Used to create a Post for example Debug purposes
     static var example: Self {
         return AudioContent(id: 0,
-                             name: "Test name",
-                             description: "Test disctiption",
-                             allfavorite: 10,
-                             alltime: 156,
-                             allphrase: 15,
-                             phrase1: "This is a test sentence",
-                             category: AudioContent.Category(rawValue: "おすすめ")!,
-                             isFavorite: true,
-                             isFeatured: true,
-                             imageName: "silversalmoncreek")
+                            name: "Test name",
+                            description: "Test disctiption",
+                            allfavorite: 10,
+                            alltime: 156,
+                            allphrase: 15,
+                            phrase1: "This is a test sentence",
+                            category: AudioContent.Category(rawValue: "おすすめ")!,
+                            isFavorite: true,
+                            isFeatured: true,
+                            imageName: "silversalmoncreek")
     }
 }
 #endif

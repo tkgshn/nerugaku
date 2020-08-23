@@ -55,6 +55,7 @@
 		C4B2E29D24CF46140084B0E3 /* CategoryText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29C24CF46140084B0E3 /* CategoryText.swift */; };
 		C4B2E2A024CF46990084B0E3 /* MediaContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B2E29F24CF46990084B0E3 /* MediaContentView.swift */; };
 		C4B2E2A324CF48AD0084B0E3 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C4B2E2A224CF48AD0084B0E3 /* SwiftUIPager */; };
+		C4C4582A24F2E6F900855088 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4582924F2E6F900855088 /* AudioPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		C4B2E29A24CF45F10084B0E3 /* SubCategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryText.swift; sourceTree = "<group>"; };
 		C4B2E29C24CF46140084B0E3 /* CategoryText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryText.swift; sourceTree = "<group>"; };
 		C4B2E29F24CF46990084B0E3 /* MediaContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaContentView.swift; sourceTree = "<group>"; };
+		C4C4582924F2E6F900855088 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				A8792D4324CA22A900A374BB /* MenuView.swift */,
 				A8792D4524CA22B600A374BB /* AudioView.swift */,
 				A8792D4724CA232B00A374BB /* VideoView.swift */,
+				C4C4582924F2E6F900855088 /* AudioPlayerView.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C4582A24F2E6F900855088 /* AudioPlayerView.swift in Sources */,
 				C43FD3D624CB059A00430C3B /* AllContent.swift in Sources */,
 				C4B0446824D2B6B5001CBB25 /* AudioContents.swift in Sources */,
 				C4B0446E24D2BB62001CBB25 /* UserData.swift in Sources */,

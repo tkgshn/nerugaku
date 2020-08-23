@@ -10,23 +10,23 @@ import SwiftUI
 import SwiftUIPager
 
 struct YourLibraryView: View {
-//    pageに1を設定
+    //    pageに1を設定
     @State var page: Int = 0 //// keeps track of which category index we are at
     @State var nestedPages: [Int] = [0, 0] /// keeps track of which sub category index we are at for each category
     @State var indicatorOffsets : [CGFloat] = [0,0] /// keepts track of indicator offsets for each category
     @State var allowSubCategoryDragging = true
     
     @Binding var currentSubCategoryIndex : Int
-
+    
     var data = Array(0..<2)
     var nestedData = Array(0..<3)
-
+    
     var body: some View {
         VStack{
-//            一番上のカテゴリーテキストを表示するためにCategoryTextを追加、現在のcurrentCategoryIndexはpageから取得しておく
-//            めも：nestedPagesってなんだ？
+            //            一番上のカテゴリーテキストを表示するためにCategoryTextを追加、現在のcurrentCategoryIndexはpageから取得しておく
+            //            めも：nestedPagesってなんだ？
             CategoryText(currentCategoryIndex: self.$page, nestedPages: self.$nestedPages)
-//            Pagerから追加、ライブラリの変数っぽい
+            //            Pagerから追加、ライブラリの変数っぽい
             Pager(page: self.$page,
                   data: self.data,
                   id: \.self) { page in
@@ -35,30 +35,30 @@ struct YourLibraryView: View {
             .onPageChanged({ _ in
                 self.allowSubCategoryDragging = true
             })
-            .swipeInteractionArea(.allAvailable)
-            .simultaneousGesture(DragGesture().onChanged({value in
-                /// catch moving to category
-                if self.allowSubCategoryDragging {
-                    let movingCategoryRight = self.page == 0 && self.nestedPages[self.page] == 2 && value.translation.width < 0
-                    let movingCategoryLeft = self.page == 1 && self.nestedPages[self.page] == 0 && value.translation.width > 0
-                    if movingCategoryRight || movingCategoryLeft{
-                        self.allowSubCategoryDragging = false
-                    }
-                    else{
-                        let westAsCanBe = self.nestedPages[self.page] == 0 && self.page == 0 && value.translation.width > 0
-                        let eastAsCanBe = self.nestedPages[self.page] == 2 && self.page == 1 && value.translation.width < 0
-                        if !westAsCanBe && !eastAsCanBe{
-                            /// we must be moving sub categorys move the offset for the indicator
-                            self.indicatorOffsets[self.page] = -value.translation.width/10
+                .swipeInteractionArea(.allAvailable)
+                .simultaneousGesture(DragGesture().onChanged({value in
+                    /// catch moving to category
+                    if self.allowSubCategoryDragging {
+                        let movingCategoryRight = self.page == 0 && self.nestedPages[self.page] == 2 && value.translation.width < 0
+                        let movingCategoryLeft = self.page == 1 && self.nestedPages[self.page] == 0 && value.translation.width > 0
+                        if movingCategoryRight || movingCategoryLeft{
+                            self.allowSubCategoryDragging = false
+                        }
+                        else{
+                            let westAsCanBe = self.nestedPages[self.page] == 0 && self.page == 0 && value.translation.width > 0
+                            let eastAsCanBe = self.nestedPages[self.page] == 2 && self.page == 1 && value.translation.width < 0
+                            if !westAsCanBe && !eastAsCanBe{
+                                /// we must be moving sub categorys move the offset for the indicator
+                                self.indicatorOffsets[self.page] = -value.translation.width/10
+                            }
                         }
                     }
-                }
-            }).onEnded({ _ in
-                self.indicatorOffsets[self.page] = 0
-            }))
+                }).onEnded({ _ in
+                    self.indicatorOffsets[self.page] = 0
+                }))
         }
     }
-
+    
     /// nestedPager contains subcategory titles, an indicator and a pager to show subcategory views
     func nestedPager(_ index: Int) -> some View {
         let currentSubCategory = Binding<Int>(
@@ -79,37 +79,38 @@ struct YourLibraryView: View {
             self.indicatorOffsets = newIndicatorOffsets
         })
         
-//        親の定義
-//        var _: YourLibraryView
-
+        //        親の定義
+        //        var _: YourLibraryView
+        
         return VStack(alignment: .leading, spacing: 20){
-//            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
+            //            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
             SubCategoryText(subCategorys: index == 0 ? ["Playlists", "Albums", "Artists"] : ["Episodes", "Downloads", "Shows"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
-//            ここから
+            //            ここから
             Pager(page: currentSubCategory,
                   data: self.nestedData,
                   id: \.self) { page in
-//                    2枚目のPodcastになるときは表示できる？
+                    //                    2枚目のPodcastになるときは表示できる？
                     if self.page == 0 { // self.page場合は大カテゴリを取得してうまく動く
-//                        if self.currentSubCategoryIndex == 0 {
+                        //                        if self.currentSubCategoryIndex == 0 {
+                        //                        Musicタブはpageが0なので以下のコードが実行される
+                        ZStack {
+                            Rectangle()
+                                .fill(Color.yellow)
+                            Text("Music: \(page)")
+                                .bold()
+                        }
                         
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.yellow)
-                                Text("Music: \(page)")
-                                    .bold()
-                            }
-                       
-                            
-//                        } else {
-//                            ZStack {
-//                                Rectangle()
-//                                    .fill(Color.yellow)
-//                                Text("Podcast: else")
-//                                    .bold()
-//                            }
-//                        }
-//
+                        
+                        //                        } else {
+                        //                            ZStack {
+                        //                                Rectangle()
+                        //                                    .fill(Color.yellow)
+                        //                                Text("Podcast: else")
+                        //                                    .bold()
+                        //                            }
+                        //                        }
+                        //
+                        //                        Podcastタブはpageが1なので以下のコードが実行される
                     } else {
                         ZStack {
                             Rectangle()
@@ -119,15 +120,15 @@ struct YourLibraryView: View {
                         }
                     }
                     
-//                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: indicatorOffset)
-//                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
-//                    .environmentObject(UserData())
+                    //                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: indicatorOffset)
+                    //                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+                    //                    .environmentObject(UserData())
             }
             .allowsDragging(allowSubCategoryDragging)
             Spacer()
         }
     }
-
+    
 }
 
 

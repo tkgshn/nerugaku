@@ -10,6 +10,8 @@ import SwiftUI
 import AVFoundation
 
 struct AudioPlayerControlsView: View {
+    
+    //    再生ステータスを3つに分ける
     private enum PlaybackState: Int {
         case waitingForSelection
         case buffering
@@ -22,17 +24,19 @@ struct AudioPlayerControlsView: View {
     let itemObserver: PlayerItemObserver
     @State private var currentTime: TimeInterval = 0
     @State private var currentDuration: TimeInterval = 0
-//    　最初は選ばれるのを待っている状態だったのを
+    //    　最初は選ばれるのを待っている状態だったのを
+    
+    //    最初の状態は再生されるの（選択される）を待っておく
     @State private var state = PlaybackState.waitingForSelection
     
-//    クリックした瞬間に再生中に変更しようとしたけどテキストが変更されるだけで、再生はされてなかったため取り消し
-//    @State private var state = PlaybackState.playing
+    //    クリックした瞬間に再生中に変更しようとしたけどテキストが変更されるだけで、再生はされてなかったため取り消し
+    //    @State private var state = PlaybackState.playing
     
     var body: some View {
-    
+        
         VStack {
             
-//            再生中のステータスによって表示をへんこう
+            //            再生中のステータスによって表示をへんこう
             if state == .waitingForSelection {
                 Text("Select a song below")
             } else if state == .buffering {
@@ -44,37 +48,40 @@ struct AudioPlayerControlsView: View {
             Slider(value: $currentTime,
                    in: 0...currentDuration,
                    onEditingChanged: sliderEditingChanged,
-                   minimumValueLabel: Text("\(Utility.formatSecondsToHMS(currentTime))"),
-                   maximumValueLabel: Text("\(Utility.formatSecondsToHMS(currentDuration))")) {
-                    // I have no idea in what scenario this View is shown...
-                    Text("seek/progress slider")
+                   //                   最小を定義
+                minimumValueLabel: Text("\(Utility.formatSecondsToHMS(currentTime))"),
+                //                   最高を定義
+            maximumValueLabel: Text("\(Utility.formatSecondsToHMS(currentDuration))")) {
+                // このビューがどのようなシナリオで表示されているのか、私にはさっぱりわかりません...。
+                Text("seek/progress slider")
             }
             .padding([.top, .leading, .trailing])
+//            .disabled(state != .playing)から変更しようとしたけど意味なかったので同じ
             .disabled(state != .playing)
         }
         .padding(.top, 60.0)
-            // Listen out for the time observer publishing changes to the player's time
+            // タイムオブザーバーがプレイヤーの時間を変更して公開していることに耳を傾けてください。
             .onReceive(timeObserver.publisher) { time in
                 // Update the local var
                 self.currentTime = time
-                // And flag that we've started playback
+                // そして再生を開始したことをフラグ
                 if time > 0 {
                     self.state = .playing
                 }
         }
-            // Listen out for the duration observer publishing changes to the player's item duration
+            // 持続時間オブザーバーがプレイヤーのアイテム持続時間の変更を公開していることに注意してください。
             .onReceive(durationObserver.publisher) { duration in
-                // Update the local var
+                // Uローカル変数の日付を変更する
                 self.currentDuration = duration
         }
-            // Listen out for the item observer publishing a change to whether the player has an item
+            // アイテムオブザーバーがプレイヤーがアイテムを持っているかどうかの変更を公開していることに注意してください。
             .onReceive(itemObserver.publisher) { hasItem in
                 self.state = hasItem ? .buffering : .waitingForSelection
                 self.currentTime = 0
                 self.currentDuration = 0
         }
-        // TODO the below could replace the above but causes a crash
-        //        // Listen out for the player's item changing
+        // TODO 以下は上記を置き換えることができますが、クラッシュの原因となります。
+        // // // プレイヤーのアイテム交換を聞く
         //        .onReceive(player.publisher(for: \.currentItem)) { item in
         //            self.state = item != nil ? .buffering : .waitingForSelection
         //            self.currentTime = 0
@@ -83,25 +90,25 @@ struct AudioPlayerControlsView: View {
     }
     
     
-//    スライドをいじる場合
+    //    スライドをいじる場合
     // MARK: Private functions
     private func sliderEditingChanged(editingStarted: Bool) {
         if editingStarted {
-            // Tell the PlayerTimeObserver to stop publishing updates while the user is interacting
-            // with the slider (otherwise it would keep jumping from where they've moved it to, back
-            // to where the player is currently at)
+            // ユーザーが対話している間、更新情報の公開を停止するようにPlayerTimeObserverに指示します。
+            // スライダーを使って（そうしないと、スライダーを移動させたところからジャンプし続けてしまいます。
+            // プレイヤーが現在いる場所に移動します)
             
-
+            
             timeObserver.pause(true)
             
         }
         else {
-            // Editing finished, start the seek
+            // 編集が終了し、シークを開始
             state = .buffering
             let targetTime = CMTime(seconds: currentTime,
                                     preferredTimescale: 600)
             player.seek(to: targetTime) { _ in
-                // Now the (async) seek is completed, resume normal operation
+                // これで(非同期)シークが完了したので、通常の操作を再開します。
                 self.timeObserver.pause(false)
                 self.state = .playing
             }
@@ -112,31 +119,31 @@ struct AudioPlayerControlsView: View {
 struct AudioView: View {
     let player = AVPlayer()
     
-//    AudioContentを持ってこれるように追加
+    //    AudioContentを持ってこれるように追加
     var audioContent: AudioContent
     
-//    一回なくなってもらう
-//    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-//                          title: "Song-1"),
-//                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-//                          title: "Song-2"),
-//                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-//                          title: "Song-3")]
     
-        private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                              title: "hoge")]
+    //    一回なくなってもらう
+    //    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    //                          title: "Song-1"),
+    //                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    //                          title: "Song-2"),
+    //                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    //                          title: "Song-3")]
     
-
+    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                          title: "hoge")]
+    
     
     var body: some View {
         VStack {
             
-//            現在再生している音声の画像
+            //            現在再生している音声の画像
             BackgroundImage(audioContent: audioContent)
             Spacer()
             Spacer()
             
-//            再生に関する操作
+            //            再生に関する操作
             AudioPlayerControlsView(player: player,
                                     timeObserver: PlayerTimeObserver(player: player),
                                     durationObserver: PlayerDurationObserver(player: player),
@@ -144,30 +151,32 @@ struct AudioView: View {
             
             
             
-//            ここから再生するタイトル
-            List(items, id: \.title) { audioContent in
+            //            ここから再生するタイトル
+//            List(items, id: \.title) { audioContent in
                 
-//                ボタン
+                //                ボタン
                 Button(self.audioContent.name) {
-                    guard let url = URL(string: self.audioContent.url) else {
-                        return
+                    guard let url = URL(string: self.audioContent.url)
+                        else {
+                            return
+
                     }
                     let playerItem = AVPlayerItem(url: url)
                     self.player.replaceCurrentItem(with: playerItem)
-//                    ボタンが押された時に再生
+                    //                    ボタンが押された時に再生
                     self.player.play()
                 }
                 
                 
                 
-            }
+//            }
             
             
             
             
         }
         .onDisappear {
-            // When this View isn't being shown anymore stop the player
+            // このビューが表示されなくなったら、プレイヤーを停止します。
             self.player.replaceCurrentItem(with: nil)
         }
     }
@@ -184,12 +193,12 @@ class PlayerTimeObserver {
         self.player = player
         
         
-        // Periodically observe the player's current time, whilst playing
+        // プレイ中のプレイヤーの現在時刻を定期的に監視する
         timeObservation = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: 600), queue: nil) { [weak self] time in
             guard let self = self else { return }
-            // If we've not been told to pause our updates
+            // 更新を一時停止するように言われていない場合
             guard !self.paused else { return }
-            // Publish the new player time
+            // 新しいプレイヤーの時間を公開する
             self.publisher.send(time.seconds)
         }
     }
@@ -211,10 +220,10 @@ class PlayerItemObserver {
     private var itemObservation: NSKeyValueObservation?
     
     init(player: AVPlayer) {
-        // Observe the current item changing
+        // 現在のアイテムの変化を監視する
         itemObservation = player.observe(\.currentItem) { [weak self] player, change in
             guard let self = self else { return }
-            // Publish whether the player has an item or not
+            // プレイヤーがアイテムを持っているかどうかを公開する
             self.publisher.send(player.currentItem != nil)
         }
     }

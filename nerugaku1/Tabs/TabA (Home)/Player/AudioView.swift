@@ -45,33 +45,33 @@ struct AudioPlayerControlsView: View {
             .disabled(state != .playing)
         }
         .padding()
-        // Listen out for the time observer publishing changes to the player's time
-        .onReceive(timeObserver.publisher) { time in
-            // Update the local var
-            self.currentTime = time
-            // And flag that we've started playback
-            if time > 0 {
-                self.state = .playing
-            }
+            // Listen out for the time observer publishing changes to the player's time
+            .onReceive(timeObserver.publisher) { time in
+                // Update the local var
+                self.currentTime = time
+                // And flag that we've started playback
+                if time > 0 {
+                    self.state = .playing
+                }
         }
-        // Listen out for the duration observer publishing changes to the player's item duration
-        .onReceive(durationObserver.publisher) { duration in
-            // Update the local var
-            self.currentDuration = duration
+            // Listen out for the duration observer publishing changes to the player's item duration
+            .onReceive(durationObserver.publisher) { duration in
+                // Update the local var
+                self.currentDuration = duration
         }
-        // Listen out for the item observer publishing a change to whether the player has an item
-        .onReceive(itemObserver.publisher) { hasItem in
-            self.state = hasItem ? .buffering : .waitingForSelection
-            self.currentTime = 0
-            self.currentDuration = 0
+            // Listen out for the item observer publishing a change to whether the player has an item
+            .onReceive(itemObserver.publisher) { hasItem in
+                self.state = hasItem ? .buffering : .waitingForSelection
+                self.currentTime = 0
+                self.currentDuration = 0
         }
         // TODO the below could replace the above but causes a crash
-//        // Listen out for the player's item changing
-//        .onReceive(player.publisher(for: \.currentItem)) { item in
-//            self.state = item != nil ? .buffering : .waitingForSelection
-//            self.currentTime = 0
-//            self.currentDuration = 0
-//        }
+        //        // Listen out for the player's item changing
+        //        .onReceive(player.publisher(for: \.currentItem)) { item in
+        //            self.state = item != nil ? .buffering : .waitingForSelection
+        //            self.currentTime = 0
+        //            self.currentDuration = 0
+        //        }
     }
     
     // MARK: Private functions
@@ -98,10 +98,20 @@ struct AudioPlayerControlsView: View {
 
 struct AudioView: View {
     let player = AVPlayer()
-    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                          title: "Song-1"),
-                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-                          title: "Song-2")]
+    
+//    AudioContentを持ってこれるように追加
+    var audioContent: AudioContent
+    
+//    一回なくなってもらう
+//    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+//                          title: "Song-1"),
+//                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+//                          title: "Song-2"),
+//                         (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+//                          title: "Song-3")]
+    
+        private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                              title: "hoge")]
     
     var body: some View {
         VStack {
@@ -110,9 +120,9 @@ struct AudioView: View {
                                     durationObserver: PlayerDurationObserver(player: player),
                                     itemObserver: PlayerItemObserver(player: player))
             
-            List(items, id: \.title) { item in
-                Button(item.title) {
-                    guard let url = URL(string: item.url) else {
+            List(items, id: \.title) { audioContent in
+                Button(self.audioContent.name) {
+                    guard let url = URL(string: self.audioContent.url) else {
                         return
                     }
                     let playerItem = AVPlayerItem(url: url)

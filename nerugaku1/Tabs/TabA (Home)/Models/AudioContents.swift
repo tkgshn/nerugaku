@@ -33,7 +33,7 @@ struct AudioContent: Hashable, Codable, Identifiable {
     var isFeatured: Bool
     
     //    音声コンテンツのURL
-//    var url: String
+    var url: String
     
     
     //    サムネイル画像
@@ -84,6 +84,7 @@ extension AudioContent {
                             category: AudioContent.Category(rawValue: "おすすめ")!,
                             isFavorite: true,
                             isFeatured: true,
+                            url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                             imageName: "silversalmoncreek")
     }
 }

@@ -95,7 +95,7 @@ struct Description: View {
                     }
                     .sheet(isPresented: self.$isShown) {
                         //モーダル遷移した後に表示するビュー
-                        AudioView()
+                        AudioView(audioContent: self.audioContent)
                     }
                     
                     

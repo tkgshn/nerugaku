@@ -10,7 +10,8 @@
         "category": "おすすめ",
         "isFavorite": false,
         "isFeatured": true,
-        "imageName": "turtlerock"
+        "imageName": "turtlerock",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
         "id": 2,
@@ -23,7 +24,8 @@
         "category": "おすすめ",
         "isFavorite": true,
         "isFeatured": false,
-        "imageName": "silversalmoncreek"
+        "imageName": "silversalmoncreek",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
         "id": 3,
@@ -36,7 +38,8 @@
         "category": "留学",
         "isFavorite": false,
         "isFeatured": false,
-        "imageName": "umbagog"
+        "imageName": "umbagog",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
         "id": 4,
@@ -49,7 +52,8 @@
         "category": "旅行",
         "isFavorite": false,
         "isFeatured": true,
-        "imageName": "icybay"
+        "imageName": "icybay",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     },
     {
         "id": 5,
@@ -62,7 +66,8 @@
         "category": "日常生活",
         "isFavorite": false,
         "isFeatured": false,
-        "imageName": "umbagog"
+        "imageName": "umbagog",
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
     }
 ]
  

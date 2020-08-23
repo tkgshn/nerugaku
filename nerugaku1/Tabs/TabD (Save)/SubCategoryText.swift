@@ -16,7 +16,8 @@ struct SubCategoryText: View {
     var body: some View {
         HStack{
 //            サブカテゴリーを3つ横に並べる、これらはPlaylist・Alubums・Artistsの3つ、判定はsubCategoryも持っている引数「index」で判定している
-            subCategory(index: 0, parent: self)
+                           
+            subCategory(index: 0, parent: self)         
             subCategory(index: 1, parent: self)
             subCategory(index: 2, parent: self)
             Spacer()

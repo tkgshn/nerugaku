@@ -78,6 +78,9 @@ struct YourLibraryView: View {
             newIndicatorOffsets[index] = newValue
             self.indicatorOffsets = newIndicatorOffsets
         })
+        
+//        親の定義
+//        var _: YourLibraryView
 
         return VStack(alignment: .leading, spacing: 20){
 //            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
@@ -89,12 +92,15 @@ struct YourLibraryView: View {
 //                    2枚目のPodcastになるときは表示できる？
                     if self.page == 0 { // self.page場合は大カテゴリを取得してうまく動く
 //                        if self.currentSubCategoryIndex == 0 {
+                        
                             ZStack {
                                 Rectangle()
                                     .fill(Color.yellow)
                                 Text("Music: \(page)")
                                     .bold()
                             }
+                       
+                            
 //                        } else {
 //                            ZStack {
 //                                Rectangle()

@@ -42,9 +42,10 @@ struct AudioPlayerControlsView: View {
                     // I have no idea in what scenario this View is shown...
                     Text("seek/progress slider")
             }
+            .padding([.top, .leading, .trailing])
             .disabled(state != .playing)
         }
-        .padding()
+        .padding(.top, 60.0)
             // Listen out for the time observer publishing changes to the player's time
             .onReceive(timeObserver.publisher) { time in
                 // Update the local var
@@ -115,12 +116,23 @@ struct AudioView: View {
     
     var body: some View {
         VStack {
+            
+//            現在再生している音声の画像
+            BackgroundImage(audioContent: audioContent)
+            Spacer()
+            Spacer()
+            
+//            再生に関する操作
             AudioPlayerControlsView(player: player,
                                     timeObserver: PlayerTimeObserver(player: player),
                                     durationObserver: PlayerDurationObserver(player: player),
                                     itemObserver: PlayerItemObserver(player: player))
             
+            
+            
+//            ここから再生するタイトル
             List(items, id: \.title) { audioContent in
+                
                 Button(self.audioContent.name) {
                     guard let url = URL(string: self.audioContent.url) else {
                         return
@@ -130,6 +142,10 @@ struct AudioView: View {
                     self.player.play()
                 }
             }
+            
+            
+            
+            
         }
         .onDisappear {
             // When this View isn't being shown anymore stop the player

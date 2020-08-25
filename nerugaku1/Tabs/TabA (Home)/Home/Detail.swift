@@ -29,10 +29,11 @@ struct Detail: View {
         ScrollView {
             VStack{
                 BackgroundImage(audioContent: audioContent)
+                    .padding(.bottom)
                     .edgesIgnoringSafeArea(.top)
                 
                 Description(audioContent: audioContent)
-                    .padding(.vertical)
+                    .padding(.vertical, 20.0)
     
                 
                 //                ここまだいい感じになってない、とりあえず大量に突っ込んでおく

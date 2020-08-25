@@ -118,15 +118,17 @@ struct AudioPlayerControlsView: View {
 }
 
 struct AudioView: View {
-    let player = AVPlayer()
+    var player = AVPlayer()
     
     //    AudioContentを持ってこれるように追加
     var audioContent: AudioContent
     
     //    再生中かどうかを取得する変数を作成
-//    @State var playing = false
-//    @State var finish = false
-    @State var playing = false
+    //    @State var playing = false
+    //    @State var finish = false
+    //    @State var playing = false
+    //    @State var isPlaying : Bool = false
+    @State var count = 1
     
     
     //    一回なくなってもらう
@@ -153,94 +155,65 @@ struct AudioView: View {
                                     durationObserver: PlayerDurationObserver(player: player),
                                     itemObserver: PlayerItemObserver(player: player))
             
-            
-            
-            //            ここから再生するタイトル
-            //            List(items, id: \.title) { audioContent in
-            
-            //                ボタン
-            //            Button(self.audioContent.name) {
-            //                    guard let url = URL(string: self.audioContent.url)
-            //
-            //                        else {
-            //                            return
-            //
-            //                    }
-            //
-            //                    let playerItem = AVPlayerItem(url: url)
-            //                    self.player.replaceCurrentItem(with: playerItem)
-            //                    //                    ボタンが押された時に再生
-            //                    self.player.play()
-            //                }
-            
-            
-            //            再生の場所を担う
             //            Button(action: {
+            //                //                    もし再生してないのであれば、再生する
+            //
+            //                //                    if ((self.player.rate != 0) && (self.player.error == nil))  {
+            //
+            //                //                        もし再生してない場合は
             //                guard let url = URL(string: self.audioContent.url)
             //                    else {
             //                        return
             //                }
             //                let playerItem = AVPlayerItem(url: url)
             //                self.player.replaceCurrentItem(with: playerItem)
-            ////                ボタンが押された時に再生
             //                self.player.play()
+            //
+            //
+            //
+            //
             //            }) {
-            ////                ボタンの中身を画像に変更
-            //                Image(systemName: "play.circle.fill")
-            //                    .resizable()
+            //
+            //                Image(systemName: "play").resizable()
             //                    .frame(width: 50, height: 50)
             //                    .aspectRatio(contentMode: .fit)
+            //
             //            }
             
-            
-        
-            
-            
-            //            追加
             HStack {
+                Spacer()
                 Button(action: {
-                    //                    もし再生してないのであれば、再生する
-                    
-                    if ((self.player.rate != 0) && (self.player.error == nil))  {
-
-                        //                        もし再生してない場合は
-                        guard let url = URL(string: self.audioContent.url)
-                            else {
-                                return
-                        }
-                        let playerItem = AVPlayerItem(url: url)
-                        self.player.replaceCurrentItem(with: playerItem)
-                        self.player.pause()
-                    } else {
-                        
-                        //                        もし再生している場合は
-                        guard let url = URL(string: self.audioContent.url)
-                            else {
-                                return
-                        }
-                        let playerItem = AVPlayerItem(url: url)
-                        self.player.replaceCurrentItem(with: playerItem)
-                        self.player.play()
-                    }
-                    
-                    
+                    self.player.play()
                 }) {
-
-                    Image(systemName: "play").resizable()
+                    Image(systemName: "play.circle.fill").resizable()
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
-                    
                 }
+                Spacer()
+                Button(action: {
+                    self.player.pause()
+                }) {
+                    Image(systemName: "pause.circle.fill").resizable()
+                        .frame(width: 50, height: 50)
+                        .aspectRatio(contentMode: .fit)
+                }
+                Spacer()
             }
-            
-            
-            //            }
-            
             
             
             
         }
         .edgesIgnoringSafeArea(.all)
+            //            このViewが表示されたら音声を再生する
+            .onAppear {
+                guard let url = URL(string: self.audioContent.url)
+                    else {
+                        return
+                }
+                let playerItem = AVPlayerItem(url: url)
+                self.player.replaceCurrentItem(with: playerItem)
+                self.player.play()
+        }
         .onDisappear {
             // このビューが表示されなくなったら、プレイヤーを停止します。
             self.player.replaceCurrentItem(with: nil)

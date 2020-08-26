@@ -191,13 +191,13 @@ struct AudioView: View {
                         self.player.rate = self.spChanger
                         self.spString = "2"
                     } else if self.spChanger == Float(2.0) {
-                        self.spChanger = Float(0.5)
+                        self.spChanger = Float(0.8)
                         self.player.rate = self.spChanger
-                        self.spString = "0.5"
+                        self.spString = "0.8"
                     } else {
                         self.spChanger = Float(1.0)
                         self.player.rate = self.spChanger
-                        self.spString = "1"
+                        self.spString = "1.0"
                     }
                 }) {
 //                    現在の再生しているスピードを表示

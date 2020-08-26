@@ -118,13 +118,21 @@ struct AudioPlayerControlsView: View {
 }
 
 struct AudioView: View {
-    var player = AVPlayer()
-    @State private var playerPaused = false
     
-    //    AudioContentを持ってこれるように追加
+    //    AVPlayer自体をインポート
+    var player = AVPlayer()
+    //    この再生が止まっているのかどうかを定義、下で開いた時に再生するように指定しているのでデフォルトを再生中に設定
+    @State private var playerPaused = false
+    //    コンテンツ自体をインポート
     var audioContent: AudioContent
     
+    //    再生速度関連
+    @State var spChanger:Float = 1.0
+    @State var spString:String = "1.0"
+    @State var meterBool = true
+    @State var currentTime = "0"
     
+    //    アイテム類
     private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                           title: "hoge")]
     
@@ -147,6 +155,7 @@ struct AudioView: View {
             
             HStack {
                 Spacer()
+                //                再生・一時停止のやつ
                 Button(action: togglePlayPause) {
                     Image(systemName: playerPaused ? "play" : "pause")
                         .resizable()
@@ -170,6 +179,31 @@ struct AudioView: View {
                 }
                 Spacer()
             }
+            
+            Spacer().frame(height:50)
+            
+            VStack {
+                
+//                再生速度を変更
+                Button(action:{
+                    if self.spChanger == Float(1.0) {
+                        self.spChanger = Float(2.0)
+                        self.player.rate = self.spChanger
+                        self.spString = "2"
+                    } else if self.spChanger == Float(2.0) {
+                        self.spChanger = Float(0.5)
+                        self.player.rate = self.spChanger
+                        self.spString = "0.5"
+                    } else {
+                        self.spChanger = Float(1.0)
+                        self.player.rate = self.spChanger
+                        self.spString = "1"
+                    }
+                }) {
+//                    現在の再生しているスピードを表示
+                    Text(spString + "x")
+                }
+            }.font(.title)
             
             
             

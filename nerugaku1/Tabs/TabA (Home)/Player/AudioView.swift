@@ -46,6 +46,18 @@ struct AudioPlayerControlsView: View {
                 Text("再生中!")
             }
             
+            //                ここに15秒巻き戻し
+//            Button(action: {
+//                player.currentTime = 60
+//                }){
+//                Image(systemName: "goforward.15")
+//                    .resizable()
+//                    .frame(width: 50, height: 50)
+//                    .aspectRatio(contentMode: .fit)
+//            }
+
+            
+            
             Slider(value: $currentTime,
                    in: 0...currentDuration,
                    onEditingChanged: sliderEditingChanged,
@@ -126,11 +138,16 @@ struct AudioView: View {
     //    コンテンツ自体をインポート
     var audioContent: AudioContent
     
+    //    現在再生している場所
+//    var currentTime  = player.currentTime
+//    @State private var currentTime: TimeInterval = 0
+    
+    
     //    再生速度関連
     @State var spChanger:Float = 1.0
     @State var spString:String = "1.0"
     @State var meterBool = true
-    @State var currentTime = "0"
+    //    @State var currentTime = "0"
     
     //    アイテム類
     private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
@@ -154,7 +171,20 @@ struct AudioView: View {
             
             
             HStack {
+//                Spacer()
+//
+//                Button(action: {
+//                    self.player.play(TimeInterval)
+//                }) {
+//                    Image(systemName: "goforward.15")
+//                        .resizable()
+//                        .frame(width: 50, height: 50)
+//                        .aspectRatio(contentMode: .fit)
+//                }
+                
+                
                 Spacer()
+                
                 //                再生・一時停止のやつ
                 Button(action: togglePlayPause) {
                     Image(systemName: playerPaused ? "play" : "pause")
@@ -162,7 +192,12 @@ struct AudioView: View {
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
                 }
+                
+                //                ここに15秒送り
+                Text("15")
+                
                 Spacer()
+                
                 //                ここで読み込むのを次の音声にしたい
                 Button(action: {
                     guard let url = URL(string: self.audioContent.url)
@@ -173,10 +208,12 @@ struct AudioView: View {
                     self.player.replaceCurrentItem(with: playerItem)
                     self.player.play()
                 }) {
-                    Image(systemName: "forward.end").resizable()
+                    Image(systemName: "forward.end")
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
                 }
+                
                 Spacer()
             }
             
@@ -184,7 +221,7 @@ struct AudioView: View {
             
             VStack {
                 
-//                再生速度を変更
+                //                再生速度を変更
                 Button(action:{
                     if self.spChanger == Float(1.0) {
                         self.spChanger = Float(2.0)
@@ -200,7 +237,7 @@ struct AudioView: View {
                         self.spString = "1.0"
                     }
                 }) {
-//                    現在の再生しているスピードを表示
+                    //                    現在の再生しているスピードを表示
                     Text(spString + "x")
                 }
             }.font(.title)

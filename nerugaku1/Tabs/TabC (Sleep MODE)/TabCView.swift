@@ -7,48 +7,42 @@
 //
 
 import SwiftUI
+//import UIKit
 
 struct TabCView: View {
     var body: some View {
-                NavigationView {
-                   VStack {
-                       
-                       
-                       //                ここから検索窓の実装
-                       ZStack {
-                           
-                           Text("キーワードを入力して検索")
-                               .padding(.horizontal, -20.0)
-                               .frame(width:300)
-                               .textFieldStyle(RoundedBorderTextFieldStyle())
-                           
-                           
-                           
-                       }
-                       .gesture(
-                           TapGesture()
-                               .onEnded { _ in
-                                   UIApplication.shared.closeKeyboard()})
-                       
-                       //                なぜかここが表示できない
-                       
-                       
-                       
-        
-                   }
-                   .navigationBarTitle(Text("Sleep"))
-                   .environmentObject(UserData())
-                   
-               }
+        NavigationView {
+            VStack {
+                
+                
+                Text("n")
+                    
+                    .navigationBarTitle(Text("Sleep"))
+                    .environmentObject(UserData())
+                
+            }
+        }
     }
 }
 
-
+//struct BackgroundView: UIViewRepresentable {
+//func makeUIView(context: Context) -> UIView {
+//    let view: UIView = UIView()
+//    view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+//    return view
+//}
+//
+//    func updateUIView(_ uiView: UIView, context: Context) {
+//        //
+//    }
+//}
 
 
 struct TabCView_Previews: PreviewProvider {
+    //    var audioContent: AudioContent
     static var previews: some View {
-        TabCView()
+       TabCView()
+            .environmentObject(UserData())
     }
 }
 

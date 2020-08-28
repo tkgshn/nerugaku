@@ -43,14 +43,14 @@ struct ContentView: View {
             
             //            ここが睡眠の遷移
             //            これがクリックした後に表示するview
-            TabCView()
-                .tabItem {
-                    //                    ここからがタブのアイコンとか
-                    VStack {
-                        Image(systemName: "bed.double.fill")
-                        Text("Sleep")
-                    }
-            }.tag(3)
+//            TabCView(audioContent: audioContent)
+//                .tabItem {
+//                    //                    ここからがタブのアイコンとか
+//                    VStack {
+//                        Image(systemName: "bed.double.fill")
+//                        Text("Sleep")
+//                    }
+//            }.tag(3)
             
             TabDView()
                 .padding(.top, -80.0)

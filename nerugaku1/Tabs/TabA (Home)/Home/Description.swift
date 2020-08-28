@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct Description: View {
     @EnvironmentObject var userData: UserData
@@ -20,7 +21,9 @@ struct Description: View {
     
     
     
+    
     var body: some View {
+        
         VStack {
             
             //コンテンツの概要

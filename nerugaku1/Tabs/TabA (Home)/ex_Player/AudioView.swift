@@ -8,7 +8,6 @@
 
 import SwiftUI
 import AVFoundation
-//import AVKit
 
 struct AudioPlayerControlsView: View {
     
@@ -30,8 +29,6 @@ struct AudioPlayerControlsView: View {
     //    最初の状態は再生されるの（選択される）を待っておく
     @State private var state = PlaybackState.waitingForSelection
     
-    //    クリックした瞬間に再生中に変更しようとしたけどテキストが変更されるだけで、再生はされてなかったため取り消し
-    //    @State private var state = PlaybackState.playing
     
     var body: some View {
         
@@ -45,17 +42,6 @@ struct AudioPlayerControlsView: View {
             } else {
                 Text("再生中!")
             }
-            
-            //                ここに15秒巻き戻し
-//            Button(action: {
-//                player.currentTime = 60
-//                }){
-//                Image(systemName: "goforward.15")
-//                    .resizable()
-//                    .frame(width: 50, height: 50)
-//                    .aspectRatio(contentMode: .fit)
-//            }
-
             
             
             Slider(value: $currentTime,
@@ -93,13 +79,7 @@ struct AudioPlayerControlsView: View {
                 self.currentTime = 0
                 self.currentDuration = 0
         }
-        // TODO 以下は上記を置き換えることができますが、クラッシュの原因となります。
-        // // // プレイヤーのアイテム交換を聞く
-        //        .onReceive(player.publisher(for: \.currentItem)) { item in
-        //            self.state = item != nil ? .buffering : .waitingForSelection
-        //            self.currentTime = 0
-        //            self.currentDuration = 0
-        //        }
+        
     }
     
     
@@ -137,10 +117,10 @@ struct AudioView: View {
     @State private var playerPaused = false
     //    コンテンツ自体をインポート
     var audioContent: AudioContent
+    //    現在のファイルの位置を整理する
+    var currentAudioIndex = 0
     
-    //    現在再生している場所
-//    var currentTime  = player.currentTime
-//    @State private var currentTime: TimeInterval = 0
+    
     
     
     //    再生速度関連
@@ -150,9 +130,24 @@ struct AudioView: View {
     //    @State var currentTime = "0"
     
     //    アイテム類
-    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                          title: "hoge")]
+//    private let items = [(url: ForEach {
+//        audioContent.url
+        //                        それをクリックできるようにする
+            
+//    }
+//)]
     
+    //    元々はここからロードしてた
+    //    private let items = [(url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    //     title: "Song-1"),
+    //    (url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    //     title: "Song-2")]
+    
+//    func ForEach() {
+//        Text(audioContent.url)
+//        //                        それをクリックできるようにする
+//
+//    }
     
     var body: some View {
         VStack {
@@ -171,18 +166,6 @@ struct AudioView: View {
             
             
             HStack {
-//                Spacer()
-//
-//                Button(action: {
-//                    self.player.play(TimeInterval)
-//                }) {
-//                    Image(systemName: "goforward.15")
-//                        .resizable()
-//                        .frame(width: 50, height: 50)
-//                        .aspectRatio(contentMode: .fit)
-//                }
-                
-                
                 Spacer()
                 
                 //                再生・一時停止のやつ
@@ -193,28 +176,12 @@ struct AudioView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 
-                //                ここに15秒送り
-                Text("15")
+                
+                
+                
                 
                 Spacer()
                 
-                //                ここで読み込むのを次の音声にしたい
-                Button(action: {
-                    guard let url = URL(string: self.audioContent.url)
-                        else {
-                            return
-                    }
-                    let playerItem = AVPlayerItem(url: url)
-                    self.player.replaceCurrentItem(with: playerItem)
-                    self.player.play()
-                }) {
-                    Image(systemName: "forward.end")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .aspectRatio(contentMode: .fit)
-                }
-                
-                Spacer()
             }
             
             Spacer().frame(height:50)
@@ -244,10 +211,24 @@ struct AudioView: View {
             
             
             
+            
         }
         .edgesIgnoringSafeArea(.all)
+            
+            
             //            このViewが表示されたら音声を再生する
+            //            つまりクリック時に読み込みを開始する
             .onAppear {
+                
+                //                元々はこんな感じでローディングしてた
+                //                guard let url = URL(string: item.url) else {
+                //                    return
+                //                }
+                //                let playerItem = AVPlayerItem(url: url)
+                //                self.player.replaceCurrentItem(with: playerItem)
+                //                self.player.play()
+                
+                
                 guard let url = URL(string: self.audioContent.url)
                     else {
                         return
@@ -262,11 +243,11 @@ struct AudioView: View {
         }
     }
     
-    
+    //    再生ボタンを状態に応じて変更する その1
     private func togglePlayPause() {
         pausePlayer(!playerPaused)
     }
-    
+    //    再生ボタンを状態に応じて変更する その2
     private func pausePlayer(_ pause: Bool) {
         playerPaused = pause
         if playerPaused {
@@ -277,7 +258,27 @@ struct AudioView: View {
             player.play()
         }
     }
+    
+    //    次の曲を再生する関数
+//    private func playNextAudio(){
+//        guard let url = URL(string: self.audioContent.url + 1)
+//            else {
+//                return
+//        }
+//        let playerItem = AVPlayerItem(url: url)
+//        self.player.replaceCurrentItem(with: playerItem)
+//        self.player.play()
+//    }
+    
 }
+
+
+
+
+
+
+
+
 
 import Combine
 class PlayerTimeObserver {

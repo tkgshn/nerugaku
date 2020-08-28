@@ -60,9 +60,13 @@ class PlaylistViewController: UITableViewController {
     
     // The list of audio files provided in the app bundle.
     private static let initialItems = [
-        ("Melody", "AirPlay Too"),
-        ("Synth", "DJ AVF"),
-        ("Rhythm", "The Air Players")
+//        ("Melody", "AirPlay Too"),
+//        ("Synth", "DJ AVF"),
+//        ("Rhythm", "The Air Players"),
+//        ("exapmle1", "test"),
+//        ("JAEM001.mp3", "JAEM001mp3"),
+        ("JAEM001", "001"),
+        ("JAEM002", "002")
     ]
     
     // A helper method that creates the initial playlist.
@@ -90,7 +94,7 @@ class PlaylistViewController: UITableViewController {
             
             // Locate the asset file for this item, if possible,
             // otherwise replace the placeholder with an error item.
-            guard let url = Bundle.main.url(forResource: title, withExtension: "m4a") else {
+            guard let url = Bundle.main.url(forResource: title, withExtension: "mp3") else {
                 
                 let error = NSError(domain: NSCocoaErrorDomain, code: NSFileNoSuchFileError)
                 let item = PlaylistItem(title: title, artist: artist, error: error)

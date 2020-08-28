@@ -65,8 +65,16 @@ class PlaylistViewController: UITableViewController {
 //        ("Rhythm", "The Air Players"),
 //        ("exapmle1", "test"),
 //        ("JAEM001.mp3", "JAEM001mp3"),
-        ("JAEM001", "001"),
-        ("JAEM002", "002")
+        ("001人称", "001"),
+        ("002家族", "002"),
+        ("003知り合う", "003"),
+        ("004学校で", "004"),
+        ("005国と言語", "005"),
+        ("006読み書き", "006"),
+        ("007数", "007"),
+        ("008時刻", "008"),
+        ("009曜日", "009"),
+        ("010昨日-今日-明日", "010")
     ]
     
     // A helper method that creates the initial playlist.

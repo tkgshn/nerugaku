@@ -7,15 +7,13 @@
 //
 
 import SwiftUI
-//import UIKit
 
 struct TabCView: View {
     var body: some View {
         NavigationView {
             VStack {
                 
-                
-                Text("n")
+                Text("sleep text")
                     
                     .navigationBarTitle(Text("Sleep"))
                     .environmentObject(UserData())
@@ -25,17 +23,6 @@ struct TabCView: View {
     }
 }
 
-//struct BackgroundView: UIViewRepresentable {
-//func makeUIView(context: Context) -> UIView {
-//    let view: UIView = UIView()
-//    view.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
-//    return view
-//}
-//
-//    func updateUIView(_ uiView: UIView, context: Context) {
-//        //
-//    }
-//}
 
 
 struct TabCView_Previews: PreviewProvider {

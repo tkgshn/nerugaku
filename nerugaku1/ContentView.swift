@@ -32,7 +32,7 @@ struct ContentView: View {
                     }
             }.tag(1)
             
-            TabBView(items: Array(audioContetsData.prefix(10)))
+            TabBView()
                 .environmentObject(UserData())
                 .tabItem {
                     VStack {
@@ -43,14 +43,14 @@ struct ContentView: View {
             
             //            ここが睡眠の遷移
             //            これがクリックした後に表示するview
-//            TabCView(audioContent: audioContent)
-//                .tabItem {
-//                    //                    ここからがタブのアイコンとか
-//                    VStack {
-//                        Image(systemName: "bed.double.fill")
-//                        Text("Sleep")
-//                    }
-//            }.tag(3)
+            TabCView()
+                .tabItem {
+                    //                    ここからがタブのアイコンとか
+                    VStack {
+                        Image(systemName: "bed.double.fill")
+                        Text("Sleep")
+                    }
+            }.tag(3)
             
             TabDView()
                 .padding(.top, -80.0)

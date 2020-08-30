@@ -43,6 +43,7 @@ struct ContentRow: View {
         HStack {
             audioContent.image
                 .renderingMode(.original)
+                .renderingMode(.original)
                 .resizable()
                 .frame(width: 50, height: 50)
             Text(audioContent.name)
@@ -54,20 +55,21 @@ struct ContentRow: View {
                 Image("Heart.fill")
                     .imageScale(.medium)
                     .foregroundColor(.red)
+                    
             }
         }
     }
 }
 
-struct ContentRow_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentRow(audioContent: audioContetsData[0])
-            ContentRow(audioContent: audioContetsData[1])
-        }
-        .previewLayout(.fixed(width: 300, height: 70))
-    }
-}
+//struct ContentRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ContentRow(audioContent: audioContetsData[0])
+//            ContentRow(audioContent: audioContetsData[1])
+//        }
+//        .previewLayout(.fixed(width: 300, height: 70))
+//    }
+//}
 
 
 

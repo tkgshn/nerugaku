@@ -18,6 +18,7 @@ struct TabBView: View {
     }
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         
@@ -62,7 +63,9 @@ struct TabBView: View {
                     
                     ForEach(categories.keys.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) { searchText in
                         NavigationLink(
-                            destination: CategoryDetial(categoryName: searchText)
+                            destination: SearchCategoryItem(categoryName: searchText, items: self.categories[searchText]!)
+                                .environmentObject(UserData())
+                            
                         ) {
                             Text(searchText)
                         }
@@ -70,6 +73,7 @@ struct TabBView: View {
                 }
                 .navigationBarTitle(Text("Search"))
                 .resignKeyboardOnDragGesture()
+                .environmentObject(UserData())
             }
         }
     }
@@ -111,12 +115,67 @@ struct TabBView_Previews: PreviewProvider {
 //}
 //
 ////カテゴリーの詳細
-struct CategoryDetial: View {
+//struct CategoryDetial: View {
+//    var audioContent: AudioContent
+//    var items: [AudioContent]
+//    var categoryName: String
+//    var body: some View {
+//        HStack {
+//            Text(self.categoryName)
+//            ForEach(self.items) { audioContent in
+////                        それをクリックできるようにする
+//                NavigationLink(
+//                    destination: Detail(
+//                        audioContent: audioContent
+//                    )
+//                ) {
+////                            下で定義したものを使用
+//                    ContentRow(audioContent: audioContent)
+//                }
+//            }
+//        }
+//    }
+//}
+
+struct SearchCategoryItem: View {
     var categoryName: String
+    var items: [AudioContent]
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
-        Text(self.categoryName)
+//        縦方向
+        List {
+//        VStack(alignment: .leading) {
+////            まずはカテゴリーを表示する
+//            Text(self.categoryName)
+//                .font(.headline)
+//                .padding(.leading, 15)
+//                .padding(.top, 5)
+//            横向きにスクロールを追加
+//            ScrollView(.horizontal, showsIndicators: false) {
+//                横方向
+//                HStack(alignment: .top, spacing: 0) {
+//                    アイテムがあるかぎり繰り返す
+//        List {
+                    ForEach(self.items) { audioContent in
+//                        それをクリックできるようにする
+                        NavigationLink(
+                            destination: Detail(
+                                audioContent: audioContent
+                            )
+                        ) {
+                            ContentRow(audioContent: audioContent)
+                            
+                        }
+                    }
+                }.navigationBarTitle(Text(self.categoryName), displayMode: .inline)
+//            }
+//            .frame(height: 185)
+//        }
     }
 }
+
+
 
 extension UIApplication {
     func endEditing(_ force: Bool) {

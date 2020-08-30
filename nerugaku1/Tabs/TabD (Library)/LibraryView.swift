@@ -1,5 +1,6 @@
 //
-//  TabDView.swift
+//  TabD
+//LibraryView.swift
 //  nerugaku1
 //
 //  Created by Shunsuke Takagi on 2020/07/22.
@@ -8,7 +9,7 @@
 
 import SwiftUI
 
-struct TabDView: View {
+struct LibraryView: View {
     @State var currentSubCategoryIndex = 0
     var body: some View {
                 NavigationView {
@@ -19,10 +20,10 @@ struct TabDView: View {
     }
 }
 
-struct TabDView_Previews: PreviewProvider {
+struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            TabDView()
+            LibraryView()
                 .padding(.top)
         }
     }

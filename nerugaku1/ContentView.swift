@@ -61,7 +61,7 @@ struct ContentView: View {
             }.tag(4)
             
             
-            TabEView()
+            YouView()
                 .tabItem {
                     VStack {
                         Image(systemName: "person.fill")

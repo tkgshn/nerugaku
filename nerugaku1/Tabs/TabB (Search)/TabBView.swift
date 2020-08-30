@@ -125,12 +125,12 @@ struct TabBView_Previews: PreviewProvider {
 //            ForEach(self.items) { audioContent in
 ////                        それをクリックできるようにする
 //                NavigationLink(
-//                    destination: Detail(
+//                    destination: AudioContentDetail(
 //                        audioContent: audioContent
 //                    )
 //                ) {
 ////                            下で定義したものを使用
-//                    ContentRow(audioContent: audioContent)
+//                    AudioContentRow(audioContent: audioContent)
 //                }
 //            }
 //        }
@@ -160,11 +160,11 @@ struct SearchCategoryItem: View {
                     ForEach(self.items) { audioContent in
 //                        それをクリックできるようにする
                         NavigationLink(
-                            destination: Detail(
+                            destination: AudioContentDetail(
                                 audioContent: audioContent
                             )
                         ) {
-                            ContentRow(audioContent: audioContent)
+                            AudioContentRow(audioContent: audioContent)
                             
                         }
                     }

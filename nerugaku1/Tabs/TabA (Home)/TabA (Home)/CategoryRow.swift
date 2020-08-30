@@ -1,5 +1,7 @@
 //
-//  Recomend.swift
+//  Recomend.
+//CategoryRow
+//swift
 //  nerugaku1
 //
 //  Created by Shunsuke Takagi on 2020/07/23.
@@ -8,7 +10,7 @@
 
 import SwiftUI
 
-struct Recomend: View {
+struct CategoryRow: View {
     var categoryName: String
     var items: [AudioContent]
     @EnvironmentObject var userData: UserData
@@ -41,7 +43,7 @@ struct Recomend: View {
                     ForEach(self.items) { audioContent in
                         //                        それをクリックできるようにする
                         NavigationLink(
-                            destination: Detail(
+                            destination: AudioContentDetail(
                                 audioContent: audioContent
                             )
                         ) {
@@ -81,9 +83,9 @@ struct CategoryItem: View {
 
 
 
-struct Recomend_Previews: PreviewProvider {
+struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        Recomend(categoryName: audioContetsData[0].category.rawValue,
+        CategoryRow(categoryName: audioContetsData[0].category.rawValue,
                  items: Array(audioContetsData.prefix(4))
         )
         .environmentObject(UserData())

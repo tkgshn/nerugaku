@@ -26,7 +26,7 @@ struct MediaContentView: View {
             ForEach(userData.audiocontents) { audioContent in
                 //             いいねしてるかの処理
                 //                クリックしている場合はいいねをしているもののみを表示
-                //                if !self.userData.showFavoritesOnly || audioContent.isFavorite {NavigationLink(destination: Detail(audioContent: audioContent)) {
+                //                if !self.userData.showFavoritesOnly || audioContent.isFavorite {NavigationLink(destination: AudioContentDetail(audioContent: audioContent)) {
                 if self.currentSubCategoryIndex == 0 {
                     ListObjectAll(parent: self, audioContent: audioContent)
                 } else if self.currentSubCategoryIndex == 1 {

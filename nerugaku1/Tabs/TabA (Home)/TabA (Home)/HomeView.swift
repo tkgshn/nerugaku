@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  HomeView.swift
 //  nerugaku
 //
 //  Created by Shunsuke Takagi on 2020/07/15.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct HomeView: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
@@ -38,7 +38,7 @@ struct Home: View {
             
             ScrollView {
                 ForEach(categories.keys.sorted(), id: \.self) { key in
-                    Recomend(categoryName: key, items: self.categories[key]!)
+                    CategoryRow(categoryName: key, items: self.categories[key]!)
                     Divider()
                     
                 }
@@ -70,9 +70,9 @@ struct Home: View {
 
 
 
-struct Home_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        HomeView()
             .environmentObject(UserData())
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Detail.swift
+//  AudioContentDetail.swift
 //  nerugaku
 //
 //  Created by Shunsuke Takagi on 2020/07/13.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Detail: View {
+struct AudioContentDetail: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
@@ -44,9 +44,9 @@ struct Detail: View {
                 
                 //                このままだと全部ここに表示されてしまうので、おすすめだけを表示しなければいけない
                 //                ForEach(categories.keys.sorted(), id: \.self) { key in
-                //                    Recomend(categoryName: key, items: self.categories[key]!)
+                //                    CategoryRow(categoryName: key, items: self.categories[key]!)
                 //                }
-                Recomend(categoryName: audioContetsData[0].category.rawValue,
+                CategoryRow(categoryName: audioContetsData[0].category.rawValue,
                              items: Array(audioContetsData.prefix(4))
                 )
                     .padding(.vertical)
@@ -63,10 +63,10 @@ struct Detail: View {
 
 
 
-struct Detail_Previews: PreviewProvider {
+struct AudioContentDetail_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
-        return Detail(audioContent: userData.audiocontents[0])
+        return AudioContentDetail(audioContent: userData.audiocontents[0])
         .environmentObject(UserData())
         
     }

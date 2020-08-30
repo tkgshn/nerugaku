@@ -9,25 +9,31 @@
 import SwiftUI
 
 struct TabBView: View {
-    let array = ["Peter", "Paul", "Mary", "Anna-Lena", "George", "John", "Greg", "Thomas", "Robert", "Bernie", "Mike", "Benno", "Hugo", "Miles", "Michael", "Mikel", "Tim", "Tom", "Lottie", "Lorrie", "Barbara"]
+
+    var categories: [String: [AudioContent]] {
+        Dictionary(
+            grouping: audioContetsData,
+            by: { $0.category.rawValue }
+        )
+    }
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
-
+    
     var body: some View {
-
+        
         NavigationView {
             VStack {
                 // Search view
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
-
+                        
                         TextField("search", text: $searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
                             print("onCommit")
                         }).foregroundColor(.primary)
-
+                        
                         Button(action: {
                             self.searchText = ""
                         }) {
@@ -38,23 +44,28 @@ struct TabBView: View {
                     .foregroundColor(.secondary)
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10.0)
-
+                    
                     if showCancelButton  {
                         Button("Cancel") {
-                                UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                                self.searchText = ""
-                                self.showCancelButton = false
+                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                            self.searchText = ""
+                            self.showCancelButton = false
                         }
                         .foregroundColor(Color(.systemBlue))
                     }
                 }
                 .padding(.horizontal)
                 .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
-
+                
                 List {
                     // Filtered list of names
-                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
-                        searchText in Text(searchText)
+                    
+                    ForEach(categories.keys.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) { searchText in
+                        NavigationLink(
+                            destination: CategoryDetial(categoryName: searchText)
+                        ) {
+                            Text(searchText)
+                        }
                     }
                 }
                 .navigationBarTitle(Text("Search"))
@@ -70,11 +81,40 @@ struct TabBView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TabBView()
-              .environment(\.colorScheme, .light)
-
+                .environment(\.colorScheme, .light)
+            
             TabBView()
-              .environment(\.colorScheme, .dark)
+                .environment(\.colorScheme, .dark)
         }
+    }
+}
+
+//ここでカテゴリーの表示を定義する
+//struct SearchCategoryItem: View {
+//    var categories: [String: [AudioContent]] {
+//        Dictionary(
+//            grouping: audioContetsData,
+//            by: { $0.category.rawValue }
+//        )
+//    }
+//    var body: some View {
+////        カテゴリ名をクリックすると、カテゴリーの詳細に遷移する
+//        NavigationLink(
+//            destination: CategoryDetial()
+//        ) {
+//            Text(self.categories)
+//                .font(.headline)
+//                .padding(.leading, 15)
+//                .padding(.top, 5)
+//        }
+//    }
+//}
+//
+////カテゴリーの詳細
+struct CategoryDetial: View {
+    var categoryName: String
+    var body: some View {
+        Text(self.categoryName)
     }
 }
 
@@ -101,3 +141,5 @@ extension View {
         return modifier(ResignKeyboardOnDragGesture())
     }
 }
+
+

@@ -21,8 +21,8 @@ struct Home: View {
     }
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData
-
-//    ヘッダーに置くボタン
+    
+    //    ヘッダーに置くボタン
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -33,35 +33,36 @@ struct Home: View {
     }
     
     var body: some View {
+        
         NavigationView {
-            List {                
+            
+            ScrollView {
                 ForEach(categories.keys.sorted(), id: \.self) { key in
                     Recomend(categoryName: key, items: self.categories[key]!)
+                    Divider()
+                    
                 }
-                .padding(.vertical)
+                .padding(.top)
                 .listRowInsets(EdgeInsets())
                 
                 
-//                               Listの最後にある”全て見る”を担う部分
-                NavigationLink(destination: AllContent()
-                                .environmentObject(UserData())) {
-                                    Text("See All")
-                                }
+                //                               Listの最後にある”全て見る”を担う部分
+//                NavigationLink(destination: AllContent()
+//                                .environmentObject(UserData())) {
+//                    Text("See All")
+//                }
                 
-            }
-                
-            .navigationBarTitle(Text("Home"))
-            .navigationBarItems(trailing: profileButton)
-            .sheet(isPresented: $showingProfile) {
-                AllContent()
-                .environmentObject(UserData())
             }
             
+            .navigationBarTitle(Text("Home"))
+            .environmentObject(UserData())
         }
         
     }
     
 }
+
+
 
 
 

@@ -22,13 +22,14 @@ struct Recomend: View {
                     .font(.headline)
                     .padding(.leading, 15)
                     .padding(.top, 5)
+                Spacer()
                 NavigationLink(
                     destination: SearchCategoryItem(categoryName: categoryName, items: self.items
                     )
                 ) {
                     Text("すべて見る")
                         .font(.headline)
-                        .padding(.leading, 170)
+                        .padding(.trailing, 15)
                         .padding(.top, 5)
                 }
             }

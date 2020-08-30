@@ -1,5 +1,5 @@
 //
-//  TabBView.swift
+//  SearchView.swift
 //  nerugaku1
 //
 //  Created by Shunsuke Takagi on 2020/07/22.
@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct TabBView: View {
-
+struct SearchView: View {
+    
     var categories: [String: [AudioContent]] {
         Dictionary(
             grouping: audioContetsData,
@@ -81,61 +81,18 @@ struct TabBView: View {
 
 
 
-struct TabBView_Previews: PreviewProvider {
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TabBView()
+            SearchView()
                 .environment(\.colorScheme, .light)
             
-            TabBView()
+            SearchView()
                 .environment(\.colorScheme, .dark)
         }
     }
 }
 
-//ここでカテゴリーの表示を定義する
-//struct SearchCategoryItem: View {
-//    var categories: [String: [AudioContent]] {
-//        Dictionary(
-//            grouping: audioContetsData,
-//            by: { $0.category.rawValue }
-//        )
-//    }
-//    var body: some View {
-////        カテゴリ名をクリックすると、カテゴリーの詳細に遷移する
-//        NavigationLink(
-//            destination: CategoryDetial()
-//        ) {
-//            Text(self.categories)
-//                .font(.headline)
-//                .padding(.leading, 15)
-//                .padding(.top, 5)
-//        }
-//    }
-//}
-//
-////カテゴリーの詳細
-//struct CategoryDetial: View {
-//    var audioContent: AudioContent
-//    var items: [AudioContent]
-//    var categoryName: String
-//    var body: some View {
-//        HStack {
-//            Text(self.categoryName)
-//            ForEach(self.items) { audioContent in
-////                        それをクリックできるようにする
-//                NavigationLink(
-//                    destination: AudioContentDetail(
-//                        audioContent: audioContent
-//                    )
-//                ) {
-////                            下で定義したものを使用
-//                    AudioContentRow(audioContent: audioContent)
-//                }
-//            }
-//        }
-//    }
-//}
 
 struct SearchCategoryItem: View {
     var categoryName: String
@@ -143,35 +100,20 @@ struct SearchCategoryItem: View {
     @EnvironmentObject var userData: UserData
     
     var body: some View {
-//        縦方向
+        //        縦方向
         List {
-//        VStack(alignment: .leading) {
-////            まずはカテゴリーを表示する
-//            Text(self.categoryName)
-//                .font(.headline)
-//                .padding(.leading, 15)
-//                .padding(.top, 5)
-//            横向きにスクロールを追加
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                横方向
-//                HStack(alignment: .top, spacing: 0) {
-//                    アイテムがあるかぎり繰り返す
-//        List {
-                    ForEach(self.items) { audioContent in
-//                        それをクリックできるようにする
-                        NavigationLink(
-                            destination: AudioContentDetail(
-                                audioContent: audioContent
-                            )
-                        ) {
-                            AudioContentRow(audioContent: audioContent)
-                            
-                        }
-                    }
-                }.navigationBarTitle(Text(self.categoryName), displayMode: .inline)
-//            }
-//            .frame(height: 185)
-//        }
+            ForEach(self.items) { audioContent in
+                //                        それをクリックできるようにする
+                NavigationLink(
+                    destination: AudioContentDetail(
+                        audioContent: audioContent
+                    )
+                ) {
+                    AudioContentRow(audioContent: audioContent)
+                    
+                }
+            }
+        }.navigationBarTitle(Text(self.categoryName), displayMode: .inline)
     }
 }
 

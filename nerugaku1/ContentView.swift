@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
             }.tag(1)
             
-            TabBView()
+            SearchView()
                 .environmentObject(UserData())
                 .tabItem {
                     VStack {

@@ -23,25 +23,23 @@ struct BackgroundImage: View {
             .aspectRatio(contentMode: .fill)
             .edgesIgnoringSafeArea(.all)
             //ここでタイトルを背景画像にかぶせる
-            .padding(.vertical)
+            .padding([.top,.bottom])
             .overlay(
                 VStack(alignment: .leading) {
                     Text(audioContent.name)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
-                    HStack(alignment: .top) {
-                        Text(audioContent.description)
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.white)
-                        Spacer()
-                        
-                    }
+//                    HStack(alignment: .center) {
+                    Text(audioContent.description)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.white)
+//                    }
                 }
                     //                    ここで文字列類の位置を調節
-                    .padding(.horizontal)
-                    .offset(y: 140)
+                    .padding(.top)
+                    .offset(y: 150)
         )
             
             

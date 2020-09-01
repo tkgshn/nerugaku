@@ -26,6 +26,7 @@ struct AudioContent: Hashable, Codable, Identifiable {
     //    フレーズ1
     var phrase1: String
     //    コンテンツのカテゴリー
+//    入れ子（ネスト）になる
     var category: Category
     //    お気に入りかどうか
     var isFavorite: Bool
@@ -50,6 +51,7 @@ struct AudioContent: Hashable, Codable, Identifiable {
     
     
     //    Category自体を詳細記入
+//    ここでネストの中を書く
     enum Category: String, CaseIterable, Codable, Hashable {
         case featured = "おすすめ"
         case studyabord = "留学"

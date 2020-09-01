@@ -132,7 +132,7 @@
 		C4CEC5E424FB2EE4002E08B1 /* 人称.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "人称.mp3"; sourceTree = "<group>"; };
 		C4CEC5E524FB2EE4002E08B1 /* 知り合う.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "知り合う.mp3"; sourceTree = "<group>"; };
 		C4CEC5E624FB2EE4002E08B1 /* 家族.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "家族.mp3"; sourceTree = "<group>"; };
-		C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "時刻.mp3"; sourceTree = "<group>"; };
+		C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "時刻.mp3"; path = "../時刻.mp3"; sourceTree = "<group>"; };
 		C4CEC5F224FB3F78002E08B1 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		C4CEC5F824FBCE64002E08B1 /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +191,50 @@
 				C4CEC5F224FB3F78002E08B1 /* AudioPlayerView.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		C45B30F524FE648F00CCF736 /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				C4CEC5E424FB2EE4002E08B1 /* 人称.mp3 */,
+				C4CEC5E324FB2EE4002E08B1 /* 国と言語.mp3 */,
+				C4CEC5E224FB2EE4002E08B1 /* 学校で.mp3 */,
+				C4CEC5E624FB2EE4002E08B1 /* 家族.mp3 */,
+				C4CEC5E024FB2EE4002E08B1 /* 数.mp3 */,
+				C4CEC5E124FB2EE4002E08B1 /* 昨日-今日-明日.mp3 */,
+				C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */,
+				C4CEC5DE24FB2EE3002E08B1 /* 曜日.mp3 */,
+				C4CEC5E524FB2EE4002E08B1 /* 知り合う.mp3 */,
+				C4CEC5DF24FB2EE3002E08B1 /* 読み書き.mp3 */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		C45B30F624FE64A700CCF736 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A8323A3124DAD40C00DE23C9 /* charleyrivers.jpg */,
+				A8323A3024DAD40C00DE23C9 /* chilkoottrail.jpg */,
+				A8323A3324DAD40D00DE23C9 /* chincoteague.jpg */,
+				A8323A3524DAD40E00DE23C9 /* hiddenlake.jpg */,
+				A8323A3624DAD40E00DE23C9 /* icybay.jpg */,
+				A8323A2D24DAD40A00DE23C9 /* lakemcdonald.jpg */,
+				A8323A2E24DAD40B00DE23C9 /* rainbowlake.jpg */,
+				A8323A2F24DAD40B00DE23C9 /* silversalmoncreek.jpg */,
+				A8323A3724DAD40E00DE23C9 /* stmarylake.jpg */,
+				A8323A3224DAD40C00DE23C9 /* turtlerock.jpg */,
+				A8323A3824DAD40F00DE23C9 /* twinlake.jpg */,
+				A8323A3424DAD40D00DE23C9 /* umbagog.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C45B30F724FE64D900CCF736 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C4B0446924D2B71C001CBB25 /* audioContentData.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C4A0DBF224C6D83C00421EA6 = {
@@ -298,9 +342,9 @@
 		C4B0446124D2B600001CBB25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4B0447124D2BBA3001CBB25 /* Data.swift */,
 				C4B0446724D2B6B5001CBB25 /* AudioContents.swift */,
 				C4B0446D24D2BB62001CBB25 /* UserData.swift */,
-				C4B0447124D2BBA3001CBB25 /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,29 +352,9 @@
 		C4B0446224D2B659001CBB25 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C4B0446924D2B71C001CBB25 /* audioContentData.json */,
-				A8323A3124DAD40C00DE23C9 /* charleyrivers.jpg */,
-				A8323A3024DAD40C00DE23C9 /* chilkoottrail.jpg */,
-				A8323A3324DAD40D00DE23C9 /* chincoteague.jpg */,
-				A8323A3524DAD40E00DE23C9 /* hiddenlake.jpg */,
-				A8323A3624DAD40E00DE23C9 /* icybay.jpg */,
-				A8323A2D24DAD40A00DE23C9 /* lakemcdonald.jpg */,
-				A8323A2E24DAD40B00DE23C9 /* rainbowlake.jpg */,
-				A8323A2F24DAD40B00DE23C9 /* silversalmoncreek.jpg */,
-				A8323A3724DAD40E00DE23C9 /* stmarylake.jpg */,
-				A8323A3224DAD40C00DE23C9 /* turtlerock.jpg */,
-				A8323A3824DAD40F00DE23C9 /* twinlake.jpg */,
-				A8323A3424DAD40D00DE23C9 /* umbagog.jpg */,
-				C4CEC5E424FB2EE4002E08B1 /* 人称.mp3 */,
-				C4CEC5E324FB2EE4002E08B1 /* 国と言語.mp3 */,
-				C4CEC5E224FB2EE4002E08B1 /* 学校で.mp3 */,
-				C4CEC5E624FB2EE4002E08B1 /* 家族.mp3 */,
-				C4CEC5E024FB2EE4002E08B1 /* 数.mp3 */,
-				C4CEC5E124FB2EE4002E08B1 /* 昨日-今日-明日.mp3 */,
-				C4CEC5E724FB2EE5002E08B1 /* 時刻.mp3 */,
-				C4CEC5DE24FB2EE3002E08B1 /* 曜日.mp3 */,
-				C4CEC5E524FB2EE4002E08B1 /* 知り合う.mp3 */,
-				C4CEC5DF24FB2EE3002E08B1 /* 読み書き.mp3 */,
+				C45B30F724FE64D900CCF736 /* Data */,
+				C45B30F624FE64A700CCF736 /* Images */,
+				C45B30F524FE648F00CCF736 /* Audios */,
 			);
 			path = Resource;
 			sourceTree = "<group>";

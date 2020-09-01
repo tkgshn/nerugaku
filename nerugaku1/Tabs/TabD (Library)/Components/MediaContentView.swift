@@ -23,7 +23,7 @@ struct MediaContentView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: true){
-            ForEach(userData.audiocontents) { audioContent in
+            ForEach(userData.audioContents) { audioContent in
                 //             いいねしてるかの処理
                 //                クリックしている場合はいいねをしているもののみを表示
                 //                if !self.userData.showFavoritesOnly || audioContent.isFavorite {NavigationLink(destination: AudioContentDetail(audioContent: audioContent)) {

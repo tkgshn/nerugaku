@@ -33,7 +33,7 @@ struct Phrase_Previews: PreviewProvider {
 //        　Phrase(audioContent: AudioContent.example)
         
         
-            Phrase(audioContent: audioContetsData[0])
+            Phrase(audioContent: audioContentData[0])
         
         .previewLayout(.fixed(width: 300, height: 70))
     }

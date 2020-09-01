@@ -10,5 +10,5 @@ import SwiftUI
 
 final class UserData: ObservableObject {
     @Published var showFavoritesOnly = false
-    @Published var audiocontents = audioContetsData
+    @Published var audioContents = audioContentData
 }

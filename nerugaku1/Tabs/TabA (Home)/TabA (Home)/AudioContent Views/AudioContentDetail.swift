@@ -12,7 +12,7 @@ struct AudioContentDetail: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
-            grouping: audioContetsData,
+            grouping: audioContentData,
             by: { $0.category.rawValue }
         )
     }
@@ -22,7 +22,7 @@ struct AudioContentDetail: View {
     var audioContent: AudioContent
     
     var audiocontentIndex: Int {
-        userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
+        userData.audioContents.firstIndex(where: { $0.id == audioContent.id })!
     }
     
     var body: some View {
@@ -45,8 +45,8 @@ struct AudioContentDetail: View {
                 //                ForEach(categories.keys.sorted(), id: \.self) { key in
                 //                    CategoryRow(categoryName: key, items: self.categories[key]!)
                 //                }
-                CategoryRow(categoryName: audioContetsData[0].category.rawValue,
-                             items: Array(audioContetsData.prefix(4))
+                CategoryRow(categoryName: audioContentData[0].category.rawValue,
+                             items: Array(audioContentData.prefix(4))
                 )
                     .padding(.vertical)
                     .environmentObject(UserData())
@@ -65,7 +65,7 @@ struct AudioContentDetail: View {
 struct AudioContentDetail_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
-        return AudioContentDetail(audioContent: userData.audiocontents[0])
+        return AudioContentDetail(audioContent: userData.audioContents[0])
         .environmentObject(UserData())
         
     }

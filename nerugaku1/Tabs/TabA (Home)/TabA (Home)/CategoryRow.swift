@@ -85,8 +85,8 @@ struct CategoryItem: View {
 
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRow(categoryName: audioContetsData[0].category.rawValue,
-                 items: Array(audioContetsData.prefix(4))
+        CategoryRow(categoryName: audioContentData[0].category.rawValue,
+                 items: Array(audioContentData.prefix(4))
         )
         .environmentObject(UserData())
         

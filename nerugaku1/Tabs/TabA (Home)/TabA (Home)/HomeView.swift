@@ -12,12 +12,12 @@ struct HomeView: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
-            grouping: audioContetsData,
+            grouping: audioContentData,
             by: { $0.category.rawValue }
         )
     }
     var featured: [AudioContent] {
-        audioContetsData.filter { $0.isFeatured }
+        audioContentData.filter { $0.isFeatured }
     }
     @State var showingProfile = false
     @EnvironmentObject var userData: UserData

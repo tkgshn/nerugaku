@@ -20,7 +20,7 @@ import SwiftUI
 //                Text("Show Favorites Only")
 //            }
 //            //            ここで繰り返し
-//            ForEach(userData.audiocontents) { audioContent in
+//            ForEach(userData.audioContents) { audioContent in
 //                //             いいねしてるかの処理
 ////                クリックしている場合はいいねをしているもののみを表示
 //                if !self.userData.showFavoritesOnly || audioContent.isFavorite {

@@ -60,7 +60,7 @@ struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
         
 //        0番地点のデータを表示
-            BackgroundImage(audioContent: audioContetsData[0])
+            BackgroundImage(audioContent: audioContentData[0])
             
         
     }

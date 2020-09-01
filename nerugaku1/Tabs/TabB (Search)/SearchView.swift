@@ -12,7 +12,7 @@ struct SearchView: View {
     
     var categories: [String: [AudioContent]] {
         Dictionary(
-            grouping: audioContetsData,
+            grouping: audioContentData,
             by: { $0.category.rawValue }
         )
     }

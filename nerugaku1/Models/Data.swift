@@ -11,8 +11,12 @@ import CoreLocation
 import SwiftUI
 
 //jsonを読み込むことを指定
-let audioContetsData: [AudioContent] = load("audioContentData.json")
-let features = audioContetsData.filter { $0.isFeatured }
+
+//audioContetDataからaudioContetDataに変更（2020/09/01）
+//”s”が抜けただけ
+let audioContentData: [AudioContent] = load("audioContentData.json")
+let audioContentPhase: [AudioContent] = load("audioContentPhase.json")
+let features = audioContentData.filter { $0.isFeatured }
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

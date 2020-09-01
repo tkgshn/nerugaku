@@ -18,7 +18,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var isShown: Bool = false
-    var audioContent: AudioContent
+    var audioContentData: AudioContent
     
     var body: some View {
         TabView {
@@ -74,6 +74,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(audioContent: audioContetsData[0])
+        ContentView(audioContentData: audioContentData[0])
     }
 }

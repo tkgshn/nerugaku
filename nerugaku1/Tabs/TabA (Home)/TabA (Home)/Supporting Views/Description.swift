@@ -16,7 +16,7 @@ struct Description: View {
     @State private var isShown: Bool = false
     
     var audioContentIndex: Int {
-        userData.audiocontents.firstIndex(where: { $0.id == audioContent.id })!
+        userData.audioContents.firstIndex(where: { $0.id == audioContent.id })!
     }
     
     
@@ -49,10 +49,10 @@ struct Description: View {
                 
                 //                    ここからいいね形の処理
                 Button(action: {
-                    self.userData.audiocontents[self.audioContentIndex]
+                    self.userData.audioContents[self.audioContentIndex]
                         .isFavorite.toggle()
                 }) {
-                    if self.userData.audiocontents[self.audioContentIndex].isFavorite {
+                    if self.userData.audioContents[self.audioContentIndex].isFavorite {
                         
                         Image(systemName: "heart.fill")
                             .padding(.trailing, 10.0)
@@ -126,7 +126,7 @@ struct Description_Previews: PreviewProvider {
         
         //        0番地点の情報を表示
         let userData = UserData()
-        return Description(audioContent: userData.audiocontents[0])
+        return Description(audioContent: userData.audioContents[0])
             .environmentObject(UserData())
         
     }

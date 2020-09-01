@@ -49,6 +49,10 @@ struct AudioContent: Hashable, Codable, Identifiable {
             label: Text(name))
     }
     
+//    音声ファイルを読み取るために追加する
+    fileprivate var audioName: String
+    
+    
     
     //    Category自体を詳細記入
 //    ここでネストの中を書く
@@ -87,7 +91,7 @@ extension AudioContent {
                             isFavorite: true,
                             isFeatured: true,
                             url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                            imageName: "silversalmoncreek")
+                            imageName: "silversalmoncreek", audioName: "人称")
     }
 }
 #endif

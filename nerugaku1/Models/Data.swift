@@ -15,7 +15,10 @@ import SwiftUI
 //audioContetDataからaudioContetDataに変更（2020/09/01）
 //”s”が抜けただけ
 let audioContentData: [AudioContent] = load("audioContentData.json")
+
+//新しく追加
 let audioContentPhase: [AudioContent] = load("audioContentPhase.json")
+
 let features = audioContentData.filter { $0.isFeatured }
 
 func load<T: Decodable>(_ filename: String) -> T {

@@ -11,7 +11,8 @@
         "isFavorite": false,
         "isFeatured": true,
         "imageName": "turtlerock",
-        "url": "https://www.book2.nl/book2/EM/SOUND/0683.mp3"
+        "url": "https://www.book2.nl/book2/EM/SOUND/0683.mp3",
+        "audioName": "人称"
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@
         "isFavorite": true,
         "isFeatured": false,
         "imageName": "silversalmoncreek",
-        "url": "https://www.book2.nl/book2/EM/SOUND/0063.mp3"
+        "url": "https://www.book2.nl/book2/EM/SOUND/0063.mp3",
+        "audioName": "人称"
     },
     {
         "id": 3,
@@ -39,7 +41,8 @@
         "isFavorite": false,
         "isFeatured": false,
         "imageName": "umbagog",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioName": "人称"
     },
     {
         "id": 4,
@@ -53,7 +56,8 @@
         "isFavorite": false,
         "isFeatured": true,
         "imageName": "icybay",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioName": "人称"
     },
     {
         "id": 5,
@@ -67,7 +71,8 @@
         "isFavorite": false,
         "isFeatured": false,
         "imageName": "umbagog",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        "audioName": "人称"
     }
 ]
  

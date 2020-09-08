@@ -37,11 +37,15 @@ struct HomeView: View {
         NavigationView {
             
             ScrollView {
-                ForEach(categories.keys.sorted(), id: \.self) { key in
-                    CategoryRow(categoryName: key, items: self.categories[key]!)
-                    Divider()
-                    
-                }
+//                ForEach(categories.keys.sorted(), id: \.self) { key in
+//                    CategoryRow(categoryName: key, items: self.categories[key]!)
+//                    Divider()
+//
+//                }
+                    ForEach(categories.keys.sorted(), id: \.self) { key in
+                        CategoryRow(categoryName: key, items: self.categories[key]!)
+                    }
+                        Divider()
                 .padding(.top)
                 .listRowInsets(EdgeInsets())
                 

@@ -1,78 +1,35 @@
 [
     {
-        "id": 1,
-        "name": "空港で",
+        "id": 0,
+        "name": "人称",
         "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
         "allfavorite": 10,
         "alltime": 10,
-        "allphrase": 15,
-        "phrase1": "空港のフレーズです",
         "category": "おすすめ",
         "isFavorite": false,
         "isFeatured": true,
         "imageName": "turtlerock",
-        "url": "https://www.book2.nl/book2/EM/SOUND/0683.mp3",
-        "audioName": "人称"
+        "contentAudioName": "人称",
+        "phraseList":{
+            "1": {"japanese": "Aゲートはどこですか？", "english": "Where is the Gate A ?", "phraseAudioName"  : "人称"},
+            "2": {"japanese": "私は日本へ行きます", "english": "I'll go to Japan", "phraseAudioName"  : "国と言語"}
+        }
     },
     {
         "id": 2,
-        "name": "学校で",
-        "description": "学校での自己紹介をする際に使用する内容です",
-        "allfavorite": 12,
-        "alltime": 2,
-        "allphrase": 2,
-        "phrase1": "学校でのフレーズです",
-        "category": "おすすめ",
-        "isFavorite": true,
-        "isFeatured": false,
-        "imageName": "silversalmoncreek",
-        "url": "https://www.book2.nl/book2/EM/SOUND/0063.mp3",
-        "audioName": "人称"
-    },
-    {
-        "id": 3,
-        "name": "ホームステイ先で",
-        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
+        "name": "国と言語",
+        "description": "国と言語を説明する際に使う英語をまとめました",
         "allfavorite": 10,
         "alltime": 10,
-        "allphrase": 15,
-        "phrase1": "空港のフレーズです",
         "category": "留学",
         "isFavorite": false,
-        "isFeatured": false,
-        "imageName": "umbagog",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "audioName": "人称"
-    },
-    {
-        "id": 4,
-        "name": "公共交通機関",
-        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
-        "allfavorite": 10,
-        "alltime": 10,
-        "allphrase": 15,
-        "phrase1": "空港のフレーズです",
-        "category": "旅行",
-        "isFavorite": false,
         "isFeatured": true,
-        "imageName": "icybay",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "audioName": "人称"
-    },
-    {
-        "id": 5,
-        "name": "買い物にいく",
-        "description": "留学に行く際に空港で聞かれる内容をまとめた内容です",
-        "allfavorite": 10,
-        "alltime": 10,
-        "allphrase": 15,
-        "phrase1": "空港のフレーズです",
-        "category": "日常生活",
-        "isFavorite": false,
-        "isFeatured": false,
-        "imageName": "umbagog",
-        "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-        "audioName": "人称"
+        "imageName": "turtlerock",
+        "contentAudioName": "国と言語",
+        "phraseList": {
+            "1": {"japanese": "私は日本出身です。", "english": "I'm from Japan", "phraseAudioName"  : "人称"},
+            "2": {"japanese": "日本語は世界の言葉に比べて難しいです", "english": "Japanese is difficult than other languages", "phraseAudioName"  : "国と言語"}
+        }
     }
 ]
  

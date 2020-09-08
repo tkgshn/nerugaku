@@ -105,7 +105,7 @@ struct Description: View {
         }, label: {
             
             //                    問題数を取得
-            Text("問題を解く\n" + String(audioContent.allphrase) + "単語")
+            Text("問題を解く\n" + String(audioContent.alltime) + "単語")
                 
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 120.0)

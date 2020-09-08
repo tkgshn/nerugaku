@@ -33,7 +33,6 @@
 		C457D27424F9425F000EB044 /* SampleBufferSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D27324F9425F000EB044 /* SampleBufferSerializer.swift */; };
 		C457D27624F94277000EB044 /* SampleBufferItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D27524F94277000EB044 /* SampleBufferItem.swift */; };
 		C457D27824F9429E000EB044 /* SampleBufferSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D27724F9429E000EB044 /* SampleBufferSource.swift */; };
-		C45B30FA24FE659E00CCF736 /* audioContentPhase.json in Resources */ = {isa = PBXBuildFile; fileRef = C45B30F924FE659E00CCF736 /* audioContentPhase.json */; };
 		C491B6D224FAC71C00B72F39 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C491B6D124FAC71C00B72F39 /* SwiftUIPager */; };
 		C4A0DBFF24C6D83D00421EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */; };
 		C4A0DC0124C6D83D00421EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */; };
@@ -99,7 +98,6 @@
 		C457D27324F9425F000EB044 /* SampleBufferSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferSerializer.swift; sourceTree = "<group>"; };
 		C457D27524F94277000EB044 /* SampleBufferItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferItem.swift; sourceTree = "<group>"; };
 		C457D27724F9429E000EB044 /* SampleBufferSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferSource.swift; sourceTree = "<group>"; };
-		C45B30F924FE659E00CCF736 /* audioContentPhase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = audioContentPhase.json; sourceTree = "<group>"; };
 		C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nerugaku1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				C4B0446924D2B71C001CBB25 /* audioContentData.json */,
-				C45B30F924FE659E00CCF736 /* audioContentPhase.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -507,7 +504,6 @@
 				C4CEC5E824FB2EE5002E08B1 /* 曜日.mp3 in Resources */,
 				A8323A3F24DAD40F00DE23C9 /* chincoteague.jpg in Resources */,
 				C4CEC5EE24FB2EE5002E08B1 /* 人称.mp3 in Resources */,
-				C45B30FA24FE659E00CCF736 /* audioContentPhase.json in Resources */,
 				A8323A3924DAD40F00DE23C9 /* lakemcdonald.jpg in Resources */,
 				A8323A3A24DAD40F00DE23C9 /* rainbowlake.jpg in Resources */,
 				C457D26824F94184000EB044 /* Assets.xcassets in Resources */,

@@ -10,7 +10,7 @@
         "isFeatured": true,
         "imageName": "turtlerock",
         "contentAudioName": "人称",
-        "phraseList":{
+        "phrases":{
             "1": {"japanese": "Aゲートはどこですか？", "english": "Where is the Gate A ?", "phraseAudioName"  : "人称"},
             "2": {"japanese": "私は日本へ行きます", "english": "I'll go to Japan", "phraseAudioName"  : "国と言語"}
         }
@@ -26,7 +26,7 @@
         "isFeatured": true,
         "imageName": "turtlerock",
         "contentAudioName": "国と言語",
-        "phraseList": {
+        "phrases": {
             "1": {"japanese": "私は日本出身です。", "english": "I'm from Japan", "phraseAudioName"  : "人称"},
             "2": {"japanese": "日本語は世界の言葉に比べて難しいです", "english": "Japanese is difficult than other languages", "phraseAudioName"  : "国と言語"}
         }

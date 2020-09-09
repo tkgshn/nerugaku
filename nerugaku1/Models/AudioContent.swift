@@ -39,7 +39,7 @@ struct AudioContent:   Codable, Identifiable {
     var contentAudioName: String
 
     // フレーズの入れ子を作る
-    var phraseList: [String: PhraseList]
+    var phrases: [String: Phrase]
     
 
 
@@ -60,11 +60,12 @@ extension AudioContent {
 }
 
 // MARK: - Phrase
-struct PhraseList: Codable {
+struct Phrase: Codable {
     var japanese: String
     var english: String
 //    fileprivate
     var phraseAudioName: String
+
 }
 
 

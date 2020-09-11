@@ -20,7 +20,8 @@ struct DataCollection: View {
             Text(labelText)
                 .font(.largeTitle)
                 .padding(.bottom)
-            // ボタンの作成(フラグを使って表示されるテキストを変える)
+            // ボタンの作成(フラグを使って表示されるテキ
+            
             Button(action: {
                 //
                 if(self.flag){

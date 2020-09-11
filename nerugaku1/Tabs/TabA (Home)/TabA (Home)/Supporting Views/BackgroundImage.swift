@@ -11,7 +11,7 @@ import SwiftUI
 
 struct BackgroundImage: View {
     
-//    AudioContentの型を取得
+    //    AudioContentの型を取得
     var audioContent: AudioContent
     
     var body: some View {
@@ -30,16 +30,11 @@ struct BackgroundImage: View {
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
-//                    HStack(alignment: .center) {
-                    Text(audioContent.description)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.white)
-//                    }
+                        .offset(x: -160)
                 }
                     //                    ここで文字列類の位置を調節
                     .padding(.top)
-                    .offset(y: 150)
+                    .offset(y: 170)
         )
             
             
@@ -59,9 +54,9 @@ struct BackgroundImage: View {
 struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
         
-//        0番地点のデータを表示
-            BackgroundImage(audioContent: audioContentData[0])
-            
+        //        0番地点のデータを表示
+        BackgroundImage(audioContent: audioContentData[0])
+        
         
     }
 }

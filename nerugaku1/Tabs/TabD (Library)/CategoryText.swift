@@ -19,7 +19,7 @@ struct CategoryText: View {
     @Binding var nestedPages : [Int]
     var body: some View {
         HStack(spacing: 20){
-            Text("Music")
+            Text("Library")
                 .font(.largeTitle).bold()
 //                currentCategoryIndexが0の場合、primaryで文字を表示。そうでない場合はsecondaryで文字を表示
                 .foregroundColor(self.currentCategoryIndex == 0 ? .primary : .secondary)
@@ -31,15 +31,15 @@ struct CategoryText: View {
                     })
                 }
 //            Podcastのカテゴリーテキストを削除
-            Text("Podcasts")
-                .font(.largeTitle).bold()
-                .foregroundColor(self.currentCategoryIndex == 1 ? .primary : .secondary)
-                .onTapGesture {
-                    self.nestedPages = [0,0]
-                    withAnimation(.easeIn,{
-                        self.currentCategoryIndex = 1
-                    })
-                }
+//            Text("Podcasts")
+//                .font(.largeTitle).bold()
+//                .foregroundColor(self.currentCategoryIndex == 1 ? .primary : .secondary)
+//                .onTapGesture {
+//                    self.nestedPages = [0,0]
+//                    withAnimation(.easeIn,{
+//                        self.currentCategoryIndex = 1
+//                    })
+//                }
             Spacer()
         }.padding([.leading, .top])
     }

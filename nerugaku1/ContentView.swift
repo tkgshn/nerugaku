@@ -51,8 +51,10 @@ struct ContentView: View {
                     }
             }.tag(3)
             
-            LibraryView()
-                .padding(.top, -80.0)
+            NavigationView {
+                LibraryView()
+                
+            }
                 .tabItem {
                     VStack {
                         Image(systemName: "bookmark.fill")

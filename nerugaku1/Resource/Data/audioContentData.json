@@ -30,6 +30,38 @@
             "1": {"japanese": "私は日本出身です。", "english": "I'm from Japan", "phraseAudioName"  : "人称"},
             "2": {"japanese": "日本語は世界の言葉に比べて難しいです", "english": "Japanese is difficult than other languages", "phraseAudioName"  : "国と言語"}
         }
+    },
+    {
+        "id": 3,
+        "name": "語",
+        "description": "国と言語を説明する際に使う英語をまとめました",
+        "allfavorite": 10,
+        "alltime": 10,
+        "category": "留学",
+        "isFavorite": false,
+        "isFeatured": true,
+        "imageName": "turtlerock",
+        "contentAudioName": "国と言語",
+        "phrases": {
+            "1": {"japanese": "私は日本出身です。", "english": "I'm from Japan", "phraseAudioName"  : "人称"},
+            "2": {"japanese": "日本語は世界の言葉に比べて難しいです", "english": "Japanese is difficult than other languages", "phraseAudioName"  : "国と言語"}
+        }
+    },
+    {
+        "id": 4,
+        "name": "言語",
+        "description": "国と言語を説明する際に使う英語をまとめました",
+        "allfavorite": 10,
+        "alltime": 10,
+        "category": "旅行",
+        "isFavorite": false,
+        "isFeatured": true,
+        "imageName": "turtlerock",
+        "contentAudioName": "国と言語",
+        "phrases": {
+            "1": {"japanese": "私は日本出身です。", "english": "I'm from Japan", "phraseAudioName"  : "人称"},
+            "2": {"japanese": "日本語は世界の言葉に比べて難しいです", "english": "Japanese is difficult than other languages", "phraseAudioName"  : "国と言語"}
+        }
     }
 ]
  

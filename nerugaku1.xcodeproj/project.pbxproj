@@ -21,7 +21,8 @@
 		A8323A4424DAD40F00DE23C9 /* twinlake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8323A3824DAD40F00DE23C9 /* twinlake.jpg */; };
 		A8ED22E624DBDB2000C752C8 /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = A8ED22E524DBDB2000C752C8 /* QGrid */; };
 		C4080EB0250B5370004001C0 /* FutureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EAF250B5370004001C0 /* FutureRow.swift */; };
-		C4080EB2250B5CDC004001C0 /* FavoritedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB1250B5CDC004001C0 /* FavoritedView.swift */; };
+		C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB1250B5CDC004001C0 /* FavoritedList.swift */; };
+		C4080EB4250BA921004001C0 /* AudioContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB3250BA921004001C0 /* AudioContentList.swift */; };
 		C43FD3D424CAFC0200430C3B /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D324CAFC0200430C3B /* YouView.swift */; };
 		C43FD3D624CB059A00430C3B /* AudioContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D524CB059A00430C3B /* AudioContentRow.swift */; };
 		C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D26124F940A4000EB044 /* ControlsViewController.swift */; };
@@ -88,7 +89,8 @@
 		A8323A3724DAD40E00DE23C9 /* stmarylake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stmarylake.jpg; sourceTree = "<group>"; };
 		A8323A3824DAD40F00DE23C9 /* twinlake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twinlake.jpg; sourceTree = "<group>"; };
 		C4080EAF250B5370004001C0 /* FutureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureRow.swift; sourceTree = "<group>"; };
-		C4080EB1250B5CDC004001C0 /* FavoritedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedView.swift; sourceTree = "<group>"; };
+		C4080EB1250B5CDC004001C0 /* FavoritedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedList.swift; sourceTree = "<group>"; };
+		C4080EB3250BA921004001C0 /* AudioContentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentList.swift; sourceTree = "<group>"; };
 		C43FD3D324CAFC0200430C3B /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* AudioContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentRow.swift; sourceTree = "<group>"; };
 		C457D26124F940A4000EB044 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
@@ -386,7 +388,8 @@
 				C4A0DC1324C6D89F00421EA6 /* BackgroundImage.swift */,
 				C4A0DC2424C84A6700421EA6 /* Description.swift */,
 				C4080EAF250B5370004001C0 /* FutureRow.swift */,
-				C4080EB1250B5CDC004001C0 /* FavoritedView.swift */,
+				C4080EB1250B5CDC004001C0 /* FavoritedList.swift */,
+				C4080EB3250BA921004001C0 /* AudioContentList.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -534,11 +537,12 @@
 				C4A0DC2524C84A6700421EA6 /* Description.swift in Sources */,
 				C4A0DC2124C8496C00421EA6 /* TabCView.swift in Sources */,
 				C457D26F24F94205000EB044 /* RemoteCommandCenter.swift in Sources */,
-				C4080EB2250B5CDC004001C0 /* FavoritedView.swift in Sources */,
+				C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */,
 				C4CEC5F324FB3F78002E08B1 /* AudioPlayerView.swift in Sources */,
 				C4080EB0250B5370004001C0 /* FutureRow.swift in Sources */,
 				C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */,
 				C4A0DC3324C981EF00421EA6 /* CategoryRow.swift in Sources */,
+				C4080EB4250BA921004001C0 /* AudioContentList.swift in Sources */,
 				C457D26424F94119000EB044 /* PlaylistViewController.swift in Sources */,
 				C4A0DBFF24C6D83D00421EA6 /* AppDelegate.swift in Sources */,
 				C4B2E29B24CF45F20084B0E3 /* SubCategoryText.swift in Sources */,

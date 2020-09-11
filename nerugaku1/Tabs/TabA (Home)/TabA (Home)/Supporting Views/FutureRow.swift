@@ -7,9 +7,9 @@
 //
 
 import SwiftUI
-
-// MARK: - CategoryObject
-struct CategoryObject: View {
+import QGrid
+// MARK: - FutureRow
+struct FutureRow: View {
     
     var categoryName: String
     var items: [AudioContent]
@@ -27,46 +27,15 @@ struct CategoryObject: View {
         }
         .frame(width: 190, height: 60)
         .background(Color(red: 38/255, green: 39/255, blue: 10/255, opacity: 40/255))
-        //        }
     }
 }
 
 
 
-
-//struct CategoryRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CategoryRow(categoryName: audioContentData[0].category.rawValue,
-//                    items: Array(audioContentData.prefix(4))
-//        )
-//            .environmentObject(UserData())
-//
-//    }
-//}
-
-
-//// MARK: - CategoryObjectLink
-//struct CategoryObjectLink: View {
-//
-//    var categoryName: String
-//    var items: [AudioContent]
-//
-//    var body: some View {
-//        NavigationLink(destination: SearchCategoryItem(categoryName: categoryName, items: self.items
-//        )) {
-//            CategoryObject(CategoryRow(categoryName: audioContentData[0].category.rawValue,
-//                     items: Array(audioContentData.prefix(4))
-//            ))
-//                .frame(width: 190, height: 60)
-//                .background(Color(red: 38/255, green: 39/255, blue: 10/255, opacity: 40/255))
-//        }
-//    }
-//}
-
 // MARK: - CategoryObjectLinkPreview
-struct CategoryObject_Previews: PreviewProvider {
+struct FutureRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryObject(categoryName: audioContentData[0].category.rawValue,
+        FutureRow(categoryName: audioContentData[0].category.rawValue,
                        items: Array(audioContentData.prefix(4)))
             .previewLayout(.fixed(width: 190, height: 60))
             .environmentObject(UserData())
@@ -75,10 +44,10 @@ struct CategoryObject_Previews: PreviewProvider {
 }
 
 
-// MARK: - FavoritedObjectLink
-struct FavoritedObjectLink: View {
+// MARK: - FavoritedRow
+struct FavoritedRow: View {
     var body: some View {
-        NavigationLink(destination: FavoritedView()) {
+        NavigationLink(destination: FavoritedList()) {
             HStack {
                 Image(systemName: "heart")
                     .padding(.leading, 20.0)
@@ -96,9 +65,9 @@ struct FavoritedObjectLink: View {
 }
 
 // MARK: - FavoritedObjectLinkPreView
-struct FavoritedObjectLink_Previews: PreviewProvider {
+struct FavoritedRow_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritedObjectLink()
+        FavoritedRow()
             .previewLayout(.fixed(width: 190, height: 60))
             .environmentObject(UserData())
     }
@@ -118,32 +87,17 @@ struct Future: View {
     
     var body: some View {
         VStack {
-            FavoritedObjectLink()
+//            ここからが中身
+            FavoritedRow()
+    
             ForEach(categories.keys.sorted(), id: \.self) { key in
-                CategoryObject(categoryName: key, items: self.categories[key]!)
+                
+                    FutureRow(categoryName: key, items: self.categories[key]!)
+                
+                
             }
-            //            HStack {
-            //                //                ここだけはお気に入りに遷移できるようにする
-            //                FavoritedObjectLink()
-            //                Spacer()
-            //                CategoryObject(categoryName: self.categoryName,
-            //                                   items: self.items)
-            //            }
-            //            HStack {
-            //                CategoryObject(categoryName: self.categoryName,
-            //                                   items: self.items)
-            //                Spacer()
-            //                CategoryObject(categoryName: self.categoryName,
-            //                                   items: self.items)
-            //            }
-            //            HStack {
-            //                CategoryObject(categoryName: self.categoryName,
-            //                                   items: self.items)
-            //                Spacer()
-            //                CategoryObject(categoryName: self.categoryName,
-            //                                   items: self.items)
-            //            }
             
+            .padding(.bottom)
         }
         .frame(width: 300, height: 250)
         .environmentObject(UserData())

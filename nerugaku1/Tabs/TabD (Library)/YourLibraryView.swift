@@ -18,10 +18,11 @@ struct YourLibraryView: View {
     
     @Binding var currentSubCategoryIndex : Int
     
-    var data = Array(0..<2)
-    var nestedData = Array(0..<3)
+    var data = Array(0..<1)
+    var nestedData = Array(0..<2)
     
     var body: some View {
+        //        NavigationView {
         VStack{
             //            一番上のカテゴリーテキストを表示するためにCategoryTextを追加、現在のcurrentCategoryIndexはpageから取得しておく
             //            めも：nestedPagesってなんだ？
@@ -57,6 +58,7 @@ struct YourLibraryView: View {
                     self.indicatorOffsets[self.page] = 0
                 }))
         }
+        //    }
     }
     
     /// nestedPager contains subcategory titles, an indicator and a pager to show subcategory views
@@ -84,41 +86,53 @@ struct YourLibraryView: View {
         
         return VStack(alignment: .leading, spacing: 20){
             //            SubCategoryText_Previewsで設定したString型の辞書引数と一緒にさせる
-            SubCategoryText(subCategorys: index == 0 ? ["Playlists", "Albums", "Artists"] : ["Episodes", "Downloads", "Shows"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
+            SubCategoryText(subCategorys: index == 0 ? ["お気に入り", "再生履歴", "Artists"] : ["Episodes", "Downloads", "Shows"], currentSubCategoryIndex: currentSubCategory, indicatorOffset: indicatorOffset)
             //            ここから
             Pager(page: currentSubCategory,
                   data: self.nestedData,
                   id: \.self) { page in
                     //                    2枚目のPodcastになるときは表示できる？
-                    if self.page == 0 { // self.page場合は大カテゴリを取得してうまく動く
-                        //                        if self.currentSubCategoryIndex == 0 {
-                        //                        Musicタブはpageが0なので以下のコードが実行される
-                        ZStack {
-                            Rectangle()
-                                .fill(Color.yellow)
-                            Text("Music: \(page)")
-                                .bold()
-                        }
-                        
-                        
-                        //                        } else {
+                    //                    if self.page == 0 { // self.page場合は大カテゴリを取得してうまく動く
+                    //                        if self.currentSubCategoryIndex == 0 {
+                    //                        Musicタブはpageが0なので以下のコードが実行される
+                    if self.nestedPages == [0,0] {
                         //                            ZStack {
                         //                                Rectangle()
                         //                                    .fill(Color.yellow)
-                        //                                Text("Podcast: else")
+                        //                                Text("1")
                         //                                    .bold()
                         //                            }
-                        //                        }
-                        //
-                        //                        Podcastタブはpageが1なので以下のコードが実行される
+                        
+                        
+                        FavoritedList()
+                    } else if self.nestedPages == [1,0] {
+                        //                            ZStack {
+                        //                                Rectangle()
+                        //                                    .fill(Color.yellow)
+                        //                                Text("2")
+                        //                                    .bold()
+                        //                            }
+                        
+                        AudioContentList()
                     } else {
                         ZStack {
                             Rectangle()
                                 .fill(Color.yellow)
-                            Text("Podcast: \(page)")
+                            Text("3")
                                 .bold()
                         }
                     }
+                    
+                    //                    } else {
+                    //
+                    //                        ZStack {
+                    //                            Rectangle()
+                    //                                .fill(Color.yellow)
+                    //                            Text("1")
+                    //                                .bold()
+                    //                        }
+                    //
+                    //                    }
                     
                     //                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex, indicatorOffset: indicatorOffset)
                     //                    MediaContentView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
@@ -140,6 +154,7 @@ struct YourLibraryView_Previews: PreviewProvider {
         @State var currentSubCategoryIndex = 0
         var body: some View{
             YourLibraryView(currentSubCategoryIndex: self.$currentSubCategoryIndex)
+                .environmentObject(UserData())
         }
     }
 }

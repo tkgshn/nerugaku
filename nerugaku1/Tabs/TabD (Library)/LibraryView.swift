@@ -12,19 +12,19 @@ import SwiftUI
 struct LibraryView: View {
     @State var currentSubCategoryIndex = 0
     var body: some View {
-                NavigationView {
-                    YourLibraryView(currentSubCategoryIndex: self.$currentSubCategoryIndex).padding(.top)
-            .edgesIgnoringSafeArea(.bottom)
+//                NavigationView {
+        YourLibraryView(currentSubCategoryIndex: self.$currentSubCategoryIndex).padding(.top, 73.0)
+            .edgesIgnoringSafeArea(.top)
+        
         //        }.navigationBarTitle(Text("Landmarks"))
-        }
+//        }
     }
 }
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+//        NavigationView {
             LibraryView()
-                .padding(.top)
-        }
+//        }
     }
 }

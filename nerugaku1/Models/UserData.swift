@@ -9,7 +9,7 @@ import Combine
 import SwiftUI
 
 final class UserData: ObservableObject {
-    @Published var showFavoritesOnly = false
+    @Published var showFavoritesOnly = true
     @Published var audioContents = audioContentData
 //    @Published var phrases = phraseData
 }

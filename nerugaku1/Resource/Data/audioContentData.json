@@ -6,7 +6,7 @@
         "allfavorite": 10,
         "alltime": 10,
         "category": "おすすめ",
-        "isFavorite": false,
+        "isFavorite": true,
         "isFeatured": true,
         "imageName": "turtlerock",
         "contentAudioName": "人称",

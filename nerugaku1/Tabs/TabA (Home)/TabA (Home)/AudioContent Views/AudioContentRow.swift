@@ -8,32 +8,6 @@
 
 import SwiftUI
 
-//struct AllContent: View {
-//
-//    @EnvironmentObject private var userData: UserData
-//
-//    var body: some View {
-//        List {
-//            //            ここで表示を切り替える
-////            クリックしている場合はお気に入りのみを表示
-//            Toggle(isOn: $userData.showFavoritesOnly) {
-//                Text("Show Favorites Only")
-//            }
-//            //            ここで繰り返し
-//            ForEach(userData.audioContents) { audioContent in
-//                //             いいねしてるかの処理
-////                クリックしている場合はいいねをしているもののみを表示
-//                if !self.userData.showFavoritesOnly || audioContent.isFavorite {
-//                    NavigationLink(destination: AudioContentDetail(audioContent: audioContent)) {
-//                        AudioContentRow(audioContent: audioContent)
-//                    }
-//                }
-//            }
-//        }
-//        .navigationBarTitle(Text("すべて表示"))
-//    }
-//}
-
 
 //ここでAudioContentRowというリストで表示するもの自体を定義する
 struct AudioContentRow: View {
@@ -51,7 +25,6 @@ struct AudioContentRow: View {
             
             //            いいねしてた場合
             if audioContent.isFavorite {
-
                 Image("Heart.fill")
                     .imageScale(.medium)
                     .foregroundColor(.red)
@@ -60,15 +33,4 @@ struct AudioContentRow: View {
         }
     }
 }
-
-
-
-
-//struct AllContent_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AllContent()
-//            .environmentObject(UserData())
-//
-//    }
-//}
 

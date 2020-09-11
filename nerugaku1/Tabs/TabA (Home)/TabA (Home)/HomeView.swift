@@ -38,10 +38,13 @@ struct HomeView: View {
             
             ScrollView {
 //                ForEach(categories.keys.sorted(), id: \.self) { key in
-//                    CategoryRow(categoryName: key, items: self.categories[key]!)
+//                FutureRow(audioContent: audioContentData[0])
 //                    Divider()
 //
 //                }
+                    Future()
+
+                    
                     ForEach(categories.keys.sorted(), id: \.self) { key in
                         CategoryRow(categoryName: key, items: self.categories[key]!)
                     }

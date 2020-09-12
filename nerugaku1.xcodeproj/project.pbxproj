@@ -23,6 +23,7 @@
 		C4080EB0250B5370004001C0 /* FutureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EAF250B5370004001C0 /* FutureRow.swift */; };
 		C4080EB2250B5CDC004001C0 /* FavoritedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB1250B5CDC004001C0 /* FavoritedList.swift */; };
 		C4080EB4250BA921004001C0 /* AudioContentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4080EB3250BA921004001C0 /* AudioContentList.swift */; };
+		C4080EB8250C2BDF004001C0 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4080EB6250C2B71004001C0 /* HealthKit.framework */; };
 		C43FD3D424CAFC0200430C3B /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D324CAFC0200430C3B /* YouView.swift */; };
 		C43FD3D624CB059A00430C3B /* AudioContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43FD3D524CB059A00430C3B /* AudioContentRow.swift */; };
 		C457D26224F940A4000EB044 /* ControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457D26124F940A4000EB044 /* ControlsViewController.swift */; };
@@ -91,6 +92,8 @@
 		C4080EAF250B5370004001C0 /* FutureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureRow.swift; sourceTree = "<group>"; };
 		C4080EB1250B5CDC004001C0 /* FavoritedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedList.swift; sourceTree = "<group>"; };
 		C4080EB3250BA921004001C0 /* AudioContentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentList.swift; sourceTree = "<group>"; };
+		C4080EB5250C2B71004001C0 /* nerugaku1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nerugaku1.entitlements; sourceTree = "<group>"; };
+		C4080EB6250C2B71004001C0 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C43FD3D324CAFC0200430C3B /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* AudioContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentRow.swift; sourceTree = "<group>"; };
 		C457D26124F940A4000EB044 /* ControlsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8ED22E624DBDB2000C752C8 /* QGrid in Frameworks */,
+				C4080EB8250C2BDF004001C0 /* HealthKit.framework in Frameworks */,
 				C4F78A8124FAC47C007FE659 /* SwiftUICharts in Frameworks */,
 				C491B6D224FAC71C00B72F39 /* SwiftUIPager in Frameworks */,
 			);
@@ -271,6 +275,7 @@
 		C4A0DBFD24C6D83C00421EA6 /* nerugaku1 */ = {
 			isa = PBXGroup;
 			children = (
+				C4080EB5250C2B71004001C0 /* nerugaku1.entitlements */,
 				C4B0446224D2B659001CBB25 /* Resource */,
 				C4A0DC0424C6D84300421EA6 /* Assets.xcassets */,
 				C4A0DC0224C6D83D00421EA6 /* ContentView.swift */,
@@ -350,6 +355,7 @@
 		C4A7E12824FAC14E000F37BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4080EB6250C2B71004001C0 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nerugaku1/nerugaku1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nerugaku1/Preview Content\"";
 				DEVELOPMENT_TEAM = BXTK73VQ5E;
@@ -718,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nerugaku1/nerugaku1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nerugaku1/Preview Content\"";
 				DEVELOPMENT_TEAM = BXTK73VQ5E;

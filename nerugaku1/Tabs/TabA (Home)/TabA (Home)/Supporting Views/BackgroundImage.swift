@@ -26,15 +26,21 @@ struct BackgroundImage: View {
             .padding([.top,.bottom])
             .overlay(
                 VStack(alignment: .leading) {
-                    Text(audioContent.name)
+                    HStack {
+                        Text(audioContent.name)
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
-                        .offset(x: -160)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+//                        .frame(width: 400.0)
+                    Spacer()
+                    }
                 }
                     //                    ここで文字列類の位置を調節
-                    .padding(.top)
+//                    .padding(.top)
                     .offset(y: 170)
+                
         )
             
             
@@ -55,7 +61,7 @@ struct BackgroundImage_Previews: PreviewProvider {
     static var previews: some View {
         
         //        0番地点のデータを表示
-        BackgroundImage(audioContent: audioContentData[0])
+        BackgroundImage(audioContent: audioContentData[1])
         
         
     }

@@ -703,7 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = nerugaku/nerugaku1.entitlements;
+				CODE_SIGN_ENTITLEMENTS = nerugaku/nerugaku.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nerugaku/Preview Content\"";
 				DEVELOPMENT_TEAM = BXTK73VQ5E;
@@ -725,7 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = nerugaku/nerugaku1.entitlements;
+				CODE_SIGN_ENTITLEMENTS = nerugaku/nerugaku.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"nerugaku/Preview Content\"";
 				DEVELOPMENT_TEAM = BXTK73VQ5E;

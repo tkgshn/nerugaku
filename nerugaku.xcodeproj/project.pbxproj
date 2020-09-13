@@ -92,7 +92,7 @@
 		C4080EAF250B5370004001C0 /* FutureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureRow.swift; sourceTree = "<group>"; };
 		C4080EB1250B5CDC004001C0 /* FavoritedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritedList.swift; sourceTree = "<group>"; };
 		C4080EB3250BA921004001C0 /* AudioContentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentList.swift; sourceTree = "<group>"; };
-		C4080EB5250C2B71004001C0 /* nerugaku1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nerugaku1.entitlements; sourceTree = "<group>"; };
+		C4080EB5250C2B71004001C0 /* nerugaku.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nerugaku.entitlements; sourceTree = "<group>"; };
 		C4080EB6250C2B71004001C0 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C43FD3D324CAFC0200430C3B /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		C43FD3D524CB059A00430C3B /* AudioContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContentRow.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		C457D27524F94277000EB044 /* SampleBufferItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferItem.swift; sourceTree = "<group>"; };
 		C457D27724F9429E000EB044 /* SampleBufferSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferSource.swift; sourceTree = "<group>"; };
 		C464E0DA250927C5005CA71F /* DataCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
-		C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nerugaku1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A0DBFB24C6D83C00421EA6 /* nerugaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nerugaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A0DBFE24C6D83D00421EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4A0DC0024C6D83D00421EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C4A0DC0224C6D83D00421EA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		C4A0DBF224C6D83C00421EA6 = {
 			isa = PBXGroup;
 			children = (
-				C4A0DBFD24C6D83C00421EA6 /* nerugaku1 */,
+				C4A0DBFD24C6D83C00421EA6 /* nerugaku */,
 				C4A0DBFC24C6D83C00421EA6 /* Products */,
 				C4A7E12824FAC14E000F37BE /* Frameworks */,
 			);
@@ -267,15 +267,15 @@
 		C4A0DBFC24C6D83C00421EA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */,
+				C4A0DBFB24C6D83C00421EA6 /* nerugaku.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C4A0DBFD24C6D83C00421EA6 /* nerugaku1 */ = {
+		C4A0DBFD24C6D83C00421EA6 /* nerugaku */ = {
 			isa = PBXGroup;
 			children = (
-				C4080EB5250C2B71004001C0 /* nerugaku1.entitlements */,
+				C4080EB5250C2B71004001C0 /* nerugaku.entitlements */,
 				C4B0446224D2B659001CBB25 /* Resource */,
 				C4A0DC0424C6D84300421EA6 /* Assets.xcassets */,
 				C4A0DC0224C6D83D00421EA6 /* ContentView.swift */,
@@ -288,7 +288,7 @@
 				C4A0DC0C24C6D84300421EA6 /* Info.plist */,
 				C4A0DC0624C6D84300421EA6 /* Preview Content */,
 			);
-			path = nerugaku1;
+			path = nerugaku;
 			sourceTree = "<group>";
 		};
 		C4A0DC0624C6D84300421EA6 /* Preview Content */ = {
@@ -430,9 +430,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4A0DBFA24C6D83C00421EA6 /* nerugaku1 */ = {
+		C4A0DBFA24C6D83C00421EA6 /* nerugaku */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4A0DC0F24C6D84300421EA6 /* Build configuration list for PBXNativeTarget "nerugaku1" */;
+			buildConfigurationList = C4A0DC0F24C6D84300421EA6 /* Build configuration list for PBXNativeTarget "nerugaku" */;
 			buildPhases = (
 				C4A0DBF724C6D83C00421EA6 /* Sources */,
 				C4A0DBF824C6D83C00421EA6 /* Frameworks */,
@@ -442,14 +442,14 @@
 			);
 			dependencies = (
 			);
-			name = nerugaku1;
+			name = nerugaku;
 			packageProductDependencies = (
 				A8ED22E524DBDB2000C752C8 /* QGrid */,
 				C4F78A8024FAC47C007FE659 /* SwiftUICharts */,
 				C491B6D124FAC71C00B72F39 /* SwiftUIPager */,
 			);
 			productName = nerugaku1;
-			productReference = C4A0DBFB24C6D83C00421EA6 /* nerugaku1.app */;
+			productReference = C4A0DBFB24C6D83C00421EA6 /* nerugaku.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -467,7 +467,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C4A0DBF624C6D83C00421EA6 /* Build configuration list for PBXProject "nerugaku1" */;
+			buildConfigurationList = C4A0DBF624C6D83C00421EA6 /* Build configuration list for PBXProject "nerugaku" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -485,7 +485,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4A0DBFA24C6D83C00421EA6 /* nerugaku1 */,
+				C4A0DBFA24C6D83C00421EA6 /* nerugaku */,
 			);
 		};
 /* End PBXProject section */
@@ -714,8 +714,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShunsukeTakagi.nerugaku1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShunsukeTakagi.nerugaku;
+				PRODUCT_NAME = nerugaku;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -736,8 +736,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShunsukeTakagi.nerugaku1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShunsukeTakagi.nerugaku;
+				PRODUCT_NAME = nerugaku;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -746,7 +746,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4A0DBF624C6D83C00421EA6 /* Build configuration list for PBXProject "nerugaku1" */ = {
+		C4A0DBF624C6D83C00421EA6 /* Build configuration list for PBXProject "nerugaku" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4A0DC0D24C6D84300421EA6 /* Debug */,
@@ -755,7 +755,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4A0DC0F24C6D84300421EA6 /* Build configuration list for PBXNativeTarget "nerugaku1" */ = {
+		C4A0DC0F24C6D84300421EA6 /* Build configuration list for PBXNativeTarget "nerugaku" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4A0DC1024C6D84300421EA6 /* Debug */,

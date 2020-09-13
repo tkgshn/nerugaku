@@ -69,3 +69,4 @@ struct Phrase: Codable {
 }
 
 
+//あとでフレーズ単位の音声処理を実装する
